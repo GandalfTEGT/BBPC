@@ -106,6 +106,33 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const emailInput = document.querySelector('input[name="fields[email]"]');
+                const recaptchaContainer = document.querySelector('.ml-form-recaptcha');
+                
+                // Hide reCAPTCHA initially
+                if (recaptchaContainer) {
+                    recaptchaContainer.style.display = 'none';
+                }
+                
+                // Show reCAPTCHA when user starts typing
+                if (emailInput) {
+                    emailInput.addEventListener('input', function() {
+                        if (this.value.length > 0 && recaptchaContainer) {
+                            recaptchaContainer.style.display = 'block';
+                            
+                            // Trigger reCAPTCHA render if needed
+                            if (typeof grecaptcha !== 'undefined' && !document.querySelector('.g-recaptcha iframe')) {
+                                grecaptcha.render(document.querySelector('.g-recaptcha'));
+                            }
+                        }
+                    });
+                }
+            });
+        </script>
 
         <!-- Footer -->
         <footer>
