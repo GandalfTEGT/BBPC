@@ -148,26 +148,23 @@ footer a {
     margin-bottom: 20px;
 }
 
+/* Fixed Header */
 .site-header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 15px 0;
     border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
 }
 
-[data-theme="dark"] .site-header {
-    background: rgba(26, 26, 26, 0.95);
-    border-bottom: 1px solid #333;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Push content down to account for fixed header */
+body {
+    padding-top: 80px;
 }
 
 .theme-toggle {
@@ -186,10 +183,74 @@ footer a {
     transform: scale(1.1);
 }
 
-body {
-    padding-top: 80px;
+/* Complete Dark Mode Styles */
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2d2d2d;
+    --accent-color: #8c6eff;
+    --header-bg: rgba(26, 26, 26, 0.95);
+    --border-color: #333;
 }
 
+[data-theme="dark"] body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .site-header {
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .story {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .product {
+    background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .product-card {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .signup {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] footer {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80');
+}
+
+[data-theme="dark"] .button {
+    background-color: var(--accent-color);
+}
+
+[data-theme="dark"] .button.secondary {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] .button.secondary:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+[data-theme="dark"] a {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3 {
+    color: var(--text-color);
+}
 /* MailerLite Form Styling */
 .ml-form-embedContainer {
     max-width: 400px;
@@ -282,6 +343,7 @@ body {
     }
 
 }
+
 
 
 
