@@ -227,7 +227,20 @@ footer a {
         max-width: 250px;
     }
 
+    .hero .button {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        max-width: 250px;
+    }
+    
+    /* If you have a container around the button, also center that */
+    .hero {
+        text-align: center;
+    }
+
 }
+
 
 
 
