@@ -271,19 +271,22 @@ footer a {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     z-index: 1001;
     align-items: center;
     justify-content: center;
+    width: 44px;
+    height: 44px;
 }
 
 .mobile-menu-toggle span {
     width: 25px;
     height: 3px;
-    background: #ffffff;
+    background: #ffffff; /* Always white on dark header */
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
+    display: block;
 }
 
 .mobile-menu-toggle.active span:nth-child(1) {
@@ -574,11 +577,15 @@ body {
 
     /* Mobile menu toggle styling */
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important;
         width: 44px;
         height: 44px;
         align-items: center;
         justify-content: center;
+    }
+
+    .hamburger {
+        display: none !important;
     }
 
     .mobile-menu-toggle span {
@@ -668,6 +675,7 @@ input:focus {
         transition: none;
     }
 }
+
 
 
 
