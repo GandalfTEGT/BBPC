@@ -157,7 +157,7 @@ footer a {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    padding: 10px 0;
+    padding: 12px 0; /* Reduced padding */
     border-bottom: 1px solid #eee;
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -172,9 +172,14 @@ footer a {
     padding: 0 20px;
 }
 
+.header-logo {
+    flex-shrink: 0; /* Prevents the logo from shrinking */
+}
+
 .header-logo-img {
-    height: 40px;
+    height: 35px; /* Reduced from auto/too large */
     width: auto;
+    max-width: 200px; /* Prevents it from getting too wide */
     transition: transform 0.3s ease;
 }
 
@@ -203,7 +208,7 @@ footer a {
 
 /* Push content down to account for fixed header */
 body {
-    padding-top: 70px;
+    padding-top: 65px;
 }
 
 /* Complete Dark Mode Fixes */
@@ -396,6 +401,7 @@ body {
     }
 
 }
+
 
 
 
