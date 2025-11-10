@@ -705,6 +705,222 @@ body {
     color: #ffffff !important;
 }
 
+
+/* iubenda Cookie Banner Styling - Fixed */
+.iubenda-consent-ui, 
+.iucs-consent-ui,
+.iubenda-cs-container {
+    background: rgba(26, 26, 26, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid #444 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3) !important;
+    color: #ffffff !important;
+    font-family: 'Arial', sans-serif !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+}
+
+/* Banner positioning and sizing */
+.iubenda-cs-bottom,
+.iubenda-cs-rationale {
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: 600px !important;
+    width: auto !important;
+    right: auto !important;
+}
+
+/* Banner content */
+.iubenda-consent-ui .iubenda-consent-content,
+.iucs-consent-ui .iucs-consent-content {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    padding: 20px !important;
+}
+
+/* Buttons container */
+.iubenda-consent-ui .iubenda-consent-btns,
+.iucs-consent-ui .iucs-consent-btns {
+    display: flex !important;
+    gap: 10px !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    padding: 0 20px 20px !important;
+}
+
+/* Primary buttons */
+.iubenda-consent-ui .iubenda-consent-btn,
+.iucs-consent-ui .iucs-consent-btn,
+.iubenda-cs-btn {
+    background: #6633FF !important;
+    border: 2px solid #6633FF !important;
+    border-radius: 5px !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    flex: 1 !important;
+    min-width: 120px !important;
+    text-align: center !important;
+}
+
+.iubenda-consent-ui .iubenda-consent-btn:hover,
+.iucs-consent-ui .iucs-consent-btn:hover,
+.iubenda-cs-btn:hover {
+    background: #5522DD !important;
+    transform: scale(1.05) !important;
+}
+
+/* Secondary buttons */
+.iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary,
+.iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary {
+    background: transparent !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+}
+
+.iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary:hover,
+.iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary:hover {
+    background: #ffffff !important;
+    color: #333333 !important;
+}
+
+/* Links */
+.iubenda-consent-ui a,
+.iucs-consent-ui a,
+.iubenda-cs-container a {
+    color: #8C6EFF !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.iubenda-consent-ui a:hover,
+.iucs-consent-ui a:hover,
+.iubenda-cs-container a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+/* Close button */
+.iubenda-consent-ui .iubenda-consent-close,
+.iucs-consent-ui .iucs-consent-close {
+    color: #ffffff !important;
+    opacity: 0.8 !important;
+    background: none !important;
+    border: none !important;
+    font-size: 18px !important;
+    cursor: pointer !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 15px !important;
+}
+
+.iubenda-consent-ui .iubenda-consent-close:hover,
+.iucs-consent-ui .iucs-consent-close:hover {
+    opacity: 1 !important;
+    background: none !important;
+}
+
+/* Header/title styling */
+.iubenda-consent-ui .iubenda-consent-header,
+.iucs-consent-ui .iucs-consent-header {
+    color: #8C6EFF !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+    text-align: center !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .iubenda-cs-bottom,
+    .iubenda-cs-rationale {
+        bottom: 10px !important;
+        max-width: 95% !important;
+        width: 95% !important;
+    }
+    
+    .iubenda-consent-ui,
+    .iucs-consent-ui,
+    .iubenda-cs-container {
+        max-width: 95% !important;
+        margin: 0 auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        right: auto !important;
+    }
+    
+    .iubenda-consent-ui .iubenda-consent-content,
+    .iucs-consent-ui .iucs-consent-content {
+        font-size: 13px !important;
+        padding: 15px !important;
+        text-align: center !important;
+    }
+    
+    .iubenda-consent-ui .iubenda-consent-btns,
+    .iucs-consent-ui .iucs-consent-btns {
+        flex-direction: column !important;
+        padding: 0 15px 15px !important;
+    }
+    
+    .iubenda-consent-ui .iubenda-consent-btn,
+    .iucs-consent-ui .iucs-consent-btn {
+        width: 100% !important;
+        margin: 5px 0 !important;
+    }
+    
+    /* Ensure text is centered on mobile */
+    .iubenda-consent-ui *,
+    .iucs-consent-ui * {
+        text-align: center !important;
+    }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .iubenda-consent-ui,
+[data-theme="dark"] .iucs-consent-ui {
+    background: rgba(26, 26, 26, 0.98) !important;
+    border-color: #444 !important;
+}
+
+[data-theme="dark"] .iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary,
+[data-theme="dark"] .iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary {
+    border-color: #8C6EFF !important;
+    color: #8C6EFF !important;
+}
+
+[data-theme="dark"] .iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary:hover,
+[data-theme="dark"] .iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary:hover {
+    background: #8C6EFF !important;
+    color: #ffffff !important;
+}
+
+/* Fix for any floating elements */
+.iubenda-cs-float {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+}
+
+/* Ensure no left alignment issues */
+.iubenda-cs-left {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+}
+
+.iubenda-cs-right {
+    right: 50% !important;
+    transform: translateX(50%) !important;
+    left: auto !important;
+}
 /* Make the form responsive */
 @media (max-width: 768px) {
     .ml-form-embedContainer {
@@ -895,3 +1111,4 @@ input:focus {
         transition: none;
     }
 }
+
