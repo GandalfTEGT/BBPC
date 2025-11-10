@@ -193,7 +193,7 @@ footer a {
 }
 
 .site-header.shrink .header-logo-img {
-    height: 60px;
+    height: 80px;
 }
 
 .header-logo-img:hover {
@@ -689,6 +689,7 @@ input:focus {
         transition: none;
     }
 }
+
 
 
 
