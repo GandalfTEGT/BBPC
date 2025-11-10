@@ -403,11 +403,11 @@ body {
 }
 
 [data-theme="dark"] a {
-    color: var(--accent-color);
+    color: #ffffff;
 }
 
 [data-theme="dark"] a:hover {
-    color: #ffffff;
+    color: #8C6EFF;
 }
 
 [data-theme="dark"] h1, 
@@ -689,6 +689,7 @@ input:focus {
         transition: none;
     }
 }
+
 
 
 
