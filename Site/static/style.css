@@ -574,7 +574,9 @@ body {
         align-self: center;
         order: 5; /* Ensure it comes after nav links */
     }
-
+    .header-logo-img {
+        height: 80px
+    }
     .site-header.shrink .header-logo-img {
         height: 60px;
     }
@@ -693,6 +695,7 @@ input:focus {
         transition: none;
     }
 }
+
 
 
 
