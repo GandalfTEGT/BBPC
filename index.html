@@ -317,6 +317,63 @@
                 }
             });
         });
+        // Force style iubenda cookie banner
+function styleCookieBanner() {
+    const styleCookieBannerInterval = setInterval(() => {
+        // Find all iubenda elements
+        const iubendaElements = document.querySelectorAll('[class*="iubenda"], [class*="iucs"]');
+        
+        if (iubendaElements.length > 0) {
+            iubendaElements.forEach(element => {
+                // Style buttons
+                const buttons = element.querySelectorAll('button, [class*="btn"]');
+                buttons.forEach(btn => {
+                    if (btn.textContent.includes('Accept') || btn.textContent.includes('Reject') || btn.textContent.includes('Confirm')) {
+                        btn.style.cssText = `
+                            background: #6633FF !important;
+                            border: 2px solid #6633FF !important;
+                            border-radius: 25px !important;
+                            color: #ffffff !important;
+                            font-weight: bold !important;
+                            padding: 12px 24px !important;
+                            margin: 5px !important;
+                            cursor: pointer !important;
+                        `;
+                    } else {
+                        btn.style.cssText = `
+                            background: transparent !important;
+                            border: 2px solid #8C6EFF !important;
+                            border-radius: 25px !important;
+                            color: #8C6EFF !important;
+                            font-weight: bold !important;
+                            padding: 12px 24px !important;
+                            margin: 5px !important;
+                            cursor: pointer !important;
+                        `;
+                    }
+                });
+                
+                // Style container
+                element.style.cssText = `
+                    background: rgba(26, 26, 26, 0.98) !important;
+                    border: 1px solid #444 !important;
+                    border-radius: 10px !important;
+                    color: #ffffff !important;
+                    left: 50% !important;
+                    transform: translateX(-50%) !important;
+                    max-width: 90% !important;
+                    width: 600px !important;
+                `;
+            });
+            clearInterval(styleCookieBannerInterval);
+        }
+    }, 100);
+}
+
+// Run when DOM is loaded
+document.addEventListener('DOMContentLoaded', styleCookieBanner);
+// Also run when iubenda might load later
+setTimeout(styleCookieBanner, 1000);
     </script>
 </body>
 </html>
