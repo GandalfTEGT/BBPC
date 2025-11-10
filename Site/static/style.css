@@ -161,10 +161,11 @@ footer a {
     border-bottom: 1px solid #eee;
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px p;
 }
 
 .site-header.shrink {
-    padding: 8px 0;
+    padding: 6px 0;
     background: rgba(255, 255, 255, 0.98);
 }
 
@@ -183,9 +184,9 @@ footer a {
 }
 
 .header-logo-img {
-    height: 40px;
+    height: 50px;
     width: auto;
-    max-width: 200px;
+    max-width: 220px;
     transition: transform 0.3s ease;
     filter: brightness(1.1) contrast(1.2);
 }
@@ -607,11 +608,11 @@ body {
     }
 
     .site-header {
-        padding: 12px 0;
+        padding: 8px 0;
     }
 
     .site-header.shrink {
-        padding: 8px 0;
+        padding: 5px 0;
     }
 
     .header-actions {
@@ -652,4 +653,5 @@ input:focus {
         transition: none;
     }
 }
+
 
