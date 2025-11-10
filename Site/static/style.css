@@ -227,7 +227,7 @@ footer a {
     left: 0;
     width: 0;
     height: 2px;
-    background: #8C6EFFF;
+    background: #8C6EFF; /* Fixed typo - was #8C6EFFF */
     transition: width 0.3s ease;
 }
 
@@ -256,7 +256,7 @@ footer a {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: #ffffff
+    color: #ffffff; /* Fixed missing semicolon */
 }
 
 .theme-toggle:hover {
@@ -264,7 +264,7 @@ footer a {
     transform: scale(1.1);
 }
 
-/* Mobile Menu Toggle */
+/* Mobile Menu Toggle - FIXED: Always visible white lines */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -354,7 +354,6 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 }
-
 
 [data-theme="dark"] .story {
     background-color: var(--card-bg);
@@ -528,9 +527,9 @@ body {
         text-align: center;
     }
 
-    /* Mobile Navigation Fixes */
+    /* Mobile Navigation Fixes - FIXED hamburger visibility */
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important; /* Force show on mobile */
     }
 
     .header-nav {
@@ -569,7 +568,8 @@ body {
         display: none;
     }
 
-    /* Theme toggle inside mobile menu */
+    /* REMOVED conflicting mobile theme toggle styles since we don't have one in HTML */
+    /*
     .theme-toggle.mobile-menu-version {
         position: static;
         margin-top: 2rem;
@@ -578,8 +578,9 @@ body {
         border-color: #ffffff;
         color: #ffffff;
     }
+    */
 
-    /* Mobile menu toggle styling */
+    /* Mobile menu toggle styling - REMOVED conflicting color rule */
     .mobile-menu-toggle {
         display: flex !important;
         width: 44px;
@@ -588,14 +589,12 @@ body {
         justify-content: center;
     }
 
+    /* REMOVED this conflicting rule that was overriding the white color */
+    /*
     .mobile-menu-toggle span {
-        width: 25px;
-        height: 3px;
         background: var(--text-color);
-        margin: 3px 0;
-        transition: 0.3s;
-        border-radius: 2px;
     }
+    */
 
     /* Hamburger animation when active */
     .mobile-menu-toggle.active span:nth-child(1) {
@@ -615,9 +614,9 @@ body {
         gap: 10px;
     }
 
-    /* Hide desktop theme toggle on mobile */
+    /* Show desktop theme toggle on mobile since we don't have mobile version */
     .header-actions .theme-toggle {
-        display: none;
+        display: flex; /* Changed from 'none' to 'flex' */
     }
 }
 
@@ -636,10 +635,12 @@ body {
         margin-left: 1rem;
     }
 
-    /* Hide mobile theme toggle on desktop */
+    /* Hide mobile theme toggle on desktop - not needed since we don't have one */
+    /*
     .theme-toggle.mobile-menu-version {
         display: none !important;
     }
+    */
 }
 
 /* Focus styles for accessibility */
@@ -675,9 +676,3 @@ input:focus {
         transition: none;
     }
 }
-
-
-
-
-
-
