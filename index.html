@@ -6,10 +6,6 @@
     <meta property="og:image" content="Site/images/Logo.png">
     <meta property="og:title" content="Bonnie Byte PC - Crafted with Scottish Pride">
     <meta property="twitter:image" content="Site/images/Logo.png">
-    <!-- <meta http-equiv="Content-Security-Policy" 
-      content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
-               script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
-               style-src * 'unsafe-inline'"> -->
     <meta name="description" content="Bonnie Byte PC - Beautiful, high-performance PC components crafted with Scottish pride. Value-focused RGB fan bundles and PC accessories.">
     <meta property="og:description" content="Beautiful, high-performance PC components without the premium price tag. Crafted with Scottish Pride.">
     <meta property="og:url" content="https://www.bonniebytepc.com">
@@ -50,53 +46,54 @@
 <body>
     <!-- Fixed Header -->
     <header class="site-header">
+        <div class="scroll-progress"></div>
         <div class="container">
             <div class="header-content">
                 <!-- Logo in header -->
                 <div class="header-logo">
                     <img src="Site/images/LogoFullNoTag.png" alt="Bonnie Byte PC" class="header-logo-img">
                 </div>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <span class="theme-icon">🌙</span>
-                </button>
+                
+                <!-- Navigation Menu -->
+                <nav class="header-nav">
+                    <a href="#home">Home</a>
+                    <a href="#story">Our Story</a>
+                    <a href="#products">Products</a>
+                    <a href="#notify">Updates</a>
+                </nav>
+
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
-
-        <script>
-            // Make header logo clickable to scroll to top
-            document.addEventListener('DOMContentLoaded', function() {
-                const headerLogo = document.querySelector('.header-logo');
-                if (headerLogo) {
-                    headerLogo.style.cursor = 'pointer';
-                    headerLogo.addEventListener('click', function() {
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    });
-                }
-            });
-        </script>
     </header>
+
     <div class="container">
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero" id="home">
             <img src="Site/images/LogoFullNoTag.png" alt="Bonnie Byte PC" class="logo" style="max-width: 300px; height: auto;">
-                        
             <p class="tagline">Crafted with Scottish Pride.</p>
             <p>Beautiful, high-performance PC components without the premium price tag. Launching Soon.</p>
             <a href="#notify" class="button">Notify Me at Launch</a>
         </section>
 
         <!-- Our Story Section -->
-        <section class="story">
+        <section class="story" id="story">
             <h2>Our Story</h2>
             <p>Bonnie Byte PC was founded by a PC enthusiast, for PC enthusiasts. Frustrated by the choice between overpriced brands and questionable generic parts, we decided to build a better alternative.</p>
             <p>The name 'Bonnie' comes from the Scottish word for beautiful. It reflects our commitment to not just performance, but beautiful design and craftsmanship. Our mission is simple: to deliver <em>Beautiful Tech, from Scotland.</em></p>
         </section>
 
         <!-- Product Teaser Section -->
-        <section class="product">
+        <section class="product" id="products">
             <h2>Our First Product</h2>
             <div class="product-card">
                 <div class="product-image"></div> <!-- Placeholder for an image -->
@@ -139,32 +136,6 @@
             </div>
         </section>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const emailInput = document.querySelector('input[name="fields[email]"]');
-                const recaptchaContainer = document.querySelector('.ml-form-recaptcha');
-                
-                // Hide reCAPTCHA initially
-                if (recaptchaContainer) {
-                    recaptchaContainer.style.display = 'none';
-                }
-                
-                // Show reCAPTCHA when user starts typing
-                if (emailInput) {
-                    emailInput.addEventListener('input', function() {
-                        if (this.value.length > 0 && recaptchaContainer) {
-                            recaptchaContainer.style.display = 'block';
-                            
-                            // Trigger reCAPTCHA render if needed
-                            if (typeof grecaptcha !== 'undefined' && !document.querySelector('.g-recaptcha iframe')) {
-                                grecaptcha.render(document.querySelector('.g-recaptcha'));
-                            }
-                        }
-                    });
-                }
-            });
-        </script>
-
         <!-- Footer -->
         <footer>
             <p>Contact: <a href="mailto:hello@bonniebytepc.com">hello@bonniebytepc.com</a></p>
@@ -204,15 +175,94 @@
                 localStorage.setItem('theme', 'light');
             }
         });
-</script>
+
+        // Mobile menu functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const headerNav = document.querySelector('.header-nav');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            headerNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.header-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                headerNav.classList.remove('active');
+            });
+        });
+
+        // Scroll progress
+        window.addEventListener('scroll', () => {
+            const winHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset;
+            const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+        });
+
+        // Shrink header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+        });
+
+        // Make header logo clickable to scroll to top
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerLogo = document.querySelector('.header-logo');
+            if (headerLogo) {
+                headerLogo.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+
+        // reCAPTCHA functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailInput = document.querySelector('input[name="fields[email]"]');
+            const recaptchaContainer = document.querySelector('.ml-form-recaptcha');
+            
+            // Hide reCAPTCHA initially
+            if (recaptchaContainer) {
+                recaptchaContainer.style.display = 'none';
+            }
+            
+            // Show reCAPTCHA when user starts typing
+            if (emailInput) {
+                emailInput.addEventListener('input', function() {
+                    if (this.value.length > 0 && recaptchaContainer) {
+                        recaptchaContainer.style.display = 'block';
+                        
+                        // Trigger reCAPTCHA render if needed
+                        if (typeof grecaptcha !== 'undefined' && !document.querySelector('.g-recaptcha iframe')) {
+                            grecaptcha.render(document.querySelector('.g-recaptcha'));
+                        }
+                    }
+                });
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
