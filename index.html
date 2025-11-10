@@ -48,6 +48,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Fixed Header -->
+   <!-- Fixed Header -->
     <header class="site-header">
         <div class="scroll-progress"></div>
         <div class="container">
@@ -63,19 +64,15 @@
                     <a href="#story">Our Story</a>
                     <a href="#products">Products</a>
                     <a href="#notify">Updates</a>
-                    
-                    <!-- Mobile-only theme toggle (will be inside hamburger menu) -->
-                    <button class="theme-toggle mobile-menu-version" aria-label="Toggle dark mode">
-                        <span class="theme-icon">🌙</span>
-                    </button>
                 </nav>
-
+    
                 <div class="header-actions">
-                    <!-- Desktop theme toggle -->
+                    <!-- Theme toggle -->
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <span class="theme-icon">🌙</span>
                     </button>
                     
+                    <!-- ONLY ONE hamburger menu button -->
                     <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
                         <span></span>
@@ -200,44 +197,42 @@
         // Mobile menu functionality
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const headerNav = document.querySelector('.header-nav');
-
-        mobileMenuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isActive = !headerNav.classList.contains('active');
-            
-            mobileMenuToggle.classList.toggle('active');
-            headerNav.classList.toggle('active');
-            mobileMenuToggle.setAttribute('aria-expanded', isActive);
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.header-nav a').forEach(link => {
-            if (!link.classList.contains('theme-toggle')) {
+        
+        if (mobileMenuToggle && headerNav) {
+            mobileMenuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isActive = mobileMenuToggle.classList.toggle('active');
+                headerNav.classList.toggle('active');
+                mobileMenuToggle.setAttribute('aria-expanded', isActive);
+            });
+        
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.header-nav a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenuToggle.classList.remove('active');
                     headerNav.classList.remove('active');
                     mobileMenuToggle.setAttribute('aria-expanded', 'false');
                 });
-            }
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.header-nav') && !e.target.closest('.mobile-menu-toggle') && headerNav.classList.contains('active')) {
-                mobileMenuToggle.classList.remove('active');
-                headerNav.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        // Close mobile menu when pressing Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && headerNav.classList.contains('active')) {
-                mobileMenuToggle.classList.remove('active');
-                headerNav.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
+            });
+        
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.header-nav') && !e.target.closest('.mobile-menu-toggle') && headerNav.classList.contains('active')) {
+                    mobileMenuToggle.classList.remove('active');
+                    headerNav.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        
+            // Close mobile menu when pressing Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && headerNav.classList.contains('active')) {
+                    mobileMenuToggle.classList.remove('active');
+                    headerNav.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
 
         // Scroll progress
         window.addEventListener('scroll', () => {
