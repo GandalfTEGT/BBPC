@@ -366,7 +366,7 @@ body {
 }
 
 [data-theme="dark"] .mobile-menu-toggle span {
-    background: #fff;
+    background: #ffffff;
 }
 
 [data-theme="dark"] .story {
@@ -681,3 +681,4 @@ input:focus {
         transition: none;
     }
 }
+
