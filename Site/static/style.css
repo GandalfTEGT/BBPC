@@ -569,6 +569,12 @@ body {
         display: none;
     }
 
+    .header-nav .theme-toggle {
+        margin-top: 2rem;
+        align-self: center;
+        order: 5; /* Ensure it comes after nav links */
+    }
+
     /* REMOVED conflicting mobile theme toggle styles since we don't have one in HTML */
     /*
     .theme-toggle.mobile-menu-version {
@@ -616,9 +622,10 @@ body {
     }
 
     /* Show desktop theme toggle on mobile since we don't have mobile version */
-    .header-actions .theme-toggle {
-        display: flex; /* Changed from 'none' to 'flex' */
-    }
+    /*.header-actions .theme-toggle {
+        display: flex; /* Changed from 'none' to 'flex' 
+    } */
+    
 }
 
 /* Desktop Styles */
@@ -677,6 +684,7 @@ input:focus {
         transition: none;
     }
 }
+
 
 
 
