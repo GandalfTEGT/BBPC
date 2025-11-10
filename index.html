@@ -63,13 +63,19 @@
                     <a href="#story">Our Story</a>
                     <a href="#products">Products</a>
                     <a href="#notify">Updates</a>
+                    
+                    <!-- Mobile-only theme toggle (will be inside hamburger menu) -->
+                    <button class="theme-toggle mobile-menu-version" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
                 </nav>
 
                 <div class="header-actions">
-                    <!-- Theme toggle -->
+                    <!-- Desktop theme toggle -->
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <span class="theme-icon">🌙</span>
                     </button>
+                    
                     <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
                         <span></span>
@@ -123,7 +129,7 @@
                                 <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1908727/forms/170605338066682928/subscribe" method="post" target="_blank">
                                     <div class="ml-form-fieldRow ml-last-item">
                                         <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                                            <input aria-label="email" type="email" class="form-control" name="fields[email]" placeholder="Your email address" autocomplete="email">
+                                            <input aria-label="email" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Your email address" autocomplete="email">
                                         </div>
                                     </div>
                                     <div class="ml-form-recaptcha ml-validate-required">
@@ -154,65 +160,65 @@
     <script>
         // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
+        const mobileThemeToggle = document.querySelector('.theme-toggle.mobile-menu-version');
         const themeIcon = themeToggle.querySelector('.theme-icon');
+        const mobileThemeIcon = mobileThemeToggle.querySelector('.theme-icon');
 
         // Check for saved theme or prefer-color-scheme
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const savedTheme = localStorage.getItem('theme');
 
         // Set initial theme
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeIcon.textContent = '☀️';
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            themeIcon.textContent = '🌙';
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const icon = theme === 'dark' ? '☀️' : '🌙';
+            themeIcon.textContent = icon;
+            mobileThemeIcon.textContent = icon;
+            localStorage.setItem('theme', theme);
         }
 
-        // Toggle theme
-        themeToggle.addEventListener('click', () => {
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        // Toggle theme function
+        function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
-            
             if (currentTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeIcon.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
+                setTheme('dark');
             } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                themeIcon.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
+                setTheme('light');
             }
-        });
+        }
+
+        // Add event listeners to both theme toggles
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
 
         // Mobile menu functionality
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const headerNav = document.querySelector('.header-nav');
-        const headerActions = document.querySelector('.header-actions');
 
         mobileMenuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
+            const isActive = !headerNav.classList.contains('active');
+            
             mobileMenuToggle.classList.toggle('active');
             headerNav.classList.toggle('active');
-            mobileMenuToggle.setAttribute('aria-expanded', headerNav.classList.contains('active'));
-            
-            // Move theme toggle into mobile menu when it's open
-            if (headerNav.classList.contains('active')) {
-                headerNav.appendChild(themeToggle);
-            } else {
-                // Move theme toggle back to its original position when menu closes
-                headerActions.appendChild(themeToggle);
-            }
+            mobileMenuToggle.setAttribute('aria-expanded', isActive);
         });
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.header-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuToggle.classList.remove('active');
-                headerNav.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                // Move theme toggle back to original position
-                headerActions.appendChild(themeToggle);
-            });
+            if (!link.classList.contains('theme-toggle')) {
+                link.addEventListener('click', () => {
+                    mobileMenuToggle.classList.remove('active');
+                    headerNav.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                });
+            }
         });
 
         // Close mobile menu when clicking outside
@@ -221,7 +227,6 @@
                 mobileMenuToggle.classList.remove('active');
                 headerNav.classList.remove('active');
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                headerActions.appendChild(themeToggle);
             }
         });
 
@@ -231,7 +236,6 @@
                 mobileMenuToggle.classList.remove('active');
                 headerNav.classList.remove('active');
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                headerActions.appendChild(themeToggle);
             }
         });
 
@@ -308,7 +312,6 @@
                         mobileMenuToggle.classList.remove('active');
                         headerNav.classList.remove('active');
                         mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                        headerActions.appendChild(themeToggle);
                     }
                 }
             });
