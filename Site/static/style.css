@@ -253,7 +253,7 @@ footer a {
     font-size: 18px;
     transition: all 0.3s ease;
     display: flex;
-    align-items: right;
+    align-items: center;
     justify-content: center;
     flex-shrink: 0;
     color: #ffffff; /* Fixed missing semicolon */
@@ -677,6 +677,7 @@ input:focus {
         transition: none;
     }
 }
+
 
 
 
