@@ -195,6 +195,11 @@
         // Mobile menu functionality
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const headerNav = document.querySelector('.header-nav');
+        const themeToggle = document.getElementById('theme-toggle');
+        const headerActions = document.querySelector('.header-actions');
+        
+        // Store original position
+        let themeToggleOriginalParent = themeToggle.parentNode;
         
         if (mobileMenuToggle && headerNav) {
             mobileMenuToggle.addEventListener('click', (e) => {
@@ -202,6 +207,14 @@
                 const isActive = mobileMenuToggle.classList.toggle('active');
                 headerNav.classList.toggle('active');
                 mobileMenuToggle.setAttribute('aria-expanded', isActive);
+                
+                // Move theme toggle into mobile menu when open
+                if (headerNav.classList.contains('active')) {
+                    headerNav.appendChild(themeToggle);
+                } else {
+                    // Move theme toggle back to original position when closed
+                    themeToggleOriginalParent.appendChild(themeToggle);
+                }
             });
         
             // Close mobile menu when clicking on a link
@@ -210,6 +223,8 @@
                     mobileMenuToggle.classList.remove('active');
                     headerNav.classList.remove('active');
                     mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    // Move theme toggle back to original position
+                    themeToggleOriginalParent.appendChild(themeToggle);
                 });
             });
         
@@ -219,6 +234,8 @@
                     mobileMenuToggle.classList.remove('active');
                     headerNav.classList.remove('active');
                     mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    // Move theme toggle back to original position
+                    themeToggleOriginalParent.appendChild(themeToggle);
                 }
             });
         
@@ -228,6 +245,8 @@
                     mobileMenuToggle.classList.remove('active');
                     headerNav.classList.remove('active');
                     mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    // Move theme toggle back to original position
+                    themeToggleOriginalParent.appendChild(themeToggle);
                 }
             });
         }
