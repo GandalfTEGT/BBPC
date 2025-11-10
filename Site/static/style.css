@@ -575,6 +575,10 @@ body {
         order: 5; /* Ensure it comes after nav links */
     }
 
+    .site-header.shrink .header-logo-img {
+        height: 60px;
+    }
+
     /* REMOVED conflicting mobile theme toggle styles since we don't have one in HTML */
     /*
     .theme-toggle.mobile-menu-version {
@@ -689,6 +693,7 @@ input:focus {
         transition: none;
     }
 }
+
 
 
 
