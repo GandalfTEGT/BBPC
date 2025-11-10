@@ -66,12 +66,12 @@
                     <!-- Mobile-only theme toggle -->
                     <button id="mobile-theme-toggle" class="mobile-theme-toggle" aria-label="Toggle dark mode">
                         <span class="mobile-theme-icon">🌙</span>
-                        <span class="mobile-theme-text">Toggle Theme</span>
+                        <span class="mobile-theme-text">Switch to Dark Mode</span>
                     </button>
                 </nav>
 
                 <div class="header-actions">
-                    <!-- Desktop theme toggle -->
+                    <!-- Desktop theme toggle (hidden on mobile) -->
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <span class="theme-icon">🌙</span>
                     </button>
@@ -85,76 +85,80 @@
         </div>
     </header>
 
-    <div class="container" id="main-content">
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <img src="Site/images/LogoFullNoTag.png" alt="Bonnie Byte PC" class="logo" style="max-width: 300px; height: auto;">
-            <p class="tagline">Crafted with Scottish Pride.</p>
-            <p>Beautiful, high-performance PC components without the premium price tag. Launching Soon.</p>
-            <a href="#notify" class="button">Notify Me at Launch</a>
-        </section>
+    <main id="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero" id="home">
+                <img src="Site/images/LogoFullNoTag.png" alt="Bonnie Byte PC" class="logo" style="max-width: 300px; height: auto;">
+                <p class="tagline">Crafted with Scottish Pride.</p>
+                <p>Beautiful, high-performance PC components without the premium price tag. Launching Soon.</p>
+                <a href="#notify" class="button">Notify Me at Launch</a>
+            </section>
 
-        <!-- Our Story Section -->
-        <section class="story" id="story">
-            <h2>Our Story</h2>
-            <p>Bonnie Byte PC was founded by a PC enthusiast, for PC enthusiasts. Frustrated by the choice between overpriced brands and questionable generic parts, we decided to build a better alternative.</p>
-            <p>The name 'Bonnie' comes from the Scottish word for beautiful. It reflects our commitment to not just performance, but beautiful design and craftsmanship. Our mission is simple: to deliver <em>Beautiful Tech, from Scotland.</em></p>
-        </section>
+            <!-- Our Story Section -->
+            <section class="story" id="story">
+                <h2>Our Story</h2>
+                <p>Bonnie Byte PC was founded by a PC enthusiast, for PC enthusiasts. Frustrated by the choice between overpriced brands and questionable generic parts, we decided to build a better alternative.</p>
+                <p>The name 'Bonnie' comes from the Scottish word for beautiful. It reflects our commitment to not just performance, but beautiful design and craftsmanship. Our mission is simple: to deliver <em>Beautiful Tech, from Scotland.</em></p>
+            </section>
 
-        <!-- Product Teaser Section -->
-        <section class="product" id="products">
-            <h2>Our First Product</h2>
-            <div class="product-card">
-                <div class="product-image"></div> <!-- Placeholder for an image -->
-                <h3>5-Pack 120mm ARGB Fan Bundle</h3>
-                <p>Complete your build with a full set of high-performance, addressable RGB fans. Includes a control hub for easy setup and stunning lighting effects.</p>
-                <div class="button-group">
-                    <a href="https://amazon.co.uk" class="button secondary" target="_blank" rel="noopener noreferrer">Buy on Amazon UK</a>
-                    <a href="https://ebay.co.uk" class="button secondary" target="_blank" rel="noopener noreferrer">Buy on eBay</a>
+            <!-- Product Teaser Section -->
+            <section class="product" id="products">
+                <h2>Our First Product</h2>
+                <div class="product-card">
+                    <div class="product-image"></div> <!-- Placeholder for an image -->
+                    <h3>5-Pack 120mm ARGB Fan Bundle</h3>
+                    <p>Complete your build with a full set of high-performance, addressable RGB fans. Includes a control hub for easy setup and stunning lighting effects.</p>
+                    <div class="button-group">
+                        <a href="https://amazon.co.uk" class="button secondary" target="_blank" rel="noopener noreferrer">Buy on Amazon UK</a>
+                        <a href="https://ebay.co.uk" class="button secondary" target="_blank" rel="noopener noreferrer">Buy on eBay</a>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Email Signup Section -->
-        <section id="notify" class="signup">
-            <h2>Be the First to Know</h2>
-            <p>Sign up below to get an exclusive launch-day discount and updates on our journey.</p>
-            
-            <div id="mlb2-33119374" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-33119374">
-                <div class="ml-form-align-center">
-                    <div class="ml-form-embedWrapper embedForm">
-                        <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1908727/forms/170605338066682928/subscribe" method="post" target="_blank">
-                                <div class="ml-form-fieldRow ml-last-item">
-                                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                                        <input aria-label="email" type="email" class="form-control" name="fields[email]" placeholder="Your email address" autocomplete="email">
+            <!-- Email Signup Section -->
+            <section id="notify" class="signup">
+                <h2>Be the First to Know</h2>
+                <p>Sign up below to get an exclusive launch-day discount and updates on our journey.</p>
+                
+                <div id="mlb2-33119374" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-33119374">
+                    <div class="ml-form-align-center">
+                        <div class="ml-form-embedWrapper embedForm">
+                            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1908727/forms/170605338066682928/subscribe" method="post" target="_blank">
+                                    <div class="ml-form-fieldRow ml-last-item">
+                                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                            <input aria-label="email" type="email" class="form-control" name="fields[email]" placeholder="Your email address" autocomplete="email">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="ml-form-recaptcha ml-validate-required">
-                                    <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
-                                </div>
-                                <div class="ml-form-embedSubmit">
-                                    <button type="submit" class="primary">Notify Me</button>
-                                </div>
-                                <input type="hidden" name="anticsrf" value="true">
-                                <input type="hidden" name="ml-submit" value="1">
-                            </form>
+                                    <div class="ml-form-recaptcha ml-validate-required">
+                                        <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
+                                    </div>
+                                    <div class="ml-form-embedSubmit">
+                                        <button type="submit" class="primary">Notify Me</button>
+                                    </div>
+                                    <input type="hidden" name="anticsrf" value="true">
+                                    <input type="hidden" name="ml-submit" value="1">
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
+    </main>
 
-        <!-- Footer -->
-        <footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
             <p>Contact: <a href="mailto:hello@bonniebytepc.com">hello@bonniebytepc.com</a></p>
             <p>&copy; 2025 Bonnie Byte PC. All rights reserved.</p>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script>
         // Theme toggle functionality
-        function setupThemeToggle(themeToggle, themeIcon) {
+        function setupThemeToggle(themeToggle, themeIcon, themeText = null) {
             // Check for saved theme or prefer-color-scheme
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             const savedTheme = localStorage.getItem('theme');
@@ -163,9 +167,11 @@
             if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 themeIcon.textContent = '☀️';
+                if (themeText) themeText.textContent = 'Switch to Light Mode';
             } else {
                 document.documentElement.setAttribute('data-theme', 'light');
                 themeIcon.textContent = '🌙';
+                if (themeText) themeText.textContent = 'Switch to Dark Mode';
             }
             
             // Toggle theme
@@ -175,42 +181,27 @@
                 if (currentTheme === 'light') {
                     document.documentElement.setAttribute('data-theme', 'dark');
                     themeIcon.textContent = '☀️';
+                    if (themeText) themeText.textContent = 'Switch to Light Mode';
                     localStorage.setItem('theme', 'dark');
                 } else {
                     document.documentElement.setAttribute('data-theme', 'light');
                     themeIcon.textContent = '🌙';
+                    if (themeText) themeText.textContent = 'Switch to Dark Mode';
                     localStorage.setItem('theme', 'light');
                 }
-                
-                // Update all theme icons
-                updateAllThemeIcons();
-            });
-        }
-
-        // Update all theme icons
-        function updateAllThemeIcons() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const themeIcons = document.querySelectorAll('.theme-icon, .mobile-theme-icon');
-            const themeTexts = document.querySelectorAll('.mobile-theme-text');
-            
-            themeIcons.forEach(icon => {
-                icon.textContent = currentTheme === 'light' ? '🌙' : '☀️';
-            });
-            
-            themeTexts.forEach(text => {
-                text.textContent = currentTheme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode';
             });
         }
 
         // Initialize theme toggles
         const desktopThemeToggle = document.getElementById('theme-toggle');
         const desktopThemeIcon = desktopThemeToggle.querySelector('.theme-icon');
+        
         const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
         const mobileThemeIcon = mobileThemeToggle.querySelector('.mobile-theme-icon');
         const mobileThemeText = mobileThemeToggle.querySelector('.mobile-theme-text');
 
         setupThemeToggle(desktopThemeToggle, desktopThemeIcon);
-        setupThemeToggle(mobileThemeToggle, mobileThemeIcon);
+        setupThemeToggle(mobileThemeToggle, mobileThemeIcon, mobileThemeText);
 
         // Mobile menu functionality
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -318,9 +309,6 @@
                 }
             });
         });
-
-        // Initialize theme icons on load
-        updateAllThemeIcons();
     </script>
 </body>
 </html>
