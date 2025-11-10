@@ -485,46 +485,6 @@ body {
     transform-origin: 0 0;
 }
 
-
-/* Policy Page Styling */
-.policy-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.policy-container h1 {
-    color: #6633FF;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-/* iubenda Embed Styling */
-.iubenda-embed {
-    background: white;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    line-height: 1.6;
-}    
-
-[data-theme="dark"] .policy-container h1 {
-    color: #8C6EFF;
-    border-bottom-color: #8C6EFF;
-}
-
-
-
-[data-theme="dark"] .iubenda-embed {
-    background: var(--card-bg);
-    color: var(--text-color);
-}
-
-/* Remove the widget banner if it appears */
-.iubenda-embed-banner {
-    display: none !important;
-}
 /* Policy Page Styling */
 .policy-container {
     max-width: 1100px;
@@ -541,17 +501,39 @@ body {
     padding-bottom: 15px;
 }
 
-/* iubenda Cookie Banner Styling */
+[data-theme="dark"] .policy-container h1 {
+    color: #8C6EFF;
+    border-bottom-color: #8C6EFF;
+}
+
+/* iubenda Embed Styling */
+.iubenda-embed {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    line-height: 1.6;
+}
+
+[data-theme="dark"] .iubenda-embed {
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
+/* iubenda Cookie Banner Styling - UPDATED */
 .iubenda-consent-ui, 
 .iucs-consent-ui,
 .iubenda-cs-container {
-    background: rgba(26, 26, 26, 0.95) !important;
+    background: rgba(26, 26, 26, 0.98) !important;
     backdrop-filter: blur(10px) !important;
     border: 1px solid #444 !important;
     border-radius: 10px !important;
     box-shadow: 0 5px 30px rgba(0,0,0,0.3) !important;
     color: #ffffff !important;
     font-family: 'Arial', sans-serif !important;
+    margin: 0 auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 /* Banner text */
@@ -560,40 +542,58 @@ body {
     color: #ffffff !important;
     font-size: 14px !important;
     line-height: 1.5 !important;
+    text-align: center !important;
 }
 
-/* Buttons */
+/* Buttons - UPDATED to match your theme */
 .iubenda-consent-ui .iubenda-consent-btn,
 .iucs-consent-ui .iucs-consent-btn,
 .iubenda-cs-btn {
     background: #6633FF !important;
     border: 2px solid #6633FF !important;
-    border-radius: 5px !important;
+    border-radius: 25px !important;
     color: #ffffff !important;
     font-weight: bold !important;
-    padding: 10px 20px !important;
+    padding: 12px 24px !important;
     transition: all 0.3s ease !important;
+    font-size: 16px !important;
+    margin: 5px !important;
+    cursor: pointer !important;
 }
 
 .iubenda-consent-ui .iubenda-consent-btn:hover,
 .iucs-consent-ui .iucs-consent-btn:hover,
 .iubenda-cs-btn:hover {
     background: #5522DD !important;
-    transform: scale(1.05) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(102, 51, 255, 0.3) !important;
 }
 
-/* Secondary buttons */
+/* Secondary buttons - UPDATED to match your secondary button style */
 .iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary,
 .iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary {
     background: transparent !important;
-    border: 2px solid #ffffff !important;
-    color: #ffffff !important;
+    border: 2px solid #8C6EFF !important;
+    color: #8C6EFF !important;
 }
 
 .iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary:hover,
 .iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary:hover {
-    background: #ffffff !important;
-    color: #333333 !important;
+    background: #8C6EFF !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(140, 110, 255, 0.3) !important;
+}
+
+/* Button container - Center buttons */
+.iubenda-consent-ui .iubenda-consent-btns,
+.iucs-consent-ui .iucs-consent-btns {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
 }
 
 /* Links */
@@ -602,6 +602,7 @@ body {
 .iubenda-cs-container a {
     color: #8C6EFF !important;
     text-decoration: none !important;
+    font-weight: 500 !important;
 }
 
 .iubenda-consent-ui a:hover,
@@ -616,14 +617,18 @@ body {
 .iucs-consent-ui .iucs-consent-close {
     color: #ffffff !important;
     opacity: 0.8 !important;
+    background: transparent !important;
+    border: none !important;
+    font-size: 18px !important;
 }
 
 .iubenda-consent-ui .iubenda-consent-close:hover,
 .iucs-consent-ui .iucs-consent-close:hover {
     opacity: 1 !important;
+    color: #8C6EFF !important;
 }
 
-/* Banner positioning */
+/* Banner positioning - FIXED for mobile */
 .iubenda-cs-bottom,
 .iubenda-cs-rationale {
     bottom: 20px !important;
@@ -631,20 +636,53 @@ body {
     transform: translateX(-50%) !important;
     max-width: 90% !important;
     width: 600px !important;
+    margin: 0 auto !important;
 }
 
-/* Mobile responsive */
+/* Mobile responsive - FIXED alignment */
 @media (max-width: 768px) {
     .iubenda-cs-bottom,
     .iubenda-cs-rationale {
         width: 95% !important;
         bottom: 10px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        margin: 0 !important;
+    }
+    
+    .iubenda-consent-ui .iubenda-consent-btn,
+    .iucs-consent-ui .iucs-consent-btn {
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+        min-width: 120px !important;
+    }
+    
+    .iubenda-consent-ui .iubenda-consent-btns,
+    .iucs-consent-ui .iucs-consent-btns {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    
+    /* Ensure text is centered on mobile */
+    .iubenda-consent-ui .iubenda-consent-content,
+    .iucs-consent-ui .iucs-consent-content {
+        text-align: center !important;
+        padding: 0 10px !important;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .iubenda-cs-bottom,
+    .iubenda-cs-rationale {
+        width: 98% !important;
+        bottom: 5px !important;
     }
     
     .iubenda-consent-ui .iubenda-consent-btn,
     .iucs-consent-ui .iucs-consent-btn {
         padding: 8px 16px !important;
-        font-size: 14px !important;
+        font-size: 13px !important;
     }
 }
 
@@ -655,40 +693,18 @@ body {
     border-color: #444 !important;
 }
 
-/* Policy Page Styling */
-.policy-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 80px 20px;
+[data-theme="dark"] .iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary,
+[data-theme="dark"] .iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary {
+    border-color: #8C6EFF !important;
+    color: #8C6EFF !important;
 }
 
-.policy-container h1 {
-    color: #6633FF;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    text-align: center;
-    border-bottom: 2px solid #6633FF;
-    padding-bottom: 15px;
+[data-theme="dark"] .iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary:hover,
+[data-theme="dark"] .iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary:hover {
+    background: #8C6EFF !important;
+    color: #ffffff !important;
 }
 
-[data-theme="dark"] .policy-container h1 {
-    color: #8C6EFF;
-    border-bottom-color: #8C6EFF;
-}
-
-/* iubenda Embed Styling */
-.iubenda-embed {
-    background: white;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    line-height: 1.6;
-}
-
-[data-theme="dark"] .iubenda-embed {
-    background: var(--card-bg);
-    color: var(--text-color);
-}
 /* Make the form responsive */
 @media (max-width: 768px) {
     .ml-form-embedContainer {
@@ -778,26 +794,15 @@ body {
         align-self: center;
         order: 5; /* Ensure it comes after nav links */
     }
+    
     .header-logo-img {
-        height: 80px
+        height: 80px;
     }
+    
     .site-header.shrink .header-logo-img {
         height: 60px;
     }
 
-    /* REMOVED conflicting mobile theme toggle styles since we don't have one in HTML */
-    /*
-    .theme-toggle.mobile-menu-version {
-        position: static;
-        margin-top: 2rem;
-        margin-left: 0;
-        align-self: center;
-        border-color: #ffffff;
-        color: #ffffff;
-    }
-    */
-
-    /* Mobile menu toggle styling - REMOVED conflicting color rule */
     .mobile-menu-toggle {
         display: flex !important;
         width: 44px;
@@ -806,14 +811,6 @@ body {
         justify-content: center;
     }
 
-    /* REMOVED this conflicting rule that was overriding the white color */
-    /*
-    .mobile-menu-toggle span {
-        background: var(--text-color);
-    }
-    */
-
-    /* Hamburger animation when active */
     .mobile-menu-toggle.active span:nth-child(1) {
         transform: rotate(-45deg) translate(-5px, 6px);
     }
@@ -833,9 +830,8 @@ body {
 
     /* Show desktop theme toggle on mobile since we don't have mobile version */
     .header-actions .theme-toggle {
-        display: flex !important; /* Changed from 'none' to 'flex' 
-    } 
-    
+        display: flex !important;
+    }
 }
 
 /* Desktop Styles */
@@ -899,17 +895,3 @@ input:focus {
         transition: none;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
