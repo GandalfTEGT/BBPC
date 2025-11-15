@@ -149,7 +149,6 @@ section {
     display: flex;
     gap: 30px;
     align-items: center;
-    padding: 30px
 }
 
 .header-nav a {
@@ -401,4 +400,5 @@ input:focus {
     }
 
 }
+
 
