@@ -1,0 +1,99 @@
+/* Policy Page Styling */
+.policy-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.policy-container h1 {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 15px;
+}
+
+.policy-container h2 {
+    color: var(--primary);
+    margin: 25px 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.policy-container h3 {
+    color: var(--text-dark);
+    margin: 20px 0 10px;
+}
+
+.policy-container ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.policy-container li {
+    margin-bottom: 10px;
+}
+
+/* Highlight boxes for warranty processes */
+.highlight-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--primary);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Contact box */
+.contact-box {
+    background: linear-gradient(135deg, #e8f4ff, #d1e9ff);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.contact-box h3 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.email-link {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.email-link:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Warning box */
+.warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+/* Dark mode for warranty page */
+[data-theme="dark"] .highlight-box {
+    background-color: var(--card-bg);
+    border-left-color: var(--accent-color);
+}
+
+[data-theme="dark"] .contact-box {
+    background: linear-gradient(135deg, #2d3748, #4a5568);
+}
+
+[data-theme="dark"] .warning {
+    background-color: #443e04;
+    border-color: #665c00;
+}

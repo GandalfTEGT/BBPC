@@ -1,0 +1,174 @@
+/* MailerLite Form Styling */
+.ml-form-embedContainer {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.ml-form-embedContainer .ml-form-embedWrapper {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.ml-form-embedContainer .ml-form-embedBody .ml-form-fieldRow input {
+    width: 100% !important;
+    padding: 15px 20px !important;
+    font-size: 16px !important;
+    border: 2px solid var(--primary) !important;
+    border-radius: 8px !important;
+    background: white !important;
+    margin-bottom: 15px !important;
+}
+
+.ml-form-embedContainer .ml-form-embedBody .ml-form-embedSubmit button {
+    width: 100% !important;
+    padding: 15px 20px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    background: var(--primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+}
+
+.ml-form-embedContainer .ml-form-embedBody .ml-form-embedSubmit button:hover {
+    background: var(--primary-dark) !important;
+}
+
+.ml-form-recaptcha {
+    margin: 15px 0;
+    transform: scale(0.9);
+    transform-origin: 0 0;
+}
+
+.g-recaptcha {
+    transform: scale(0.9);
+    transform-origin: 0 0;
+}
+
+/* iubenda Cookie Banner Styling */
+.iubenda-consent-ui, 
+.iucs-consent-ui,
+.iubenda-cs-container {
+    background: rgba(26, 26, 26, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid #444 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3) !important;
+    color: #ffffff !important;
+    font-family: 'Arial', sans-serif !important;
+}
+
+/* Banner text */
+.iubenda-consent-ui .iubenda-consent-content,
+.iucs-consent-ui .iucs-consent-content {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+}
+
+/* Buttons */
+.iubenda-consent-ui .iubenda-consent-btn,
+.iucs-consent-ui .iucs-consent-btn,
+.iubenda-cs-btn {
+    background: var(--primary) !important;
+    border: 2px solid var(--primary) !important;
+    border-radius: 5px !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease !important;
+}
+
+.iubenda-consent-ui .iubenda-consent-btn:hover,
+.iucs-consent-ui .iucs-consent-btn:hover,
+.iubenda-cs-btn:hover {
+    background: var(--primary-dark) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Secondary buttons */
+.iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary,
+.iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary {
+    background: transparent !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+}
+
+.iubenda-consent-ui .iubenda-consent-btn.iubenda-consent-btn-secondary:hover,
+.iucs-consent-ui .iucs-consent-btn.iucs-consent-btn-secondary:hover {
+    background: #ffffff !important;
+    color: #333333 !important;
+}
+
+/* Links */
+.iubenda-consent-ui a,
+.iucs-consent-ui a,
+.iubenda-cs-container a {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+}
+
+.iubenda-consent-ui a:hover,
+.iucs-consent-ui a:hover,
+.iubenda-cs-container a:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+/* Close button */
+.iubenda-consent-ui .iubenda-consent-close,
+.iucs-consent-ui .iucs-consent-close {
+    color: #ffffff !important;
+    opacity: 0.8 !important;
+}
+
+.iubenda-consent-ui .iubenda-consent-close:hover,
+.iucs-consent-ui .iucs-consent-close:hover {
+    opacity: 1 !important;
+}
+
+/* Banner positioning */
+.iubenda-cs-bottom,
+.iubenda-cs-rationale {
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    max-width: 90% !important;
+    width: 600px !important;
+}
+
+/* iubenda Embed Styling */
+.iubenda-embed {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    line-height: 1.6;
+}
+
+/* Remove the widget banner if it appears */
+.iubenda-embed-banner {
+    display: none !important;
+}
+
+/* Mobile responsive for embeds */
+@media (max-width: 768px) {
+    .ml-form-embedContainer {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    
+    .iubenda-cs-bottom,
+    .iubenda-cs-rationale {
+        width: 95% !important;
+        bottom: 10px !important;
+    }
+    
+    .iubenda-consent-ui .iubenda-consent-btn,
+    .iucs-consent-ui .iucs-consent-btn {
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+    }
+}
