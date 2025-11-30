@@ -1,12 +1,12 @@
 /* ============================================================
-   BONNIEBYTE PC - EMBEDS / 3RD PARTY WIDGET STYLES
-   (embeds.css)
-   MailerLite • reCAPTCHA • Iubenda Privacy/Cookie Embeds
-   Unified to match brand colour system.
+   BONNIEBYTE PC - EMBEDS / THIRD PARTY WIDGET STYLES
+   MailerLite • ReCAPTCHA • Iubenda Policy + Cookie Consent UI
+   Fully aligned with brand system + success UI enhancements
    ============================================================ */
 
+
 /* ============================================================
-   MAILERLITE FORM
+   MAILERLITE FORM (BRAND MATCHED)
    ============================================================ */
 
 .ml-form-embedContainer {
@@ -16,12 +16,13 @@
     padding: 0;
 }
 
-.ml-form-embedContainer .ml-form-embedWrapper {
+.ml-form-embedWrapper {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
 }
 
+/* Email input field */
 .ml-form-embedBody .ml-form-fieldRow input {
     width: 100% !important;
     padding: 14px 16px !important;
@@ -32,10 +33,11 @@
     color: var(--bb-text) !important;
 }
 
-.ml-form-embedBody .ml-form-embedFieldRow input::placeholder {
+.ml-form-embedBody .ml-form-fieldRow input::placeholder {
     color: var(--bb-text-muted) !important;
 }
 
+/* Submit button */
 .ml-form-embedSubmit button {
     width: 100% !important;
     padding: 14px 16px !important;
@@ -53,14 +55,17 @@
     background: #88bbff !important;
 }
 
-/* reCAPTCHA scaling (kept subtle) */
+/* reCAPTCHA */
 .ml-form-recaptcha {
     margin: 10px 0;
     transform: scale(0.9);
     transform-origin: 0 0;
 }
 
-/* Input */
+/* ============================================================
+   CUSTOM BONNIEBYTE FORM (Used with JS success UI)
+   ============================================================ */
+
 .bb-form-group input {
     width: 100%;
     padding: 14px 18px;
@@ -71,13 +76,12 @@
     color: var(--bb-text);
 }
 
-/* Light mode override */
 html[data-theme="light"] .bb-form-group input {
     background: #fff;
     color: #000;
 }
 
-/* Submit button loader (spinner) */
+/* Loader animation */
 .bb-btn-loader {
     display: none;
     width: 18px;
@@ -94,26 +98,26 @@ html[data-theme="light"] .bb-form-group input {
     to   { transform: rotate(360deg); }
 }
 
-/* Messages */
+/* Success / Error Messages */
 .bb-success-message,
 .bb-error-message {
     margin-top: 15px;
     font-size: 0.95rem;
     text-align: center;
+    display: none;
 }
 
-/* Success */
 .bb-success-message {
     color: #7ddc7d;
 }
 
-/* Error */
 .bb-error-message {
     color: #ff7b7b;
 }
 
+
 /* ============================================================
-   IUBENDA EMBEDDED POLICY BOXES
+   IUBENDA EMBEDDED TERMS / PRIVACY POLICY BOXES
    ============================================================ */
 
 .iubenda-embed {
@@ -127,7 +131,6 @@ html[data-theme="light"] .bb-form-group input {
     font-size: 15px !important;
 }
 
-/* Links inside embed */
 .iubenda-embed a {
     color: var(--bb-blue) !important;
     text-decoration: none !important;
@@ -138,13 +141,14 @@ html[data-theme="light"] .bb-form-group input {
     text-decoration: underline !important;
 }
 
-/* Remove any fallback banners */
+/* Remove fallback banners */
 .iubenda-embed-banner {
     display: none !important;
 }
 
+
 /* ============================================================
-   IUBENDA COOKIE CONSENT UI
+   IUBENDA COOKIE CONSENT UI (Brand-matched Dark Mode)
    ============================================================ */
 
 .iubenda-consent-ui,
@@ -158,18 +162,16 @@ html[data-theme="light"] .bb-form-group input {
     box-shadow: var(--bb-shadow) !important;
     color: var(--bb-text) !important;
     font-family: Arial, sans-serif !important;
-    max-width: 600px !important;
 }
 
-/* Cookie banner text */
+/* Text */
 .iubenda-consent-content,
 .iucs-consent-content {
     color: var(--bb-text) !important;
     line-height: 1.5 !important;
-    font-size: 14px !important;
 }
 
-/* PRIMARY BUTTONS */
+/* Primary button */
 .iubenda-consent-btn,
 .iucs-consent-btn,
 .iubenda-cs-btn {
@@ -180,7 +182,6 @@ html[data-theme="light"] .bb-form-group input {
     border-radius: 6px !important;
     font-weight: bold !important;
     cursor: pointer !important;
-    margin-right: 10px !important;
     transition: 0.25s ease !important;
 }
 
@@ -191,7 +192,7 @@ html[data-theme="light"] .bb-form-group input {
     border-color: #88bbff !important;
 }
 
-/* SECONDARY BUTTONS */
+/* Secondary button */
 .iubenda-consent-btn.iubenda-consent-btn-secondary,
 .iucs-consent-btn.iucs-consent-btn-secondary {
     background: transparent !important;
@@ -217,7 +218,7 @@ html[data-theme="light"] .bb-form-group input {
     color: #fff !important;
 }
 
-/* Cookie banner position */
+/* Cookie banner positioning */
 .iubenda-cs-bottom,
 .iubenda-cs-rationale {
     bottom: 20px !important;
@@ -227,58 +228,25 @@ html[data-theme="light"] .bb-form-group input {
     max-width: 600px !important;
 }
 
-/* Iubenda floating bottom buttons - dark theme */
+/* Floating container refinement */
 .iubenda-cs-container,
 .iubenda-cs-rationale,
 .iubenda-cs-bottom {
     background: rgba(0, 0, 0, 0.85) !important;
-    border: 1px solid var(--bb-border) !important;
-    backdrop-filter: blur(12px) !important;
-    color: var(--bb-text) !important;
     border-radius: 10px !important;
-    box-shadow: var(--bb-shadow) !important;
 }
 
-.iubenda-cs-container a,
-.iubenda-cs-rationale a,
-.iubenda-cs-bottom a {
-    color: var(--bb-blue) !important;
-    text-decoration: none !important;
-}
 
-.iubenda-cs-container a:hover,
-.iubenda-cs-rationale a:hover,
-.iubenda-cs-bottom a:hover {
-    color: #88bbff !important;
-    text-decoration: underline !important;
-}
+/* ============================================================
+   PRINT — REMOVE IUBENDA ENTIRELY
+   ============================================================ */
 
-/* Dark theme text contrast fix */
-.iubenda-cs-text,
-.iubenda-cs-rationale .iubenda-cs-text {
-    color: var(--bb-text) !important;
-}
-
-.iubenda-cs-btn {
-    background: var(--bb-blue) !important;
-    border: 2px solid var(--bb-blue) !important;
-    color: #fff !important;
-    border-radius: 6px !important;
-    padding: 10px 20px !important;
-    font-weight: 600 !important;
-}
-
-.iubenda-cs-btn:hover {
-    background: #88bbff !important;
-    border-color: #88bbff !important;
-}
-
-/* Remove Iubenda embeds from print output */
 @media print {
     .iubenda-embed,
     .iubenda-cs-container,
     .iubenda-consent-ui,
-    .iubenda-embed-banner,
+    .iubenda-cs-bottom,
+    .iubenda-cs-rationale,
     [class*="iubenda"] {
         display: none !important;
         visibility: hidden !important;
@@ -286,6 +254,7 @@ html[data-theme="light"] .bb-form-group input {
         overflow: hidden !important;
     }
 }
+
 
 /* ============================================================
    RESPONSIVENESS
@@ -308,7 +277,3 @@ html[data-theme="light"] .bb-form-group input {
         padding: 8px 14px !important;
     }
 }
-
-
-
-
