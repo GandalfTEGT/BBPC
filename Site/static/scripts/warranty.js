@@ -61,22 +61,7 @@ function initializePrintFunctionality() {
         policyContainer.insertBefore(printButton, policyContainer.firstChild);
     }
     
-    // Add print styles
-    const printStyles = document.createElement('style');
-    printStyles.textContent = `
-        @media print {
-            .site-header, footer, .table-of-contents, .button {
-                display: none !important;
-            }
-            body {
-                padding-top: 0 !important;
-            }
-            .policy-container {
-                padding: 0 !important;
-            }
-        }
-    `;
-    document.head.appendChild(printStyles);
+
 }
 
 // Enhance contact email interactions
@@ -126,3 +111,4 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 
 }
+
