@@ -207,6 +207,20 @@
     color: var(--bb-text) !important;
 }
 
+.iubenda-cs-btn {
+    background: var(--bb-blue) !important;
+    border: 2px solid var(--bb-blue) !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    padding: 10px 20px !important;
+    font-weight: 600 !important;
+}
+
+.iubenda-cs-btn:hover {
+    background: #88bbff !important;
+    border-color: #88bbff !important;
+}
+
 /* ============================================================
    RESPONSIVENESS
    ============================================================ */
@@ -228,4 +242,5 @@
         padding: 8px 14px !important;
     }
 }
+
 
