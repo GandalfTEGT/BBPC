@@ -175,6 +175,38 @@
     max-width: 600px !important;
 }
 
+/* Iubenda floating bottom buttons - dark theme */
+.iubenda-cs-container,
+.iubenda-cs-rationale,
+.iubenda-cs-bottom {
+    background: rgba(0, 0, 0, 0.85) !important;
+    border: 1px solid var(--bb-border) !important;
+    backdrop-filter: blur(12px) !important;
+    color: var(--bb-text) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--bb-shadow) !important;
+}
+
+.iubenda-cs-container a,
+.iubenda-cs-rationale a,
+.iubenda-cs-bottom a {
+    color: var(--bb-blue) !important;
+    text-decoration: none !important;
+}
+
+.iubenda-cs-container a:hover,
+.iubenda-cs-rationale a:hover,
+.iubenda-cs-bottom a:hover {
+    color: #88bbff !important;
+    text-decoration: underline !important;
+}
+
+/* Dark theme text contrast fix */
+.iubenda-cs-text,
+.iubenda-cs-rationale .iubenda-cs-text {
+    color: var(--bb-text) !important;
+}
+
 /* ============================================================
    RESPONSIVENESS
    ============================================================ */
@@ -196,3 +228,4 @@
         padding: 8px 14px !important;
     }
 }
+
