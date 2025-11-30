@@ -35,27 +35,29 @@
             <div class="header-content">
                 <!-- Logo -->
                 <div class="header-logo">
-                    <a href="#home" aria-label="Bonnie Byte PC - Home">
+                    <a href="index.html" aria-label="Bonnie Byte PC - Home">
                         <img src="Site/images/Logo1.png" alt="Bonnie Byte PC" class="header-logo-img">
                     </a>
                 </div>
 
                 <!-- Navigation -->
                 <nav class="header-nav" aria-label="Main navigation">
-                    <a href="#home">Home</a>
+                    <a href="index.html#home">Home</a>
                     <a href="#products">Products</a>
                     <a href="#why">Why BonnieByte</a>
                     <a href="#story">Our Story</a>
                     <a href="#warranty">Warranty</a>
                     <a href="#notify">Updates</a>
+                
+                    <!-- Theme toggle (mobile + desktop inside menu) -->
+                    <div class="mobile-theme-container">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                            <span class="theme-icon">🌙</span>
+                        </button>
+                    </div>
                 </nav>
 
                 <div class="header-actions">
-                    <!-- Theme toggle -->
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                        <span class="theme-icon">🌙</span>
-                    </button>
-
                     <!-- Mobile menu toggle -->
                     <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
@@ -63,6 +65,7 @@
                         <span></span>
                     </button>
                 </div>
+
             </div>
         </div>
     </header>
