@@ -330,24 +330,40 @@
                         <div class="ml-form-align-center">
                             <div class="ml-form-embedWrapper embedForm">
                                 <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                                    <form class="ml-block-form"
+                                    <form class="ml-block-form bb-form"
                                           action="https://assets.mailerlite.com/jsonp/1908727/forms/170605338066682928/subscribe"
-                                          method="post" target="_blank">
-                                        <div class="ml-form-fieldRow ml-last-item">
-                                            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                                                <input aria-label="email" type="email" class="form-control" name="fields[email]"
-                                                       placeholder="Your email address" autocomplete="email">
-                                            </div>
+                                          method="post">
+                                    
+                                        <div class="bb-form-group">
+                                            <input aria-label="email" type="email" class="form-control"
+                                                   name="fields[email]" placeholder="Your email address"
+                                                   autocomplete="email" required>
                                         </div>
+                                    
                                         <div class="ml-form-recaptcha ml-validate-required">
                                             <div class="g-recaptcha" data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
                                         </div>
-                                        <div class="ml-form-embedSubmit">
-                                            <button type="submit" class="button button-primary">Notify Me</button>
-                                        </div>
+                                    
+                                        <button type="submit" class="button button-primary bb-submit-btn">
+                                            <span class="bb-btn-text">Notify Me</span>
+                                            <span class="bb-btn-loader"></span>
+                                        </button>
+                                    
+                                        <!-- SUCCESS MESSAGE -->
+                                        <p class="bb-success-message" style="display:none;">
+                                            🎉 You're on the list!  
+                                            <br>We’ll email you before launch.
+                                        </p>
+                                    
+                                        <!-- ERROR MESSAGE -->
+                                        <p class="bb-error-message" style="display:none;">
+                                            ⚠️ Something went wrong — please check your email and try again.
+                                        </p>
+                                    
                                         <input type="hidden" name="anticsrf" value="true">
                                         <input type="hidden" name="ml-submit" value="1">
                                     </form>
+
                                 </div>
                             </div>
                         </div>
