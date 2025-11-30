@@ -1,88 +1,330 @@
-/* Hero Section */
+/* ============================================================
+   BONNIEBYTE PC - HOMEPAGE STYLES
+   (home.css)
+   Hero, pillars, products, story, why, warranty, signup
+   ============================================================ */
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
 .hero {
+    padding: 120px 20px 100px;
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.1&auto=format&fit=crop&w=1200&q=80');
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+        url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=2000&q=80');
     background-size: cover;
     background-position: center;
-    color: white;
+    border-bottom: 2px solid var(--bb-blue);
 }
 
-.hero h1 {
-    font-size: 3.5rem;
+.hero-logo {
+    max-width: 300px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.hero-tagline {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--bb-blue);
+    margin-bottom: 14px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    color: var(--bb-text-soft);
+}
+
+.hero-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.hero-meta span {
+    color: var(--bb-text-muted);
+    font-size: 0.9rem;
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 20px 80px;
+    }
+
+    .hero-logo {
+        max-width: 200px;
+    }
+
+    .hero-tagline {
+        font-size: 1.3rem;
+    }
+}
+
+/* ============================================================
+   BRAND PILLARS
+   ============================================================ */
+
+.pillars {
+    padding: 60px 0;
+}
+
+.pillars-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.pillar {
+    background: var(--bb-surface);
+    border: 1px solid var(--bb-border);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--bb-shadow);
+}
+
+.pillar h3 {
+    color: var(--bb-blue);
     margin-bottom: 10px;
 }
 
-.tagline {
-    font-size: 1.5rem;
-    font-style: italic;
-    margin-bottom: 20px;
-    color: var(--primary);
+@media (max-width: 900px) {
+    .pillars-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 30px;
+@media (max-width: 600px) {
+    .pillars-inner {
+        grid-template-columns: 1fr;
+    }
 }
 
-.hero .button {
-    display: inline-block;
-    margin: 0 auto;
+/* ============================================================
+   PRODUCT SECTION
+   ============================================================ */
+
+.section-products {
+    padding: 80px 0;
+}
+
+.section-header {
     text-align: center;
-    max-width: 250px;
+    margin-bottom: 40px;
 }
 
-/* Sections */
-.story {
-    background-color: var(--bg-white);
+.section-header p {
+    color: var(--bb-text-soft);
 }
 
-.product {
-    background-color: var(--bg-light);
+.product-grid {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.signup {
-    background-color: var(--bg-white);
-}
-
-/* Product Card */
 .product-card {
-    background: white;
-    padding: 30px;
+    background: var(--bb-surface);
+    border: 1px solid var(--bb-border);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    box-shadow: var(--bb-shadow);
+}
+
+.product-media {
+    margin-bottom: 20px;
+}
+
+.product-image-placeholder {
+    width: 100%;
+    height: 240px;
+    background: #222;
+    border: 1px solid var(--bb-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bb-text-muted);
+    font-size: 1rem;
+}
+
+.product-body h3 {
+    color: var(--bb-blue);
+    margin-bottom: 12px;
+}
+
+.product-body p {
+    margin-bottom: 20px;
+}
+
+.product-features {
+    list-style: none;
+    margin-bottom: 16px;
+    padding-left: 0;
+}
+
+.product-features li {
+    margin-bottom: 6px;
+    color: var(--bb-text-soft);
+}
+
+.product-badges span {
+    display: inline-block;
+    margin: 4px 6px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: var(--bb-panel);
+    border: 1px solid var(--bb-border);
+    font-size: 0.85rem;
+    color: var(--bb-text-muted);
+}
+
+/* ============================================================
+   WHY BONNIEBYTE
+   ============================================================ */
+
+.section-why {
+    padding: 80px 0;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.why-item {
+    background: var(--bb-surface);
+    border: 1px solid var(--bb-border);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: var(--bb-shadow);
+}
+
+.why-item h3 {
+    color: var(--bb-blue);
+    margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   OUR STORY
+   ============================================================ */
+
+.section-story {
+    padding: 80px 0;
+}
+
+.story-body {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--bb-text-soft);
+    font-size: 1.05rem;
+}
+
+.story-body p {
+    margin-bottom: 20px;
+}
+
+/* ============================================================
+   WARRANTY MINI SECTION
+   ============================================================ */
+
+.section-warranty {
+    padding: 80px 0;
+}
+
+.warranty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.warranty-card {
+    background: var(--bb-surface);
+    border: 1px solid var(--bb-border);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--bb-shadow);
+    text-align: center;
+}
+
+.warranty-card h3 {
+    color: var(--bb-blue);
+    margin-bottom: 10px;
+}
+
+.warranty-link {
+    margin-top: 30px;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .warranty-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   SIGNUP FORM SECTION
+   ============================================================ */
+
+.section-signup {
+    padding: 80px 0;
+}
+
+.signup-wrapper {
     max-width: 500px;
     margin: 0 auto;
+    text-align: center;
 }
 
-.product-image {
-    width: 100%;
-    height: 200px;
-    background-color: #ddd;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    /* Replace with: background: url('your-image.jpg') center/cover; */
+.signup-note {
+    color: var(--bb-text-muted);
+    font-size: 0.9rem;
+    margin-top: 10px;
 }
 
-/* Logo */
-.logo {
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 20px;
+/* ============================================================
+   COMMUNITY / SOCIAL
+   ============================================================ */
+
+.section-community {
+    padding: 60px 0;
+    text-align: center;
 }
 
-/* Mobile Responsive for Homepage */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .logo {
-        max-width: 200px;
-    }
-    
-    .hero {
-        text-align: center;
-    }
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.social-links a {
+    color: var(--bb-blue);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.social-links a:hover {
+    color: #8ec4ff;
 }
