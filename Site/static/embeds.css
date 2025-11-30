@@ -60,6 +60,58 @@
     transform-origin: 0 0;
 }
 
+/* Input */
+.bb-form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 2px solid var(--bb-blue);
+    background: var(--bb-panel);
+    color: var(--bb-text);
+}
+
+/* Light mode override */
+html[data-theme="light"] .bb-form-group input {
+    background: #fff;
+    color: #000;
+}
+
+/* Submit button loader (spinner) */
+.bb-btn-loader {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 3px solid transparent;
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: 4px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Messages */
+.bb-success-message,
+.bb-error-message {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Success */
+.bb-success-message {
+    color: #7ddc7d;
+}
+
+/* Error */
+.bb-error-message {
+    color: #ff7b7b;
+}
+
 /* ============================================================
    IUBENDA EMBEDDED POLICY BOXES
    ============================================================ */
@@ -256,6 +308,7 @@
         padding: 8px 14px !important;
     }
 }
+
 
 
 
