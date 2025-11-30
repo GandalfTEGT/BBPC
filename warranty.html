@@ -25,34 +25,38 @@
     <script type="text/javascript" src="https://embeds.iubenda.com/widgets/8ba4d9fe-5628-431a-83cd-dea04a6f1984.js"></script>
 </head>
 <body>
-    <!-- Skip to main content for screen readers -->
+    <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Fixed Header -->
+    <!-- Site Header -->
     <header class="site-header">
         <div class="scroll-progress"></div>
         <div class="container">
             <div class="header-content">
-                <!-- Logo in header -->
+                <!-- Logo -->
                 <div class="header-logo">
-                    <img src="Site/images/Logo1.png" alt="Bonnie Byte PC" class="header-logo-img">
+                    <a href="#home" aria-label="Bonnie Byte PC - Home">
+                        <img src="Site/images/Logo1.png" alt="Bonnie Byte PC" class="header-logo-img">
+                    </a>
                 </div>
-                
-                <!-- Navigation Menu -->
-                <nav class="header-nav" aria-label="Main navigation">
-                    <a href="index.html#home">Home</a>
-                    <a href="index.html#story">Our Story</a>
-                    <a href="index.html#products">Products</a>
-                    <a href="index.html#notify">Updates</a>
 
+                <!-- Navigation -->
+                <nav class="header-nav" aria-label="Main navigation">
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#why">Why BonnieByte</a>
+                    <a href="#story">Our Story</a>
+                    <a href="#warranty">Warranty</a>
+                    <a href="#notify">Updates</a>
+                </nav>
+
+                <div class="header-actions">
                     <!-- Theme toggle -->
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <span class="theme-icon">🌙</span>
                     </button>
-                </nav>
-    
-                <div class="header-actions">
-                    <!-- Hamburger menu button -->
+
+                    <!-- Mobile menu toggle -->
                     <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                         <span></span>
                         <span></span>
