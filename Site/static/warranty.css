@@ -232,5 +232,46 @@ html[data-theme="light"] .warning {
     .policy-container h3 {
         color: #000 !important;
         border-color: #000 !important;
+
+/* ============================================================
+   REMOVE SITE HEADER + FOOTER WHEN PRINTING WARRANTY PAGE
+   ============================================================ */
+@media print {
+
+    /* Remove header entirely */
+    .site-header {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Remove footer */
+    footer,
+    .site-footer {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Remove scroll progress bar */
+    .scroll-progress {
+        display: none !important;
+    }
+
+    /* Ensure content takes full width with no padding */
+    body {
+        padding-top: 0 !important;
+        margin: 0 !important;
+    }
+
+    .policy-container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 }
+
+    }
+}
+
