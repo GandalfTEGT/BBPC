@@ -219,8 +219,9 @@ html[data-theme="light"] .warning {
 /* ============================================================
    PRINT MODE
    ============================================================ */
-
 @media print {
+
+    /* Core print cleanup */
     .policy-container {
         box-shadow: none !important;
         background: #fff !important;
@@ -232,35 +233,47 @@ html[data-theme="light"] .warning {
     .policy-container h3 {
         color: #000 !important;
         border-color: #000 !important;
-
-/* ============================================================
-   REMOVE SITE HEADER + FOOTER WHEN PRINTING WARRANTY PAGE
-   ============================================================ */
-@media print {
-
-    /* Remove header entirely */
-    .site-header {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        overflow: hidden !important;
     }
 
-    /* Remove footer */
+    /* ============================================================
+       FORCE REMOVE SITE HEADER + LOGO + FOOTER
+       ============================================================ */
+
+    header,
+    header *,
+    .site-header,
+    .site-header *,
+    .header-logo,
+    .header-logo *,
+    picture,
+    picture img {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+    }
+
     footer,
-    .site-footer {
+    footer *,
+    .site-footer,
+    .site-footer * {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
         overflow: hidden !important;
     }
 
-    /* Remove scroll progress bar */
+    /* Remove scroll progress */
     .scroll-progress {
         display: none !important;
     }
 
-    /* Ensure content takes full width with no padding */
+    /* Remove page padding from fixed header space */
     body {
         padding-top: 0 !important;
         margin: 0 !important;
@@ -272,6 +285,5 @@ html[data-theme="light"] .warning {
     }
 }
 
-    }
-}
+
 
