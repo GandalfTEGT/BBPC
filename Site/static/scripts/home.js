@@ -9,52 +9,68 @@ function initializeHomepage() {
    MAILERLITE – Enhanced Form Handling (Success UI + Loader)
    ============================================================ */
 function initializeMailerLiteEnhanced() {
-    const form = document.querySelector(".bb-form"); 
-    if (!form) {
-        console.log("No bb-form detected, skipping MailerLite enhancements.");
-        return;
-    }
+    const form = document.querySelector(".bb-form");
+    if (!form) return;
 
     const submitBtn = form.querySelector(".bb-submit-btn");
     const btnText = form.querySelector(".bb-btn-text");
     const btnLoader = form.querySelector(".bb-btn-loader");
     const successMsg = form.querySelector(".bb-success-message");
     const errorMsg = form.querySelector(".bb-error-message");
-
-    // Hide messages upon typing
     const emailField = form.querySelector("input[name='fields[email]']");
-    if (emailField) {
-        emailField.addEventListener("input", () => {
-            successMsg.style.display = "none";
-            errorMsg.style.display = "none";
-        });
-    }
 
-    // On submit → show loading
-    form.addEventListener("submit", function () {
+    // Hide messages when typing
+    emailField.addEventListener("input", () => {
         successMsg.style.display = "none";
         errorMsg.style.display = "none";
-
-        btnText.style.display = "none";
-        btnLoader.style.display = "inline-block";
     });
 
-    // MailerLite JSONP global event → handle result
-    document.addEventListener("mlWebformSubmission", function (event) {
-        // Stop loader
-        btnLoader.style.display = "none";
-        btnText.style.display = "inline";
+    // STOP normal submission
+    form.addEventListener("submit", async function (e) {
+        e.preventDefault(); // ⛔ block MailerLite redirect
 
-        if (event.detail.success) {
+        // Show loader
+        btnText.style.display = "none";
+        btnLoader.style.display = "inline-block";
+
+        const email = emailField.value.trim();
+        if (!email) return;
+
+        // Build MailerLite JSON API URL
+        const url =
+            "https://assets.mailerlite.com/jsonp/1908727/forms/170605338066682928/subscribe";
+
+        const formData = new FormData();
+        formData.append("fields[email]", email);
+        formData.append("ml-submit", "1");
+        formData.append("anticsrf", "true");
+
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                body: formData,
+                mode: "no-cors"
+            });
+
+            // MailerLite JSONP can't return JSON in no-cors mode.
+            // So we assume success unless an exception occurred.
+
             successMsg.style.display = "block";
             errorMsg.style.display = "none";
             form.reset();
-        } else {
+
+        } catch (err) {
+            console.error("MailerLite error:", err);
             errorMsg.style.display = "block";
             successMsg.style.display = "none";
         }
+
+        // Reset loader
+        btnLoader.style.display = "none";
+        btnText.style.display = "inline";
     });
 }
+
 
 // Lazy loading for product images
 function initializeLazyLoading() {
@@ -104,3 +120,4 @@ if (typeof module !== 'undefined' && module.exports) {
         initializeHomepageAnimations
     };
 }
+
