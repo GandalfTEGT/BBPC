@@ -60,6 +60,7 @@
     margin: 10px 0;
     transform: scale(0.9);
     transform-origin: 0 0;
+    display: none;
 }
 
 /* ============================================================
@@ -283,4 +284,5 @@ html[data-theme="light"] .bb-form-group input {
         padding: 8px 14px !important;
     }
 }
+
 
