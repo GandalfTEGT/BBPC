@@ -65,6 +65,12 @@
 /* ============================================================
    CUSTOM BONNIEBYTE FORM (Used with JS success UI)
    ============================================================ */
+.bb-submit-btn {
+    width: 100% !important;
+    display: block;
+    padding: 14px 18px !important;
+    box-sizing: border-box;
+}
 
 .bb-form-group input {
     width: 100%;
@@ -277,3 +283,4 @@ html[data-theme="light"] .bb-form-group input {
         padding: 8px 14px !important;
     }
 }
+
