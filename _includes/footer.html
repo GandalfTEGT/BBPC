@@ -4,8 +4,12 @@
 
     <!-- Column 1: Explore -->
     <div class="footer-col footer-animate">
-      <h4>Explore</h4>
-      <ul class="footer-links">
+      <button class="footer-col-header" aria-expanded="false">
+        <span class="footer-header-icon">📁</span>
+        Explore
+        <span class="footer-accordion-arrow">▾</span>
+      </button>
+      <ul class="footer-links footer-col-content">
         <li><a href="/#home">Home</a></li>
         <li><a href="/#products">Products</a></li>
         <li><a href="/#why">Why BonnieByte</a></li>
@@ -16,16 +20,24 @@
 
     <!-- Column 2: Tools -->
     <div class="footer-col footer-animate">
-      <h4>Tools</h4>
-      <ul class="footer-links">
+      <button class="footer-col-header" aria-expanded="false">
+        <span class="footer-header-icon">🛠️</span>
+        Tools
+        <span class="footer-accordion-arrow">▾</span>
+      </button>
+      <ul class="footer-links footer-col-content">
         <li><a href="/tools/airflow/">Airflow Calculator</a></li>
       </ul>
     </div>
 
     <!-- Column 3: Legal -->
     <div class="footer-col footer-animate">
-      <h4>Legal</h4>
-      <ul class="footer-links">
+      <button class="footer-col-header" aria-expanded="false">
+        <span class="footer-header-icon">⚖️</span>
+        Legal
+        <span class="footer-accordion-arrow">▾</span>
+      </button>
+      <ul class="footer-links footer-col-content">
         <li><a href="/legal/privacy-policy">Privacy Policy</a></li>
         <li><a href="/legal/cookie-policy">Cookie Policy</a></li>
         <li><a href="/legal/terms">Terms of Service</a></li>
@@ -37,36 +49,40 @@
 
     <!-- Column 4: Social -->
     <div class="footer-col footer-animate">
-      <h4>Social</h4>
-      <ul class="footer-links footer-social-vertical">
+      <button class="footer-col-header" aria-expanded="false">
+        <span class="footer-header-icon">🌐</span>
+        Social
+        <span class="footer-accordion-arrow">▾</span>
+      </button>
+      <ul class="footer-links footer-col-content footer-social-vertical">
         <li>
-          <a href="https://instagram.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+          <a href="https://instagram.com/bonniebytepc" target="_blank">
             <span class="footer-social-icon">
-              <img src="/Site/images/icons/Instagram.png" alt="" />
+              <img src="/Site/images/icons/Instagram.png" alt="">
             </span>
             Instagram
           </a>
         </li>
         <li>
-          <a href="https://tiktok.com/@bonniebytepc" target="_blank" rel="noopener noreferrer">
+          <a href="https://tiktok.com/@bonniebytepc" target="_blank">
             <span class="footer-social-icon">
-              <img src="/Site/images/icons/TikTok.png" alt="" />
+              <img src="/Site/images/icons/TikTok.png" alt="">
             </span>
             TikTok
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+          <a href="https://twitter.com/bonniebytepc" target="_blank">
             <span class="footer-social-icon">
-              <img src="/Site/images/icons/Twitter.png" alt="" />
+              <img src="/Site/images/icons/Twitter.png" alt="">
             </span>
             Twitter
           </a>
         </li>
         <li>
-          <a href="https://facebook.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+          <a href="https://facebook.com/bonniebytepc" target="_blank">
             <span class="footer-social-icon">
-              <img src="/Site/images/icons/Facebook.png" alt="" />
+              <img src="/Site/images/icons/Facebook.png" alt="">
             </span>
             Facebook
           </a>
@@ -79,7 +95,7 @@
   <!-- Footer bottom -->
   <div class="container footer-bottom">
     <div class="footer-brand">
-      <img src="/Site/images/LogoLong.webp" alt="BonnieByte PC" class="footer-logo">
+      <img src="/Site/images/LogoTag.png" alt="BonnieByte PC" class="footer-logo-glow">
       <p class="footer-brand-text">
         Beautiful, high-performance PC cooling crafted with Scottish pride.
       </p>
@@ -96,5 +112,16 @@
 </footer>
 
 <script>
-  document.getElementById("footer-year").textContent = new Date().getFullYear();
+document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+// Mobile accordion functionality
+document.querySelectorAll(".footer-col-header").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", !expanded);
+
+    const content = btn.nextElementSibling;
+    content.style.maxHeight = expanded ? "0px" : content.scrollHeight + "px";
+  });
+});
 </script>
