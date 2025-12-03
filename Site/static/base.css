@@ -477,5 +477,109 @@ html[data-theme="light"] .footer-bottom {
     * { transition-duration: 0.01ms !important; }
 }
 
+/* ============================================================
+   FOOTER — POLISHED PREMIUM VERSION
+   ============================================================ */
+
+footer.site-footer {
+    background: var(--bb-panel);
+    padding: var(--space-lg) 0 var(--space-md);
+    border-top: 2px solid var(--bb-blue);
+    color: var(--bb-text-soft);
+}
+
+/* Grid layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    padding-bottom: 32px;
+}
+
+/* Column styling */
+.footer-col h4 {
+    color: var(--bb-blue);
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--bb-text-muted);
+    text-decoration: none;
+    font-size: 0.93rem;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--bb-blue);
+    padding-left: 4px;
+}
+
+/* Social column improvements */
+.footer-social-vertical a {
+    display: inline-block;
+    padding: 2px 0;
+}
+
+/* Divider between top grid and bottom brand area */
+.footer-bottom {
+    border-top: 1px solid var(--bb-border);
+    padding-top: 22px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer-bottom p {
+    margin-bottom: 6px;
+    color: var(--bb-text-muted);
+    font-size: 0.9rem;
+}
+
+/* Brand text emphasis */
+.footer-bottom strong {
+    color: var(--bb-blue);
+}
+
+/* Email links in footer bottom */
+.footer-bottom a {
+    color: var(--bb-blue);
+    text-decoration: none;
+    transition: opacity 0.25s ease;
+}
+
+.footer-bottom a:hover {
+    opacity: 0.75;
+}
+
+/* Light theme adjustments */
+html[data-theme="light"] footer.site-footer {
+    background: #f7f7f7;
+    border-top-color: var(--bb-blue);
+}
+
+html[data-theme="light"] .footer-links a {
+    color: #333;
+}
+
+html[data-theme="light"] .footer-links a:hover {
+    color: var(--bb-blue);
+}
+
+html[data-theme="light"] .footer-bottom p {
+    color: #444;
+}
+
 
 
