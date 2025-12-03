@@ -50,7 +50,7 @@ function initializeTableOfContents() {
 function initializePrintFunctionality() {
     const printButton = document.createElement('button');
     printButton.textContent = 'Print Document';
-    printButton.className = 'button secondary';
+    printButton.className = 'button button-secondary';
     printButton.style.marginBottom = '20px';
     printButton.addEventListener('click', () => {
         window.print();
@@ -111,5 +111,6 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 
 }
+
 
 
