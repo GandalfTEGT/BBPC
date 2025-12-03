@@ -1,7 +1,7 @@
----
-layout: default
-title: Documentation | BonnieByte PC
----
+    ---
+    layout: default
+    title: Documentation | BonnieByte PC
+    ---
 
     <main id="main-content">
         <!-- Hero / Landing -->
@@ -140,4 +140,156 @@ title: Documentation | BonnieByte PC
                     <div class="why-item">
                         <h3>Support That Cares</h3>
                         <p>UK-based support via <a href="mailto:support@bonniebytepc.com">support@bonniebytepc.com</a> and <a href="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section class="section section-story" id="story">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Our Story</h2>
+                </header>
+                <div class="story-body">
+                    <p>
+                        Bonnie Byte PC was founded by a PC enthusiast in Scotland who was tired of the same choice:
+                        pay over the odds for a big logo, or gamble on low-quality generics.
+                    </p>
+                    <p>
+                        <strong>“Bonnie”</strong> is a Scottish word for beautiful. It represents what we’re aiming for:
+                        hardware that looks good, feels good, and performs properly — without draining your wallet.
+                    </p>
+                    <p>
+                        Every product we design is built around three pillars:
+                        <em>performance, presentation, and price.</em> If it doesn’t satisfy all three, it doesn’t wear the BonnieByte name.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warranty / Support Summary -->
+        <section class="section section-warranty" id="warranty">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Warranty & Support</h2>
+                    <p>Simple, fair, and in plain English.</p>
+                </header>
+
+                <div class="warranty-grid">
+                    <div class="warranty-card">
+                        <h3>2-Year Warranty</h3>
+                        <p>
+                            All BonnieByte PC products are backed by a 2-year warranty against manufacturing defects,
+                            so you can build with confidence.
+                        </p>
+                    </div>
+                    <div class="warranty-card">
+                        <h3>Easy Replacements</h3>
+                        <p>
+                            If something isn’t right, we’ll work with you to troubleshoot — and if needed, arrange a replacement
+                            as quickly as possible.
+                        </p>
+                    </div>
+                    <div class="warranty-card">
+                        <h3>Local Support</h3>
+                        <p>
+                            UK-based email support from real humans, not scripted bots. Reach us at 
+                            <a href="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="warranty-link">
+                    For full warranty details, please see our dedicated <a href="/legal/warranty">Warranty Information</a> page.
+                </p>
+            </div>
+        </section>
+
+        <!-- Email Signup / Updates -->
+       <section class="section section-signup" id="notify">
+            <div class="container">
+                <header class="section-header">
+                    <h2>Be the First to Know</h2>
+                    <p>Get launch updates, behind-the-scenes progress, and an exclusive launch discount.</p>
+                </header>
+
+                <div class="signup-wrapper">
+                    <div id="mlb2-33119374"
+                         class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-33119374">
+                        <div class="ml-form-align-center">
+                            <div class="ml-form-embedWrapper embedForm">
+                                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+
+                                    <!-- CUSTOM FORM USING MAILERLITE JSONP ENDPOINT -->
+                                    <form class="ml-block-form bb-form"
+                                          action="https://assets.mailerlite.com/jsonp/1908727/forms/170605338066682928/subscribe"
+                                          method="post"
+                                          target="ml_iframe">
+
+                                        <div class="bb-form-group">
+                                            <input aria-label="email" type="email" class="form-control"
+                                                   name="fields[email]" placeholder="Your email address"
+                                                   autocomplete="email" required>
+                                        </div>
+
+                                        <div class="ml-form-recaptcha ml-validate-required">
+                                            <div class="g-recaptcha"
+                                                 data-sitekey="6Lf1KHQUAAAAAFNKEX1hdSWCS3mRMv4FlFaNslaD"></div>
+                                        </div>
+
+                                        <button type="submit" class="button button-primary bb-submit-btn">
+                                            <span class="bb-btn-text">Notify Me</span>
+                                            <span class="bb-btn-loader"></span>
+                                        </button>
+
+                                        <p class="bb-success-message">
+                                            🎉 You're on the list!  
+                                            <br>We’ll email you before launch.
+                                        </p>
+
+                                        <p class="bb-error-message">
+                                            ⚠️ Something went wrong — please check your email and try again.
+                                        </p>
+
+                                        <input type="hidden" name="anticsrf" value="true">
+                                        <input type="hidden" name="ml-submit" value="1">
+                                    </form>
+
+                                    <iframe name="ml_iframe" class="ml-hidden-iframe" style="display:none;"></iframe>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="signup-note">
+                        No spam, no selling your data — just occasional updates when something genuinely useful is happening.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social / Community Strip -->
+        <section class="section section-community" aria-label="Community and social links">
+            <div class="container community-inner">
+                <h2>Join the BonnieByte Community</h2>
+                <p>Follow along for updates, build pics, and future product drops.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+                        <img src="/Site/images/icons/Instagram.png" width="56" style="display:block;">
+                    </a>
+                    <a href="https://tiktok.com/@bonniebytepc" target="_blank" rel="noopener noreferrer">
+                        <img src="/Site/images/icons/TikTok.png" width="47" style="display:block;">
+                    </a>
+                    <a href="https://twitter.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+                        <img src="/Site/images/icons/Twitter.png" width="64" style="display:block;">
+                    </a>
+                    <a href="https://facebook.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+                        <img src="/Site/images/icons/Facebook.png" width="30" style="display:block;">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
