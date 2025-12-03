@@ -125,26 +125,26 @@ title: Returns & Refund Policy | BonnieByte PC
             If your item is faulty, damaged in transit, or we have sent the wrong product, we will
             normally provide a pre-paid return label or reimburse reasonable return shipping costs.
         </p>
-<h2>10. Exchanges</h2>
-<p>
-In many cases, we will treat an exchange as a return plus a new order. For example:
-</p>
-<ul>
-<li>We refund your original purchase</li>
-<li>You place a new order for the item you want instead</li>
-</ul>
-<p>
-Where appropriate, especially for faulty items, we may offer a like-for-like replacement
-instead of requiring a new order.
-</p>
-<h2>11. Your Consumer Rights</h2>
-<p>
-Nothing in this policy affects your legal rights. If you are in the UK, you have statutory
-rights under consumer protection law, including the right to a refund, repair, or replacement
-if a product is faulty, not as described, or not fit for purpose.
-</p>
-<h2>12. Contact Us</h2>
-<p>If you have questions about returns or refunds, please contact:</p>
-<p><strong>Email:</strong> orders@bonniebytepc.com or returns@bonniebytepc.com</p>
+          <h2>10. Exchanges</h2>
+          <p>
+               In many cases, we will treat an exchange as a return plus a new order. For example:
+          </p>
+          <ul>
+               <li>We refund your original purchase</li>
+               <li>You place a new order for the item you want instead</li>
+          </ul>
+          <p>
+               Where appropriate, especially for faulty items, we may offer a like-for-like replacement
+               instead of requiring a new order.
+          </p>
+          <h2>11. Your Consumer Rights</h2>
+          <p>
+               Nothing in this policy affects your legal rights. If you are in the UK, you have statutory
+               rights under consumer protection law, including the right to a refund, repair, or replacement
+               if a product is faulty, not as described, or not fit for purpose.
+          </p>
+          <h2>12. Contact Us</h2>
+          <p>If you have questions about returns or refunds, please contact:</p>
+          <p><strong>Email:</strong> orders@bonniebytepc.com or returns@bonniebytepc.com</p>
      </div>
 </div>
