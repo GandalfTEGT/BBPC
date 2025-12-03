@@ -420,6 +420,19 @@ footer.site-footer a {
     color: var(--bb-text-muted);
 }
 
+/* Footer Social (Vertical Layout) */
+.footer-social-vertical li {
+    margin-bottom: 10px;
+}
+
+.footer-social-vertical img {
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.footer-social-vertical img:hover {
+    opacity: 1;
+}
 
 /* ========================================================================
    13. LIGHT THEME OVERRIDES
@@ -463,3 +476,4 @@ html[data-theme="light"] .footer-bottom {
 @media (prefers-reduced-motion: reduce) {
     * { transition-duration: 0.01ms !important; }
 }
+
