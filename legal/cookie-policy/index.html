@@ -127,31 +127,100 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-    <div class="container footer-inner">
+    <footer class="site-footer">
+        <div class="container footer-inner footer-grid">
+    
+            <!-- Column 1: Brand & Contact -->
+            <div class="footer-col">
+                <h4>BonnieByte PC</h4>
+                <p>Your trusted UK-based PC cooling brand.</p>
+                <p><strong>Email:</strong>
+                    <p><a href="mailto:hello@bonniebytepc.com">hello@bonniebytepc.com</a></p>
+                </p>
+                <p><strong>Support:</strong> 
+                    <p><a href="mailto:support@bonniebytepc.com">support@bonniebytepc.com</a></p>
+                </p>
+            </div>
+    
+            <!-- Column 2: Explore -->
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul class="footer-links">
+                    <li><a href="/#home">Home</a></li>
+                    <li><a href="/#products">Products</a></li>
+                    <li><a href="/#why">Why BonnieByte</a></li>
+                    <li><a href="/#story">Our Story</a></li>
+                    <li><a href="/#notify">Updates</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 3: Legal -->
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="/legal/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/legal/cookie-policy">Cookie Policy</a></li>
+                    <li><a href="/legal/terms">Terms of Service</a></li>
+                    <li><a href="/legal/returns">Returns & Refunds</a></li>
+                    <li><a href="/legal/shipping">Shipping Policy</a></li>
+                    <li><a href="/legal/warranty">Warranty</a></li>
+                </ul>
+            </div>
+    
+            <!-- Column 4: Social -->
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul class="footer-links footer-social-vertical">
+                    <li>
+                        <a href="https://instagram.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/GandalfTEGT/BBPC/main/Site/images/icons/Instagram.png"
+                                 alt="Instagram" width="22" height="22"
+                                 style="vertical-align: middle; margin-right: 8px;">
+                            Instagram
+                        </a>
+                    </li>
+            
+                    <li>
+                        <a href="https://tiktok.com/@bonniebytepc" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/GandalfTEGT/BBPC/main/Site/images/icons/TikTok.png"
+                                 alt="TikTok" width="20" height="20"
+                                 style="vertical-align: middle; margin-right: 8px;">
+                            TikTok
+                        </a>
+                    </li>
+            
+                    <li>
+                        <a href="https://twitter.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/GandalfTEGT/BBPC/main/Site/images/icons/Twitter.png"
+                                 alt="Twitter/X" width="22" height="22"
+                                 style="vertical-align: middle; margin-right: 8px;">
+                            Twitter / X
+                        </a>
+                    </li>
+            
+                    <li>
+                        <a href="https://facebook.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
+                            <img src="https://raw.githubusercontent.com/GandalfTEGT/BBPC/main/Site/images/icons/Facebook.png"
+                                 alt="Facebook" width="18" height="18"
+                                 style="vertical-align: middle; margin-right: 8px;">
+                            Facebook
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="footer-contact">
-            <p>Contact: <a href="mailto:hello@bonniebytepc.com">hello@bonniebytepc.com</a></p>
+    
         </div>
-
-        <div class="footer-legal">
-            <a href="../privacy-policy">Privacy Policy</a>
-            <span class="divider">|</span>
-            <a href="#">Cookie Policy</a>
-            <span class="divider">|</span>
-            <a href="../terms">Terms</a>
-            <span class="divider">|</span>
-            <a href="../returns">Returns</a>
-            <span class="divider">|</span>
-            <a href="../shipping">Shipping</a>
+    
+        <div class="container footer-bottom">
+            <p>&copy; <span id="footer-year"></span> BonnieByte PC. Crafted with Scottish Pride.</p>
         </div>
-
-        <div class="footer-meta">
-            <p>&copy; 2025 BonnieByte PC. All rights reserved.</p>
-        </div>
-
-    </div>
-</footer>
+    
+        <script>
+            // Auto-update year
+            document.getElementById("footer-year").textContent = new Date().getFullYear();
+        </script>
+    </footer>
 
 </body>
 </html>
