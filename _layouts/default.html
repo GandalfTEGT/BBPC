@@ -14,17 +14,11 @@
   <link rel="stylesheet" href="/Site/static/warranty.css">
 
   <!-- Favicon / manifest -->
-  <link rel="icon" href="/favicon_io/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Scripts shared across pages -->
-  <script src="/Site/static/scripts/main.js" defer></script>
-  <script src="/Site/static/scripts/home.js" defer></script>
-  <script src="/Site/static/scripts/warranty.js" defer></script>
-  <script src="/Site/static/scripts/cookie-banner.js" defer></script>
 
   <!-- MailerLite Script -->
   <script>
@@ -36,7 +30,21 @@
       })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
       ml('account', '170605338066682928');
   </script>
+
+  <!-- Core scripts -->
+  <script src="/Site/static/scripts/main.js" defer></script>
+  <script src="/Site/static/scripts/cookie-banner.js" defer></script>
+
+  <!-- Page-specific scripts -->
+  {% if page.url == "/" or page.url == "/index.html" %}
+    <script src="/Site/static/scripts/home.js" defer></script>
+  {% endif %}
+
+  {% if page.url contains "/legal/" %}
+    <script src="/Site/static/scripts/warranty.js" defer></script>
+  {% endif %}
 </head>
+
 <body>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
