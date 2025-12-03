@@ -49,7 +49,7 @@ function initializeTableOfContents() {
 // Print functionality for warranty page
 function initializePrintFunctionality() {
     const printButton = document.createElement('button');
-    printButton.textContent = 'Print Warranty';
+    printButton.textContent = 'Print Document';
     printButton.className = 'button secondary';
     printButton.style.marginBottom = '20px';
     printButton.addEventListener('click', () => {
@@ -111,4 +111,5 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 
 }
+
 
