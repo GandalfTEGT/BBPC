@@ -44,14 +44,16 @@
    3. GLOBAL ELEMENTS
    ======================================================================== */
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: Arial, sans-serif;
     background-color: var(--bb-bg);
     color: var(--bb-text);
     line-height: 1.6;
-    padding-top: 80px;
+    padding-top: 80px; /* header offset */
 }
 
 .container {
@@ -65,13 +67,20 @@ body {
    4. TYPOGRAPHY
    ======================================================================== */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--bb-text);
     margin-bottom: var(--space-sm);
     font-weight: 700;
 }
 
-h1 { font-size: 2.4rem; }
+h1 {
+    font-size: 2.4rem;
+}
 
 h2 {
     font-size: 2rem;
@@ -80,10 +89,18 @@ h2 {
     display: inline-block;
 }
 
-h3 { font-size: 1.4rem; }
-h4 { font-size: 1.2rem; }
+h3 {
+    font-size: 1.4rem;
+}
 
-p { margin-bottom: var(--space-sm); color: var(--bb-text-soft); }
+h4 {
+    font-size: 1.2rem;
+}
+
+p {
+    margin-bottom: var(--space-sm);
+    color: var(--bb-text-soft);
+}
 
 a {
     color: var(--bb-blue);
@@ -91,7 +108,9 @@ a {
     transition: 0.25s ease;
 }
 
-a:hover { color: #8ec4ff; }
+a:hover {
+    color: #8ec4ff;
+}
 
 
 /* ========================================================================
@@ -110,7 +129,9 @@ a:hover { color: #8ec4ff; }
     transition: 0.25s ease;
 }
 
-.button:hover { background: #88bbff; }
+.button:hover {
+    background: #88bbff;
+}
 
 .button-secondary {
     background: transparent;
@@ -135,7 +156,9 @@ a:hover { color: #8ec4ff; }
    6. LAYOUT / SECTIONS
    ======================================================================== */
 
-section { padding: var(--space-lg) 0; }
+section {
+    padding: var(--space-lg) 0;
+}
 
 .section {
     background: var(--bb-surface);
@@ -154,7 +177,7 @@ section { padding: var(--space-lg) 0; }
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(13,13,13,0.95);
+    background: rgba(13, 13, 13, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 2px solid var(--bb-blue);
     padding: 12px 0;
@@ -162,7 +185,9 @@ section { padding: var(--space-lg) 0; }
     transition: 0.25s ease;
 }
 
-.site-header.shrink { padding: 6px 0; }
+.site-header.shrink {
+    padding: 6px 0;
+}
 
 .header-content {
     display: flex;
@@ -175,7 +200,9 @@ section { padding: var(--space-lg) 0; }
     transition: 0.25s ease;
 }
 
-.site-header.shrink .header-logo img { height: 60px; }
+.site-header.shrink .header-logo img {
+    height: 60px;
+}
 
 
 /* ========================================================================
@@ -227,16 +254,22 @@ section { padding: var(--space-lg) 0; }
     transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
 
 .mobile-menu-toggle.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-.mobile-theme-container { display: none; }
+.mobile-theme-container {
+    display: none;
+}
 
 @media (max-width: 900px) {
-    .mobile-menu-toggle { display: flex; }
+    .mobile-menu-toggle {
+        display: flex;
+    }
 
     .mobile-theme-container {
         display: block;
@@ -247,7 +280,9 @@ section { padding: var(--space-lg) 0; }
         border-top: 1px solid var(--bb-border);
     }
 
-    .header-actions #theme-toggle { display: none !important; }
+    .header-actions #theme-toggle {
+        display: none !important;
+    }
 }
 
 
@@ -277,22 +312,29 @@ svg {
     display: inline-block;
 }
 
-/* Normalized icon classes */
+/* Core icon classes */
 .nav-icon,
 .footer-icon,
 .footer-header-icon {
     stroke: currentColor;
     fill: none;
     flex-shrink: 0;
-    vertical-align: middle;
+    display: inline-block;
 }
 
-/* Desktop sizes */
-.nav-icon { width: 22px; height: 22px; }
-.footer-icon,
-.footer-header-icon { width: 20px; height: 20px; }
+/* Sizes – match your inline attributes and keep it simple */
+.nav-icon {
+    width: 22px;
+    height: 22px;
+}
 
-/* Mobile */
+.footer-icon,
+.footer-header-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Slightly smaller icons on small screens */
 @media (max-width: 900px) {
     .nav-icon,
     .footer-icon,
@@ -302,13 +344,12 @@ svg {
     }
 }
 
-
 /* Hover glow */
 .nav-link:hover .nav-icon,
 .footer-links a:hover .footer-icon {
     opacity: 1;
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 6px rgba(102,170,255,0.6));
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 6px rgba(102, 170, 255, 0.6));
 }
 
 
@@ -319,7 +360,7 @@ svg {
 .enhanced-header {
     position: fixed;
     width: 100%;
-    background: rgba(12,12,12,0.85);
+    background: rgba(12, 12, 12, 0.85);
     backdrop-filter: blur(14px);
     border-bottom: 2px solid var(--bb-blue);
     z-index: 1000;
@@ -334,14 +375,16 @@ svg {
 .enhanced-header::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--bb-blue), transparent);
     opacity: 0.55;
 }
 
 .enhanced-header.glow {
-    box-shadow: 0 0 20px rgba(102,170,255,0.45);
+    box-shadow: 0 0 20px rgba(102, 170, 255, 0.45);
 }
 
 .enhanced-header.hide {
@@ -350,18 +393,18 @@ svg {
 
 .enhanced-header.shrink {
     padding: 6px 0;
-    background: rgba(5,5,5,0.92);
+    background: rgba(5, 5, 5, 0.92);
 }
 
 .header-logo-img {
     height: 80px;
     transition: 0.3s ease;
-    filter: drop-shadow(0 0 6px rgba(102,170,255,0.3));
+    filter: drop-shadow(0 0 6px rgba(102, 170, 255, 0.3));
 }
 
 .enhanced-header.shrink .header-logo-img {
     height: 60px;
-    filter: drop-shadow(0 0 4px rgba(102,170,255,0.2));
+    filter: drop-shadow(0 0 4px rgba(102, 170, 255, 0.2));
 }
 
 
@@ -378,9 +421,9 @@ svg {
 .nav-link {
     color: var(--bb-text);
     font-weight: 500;
-    display: flex;
+    display: inline-flex;          /* FLEX: align icon + text */
+    align-items: center;           /* vertical centering */
     gap: 6px;
-    align-items: center;
     position: relative;
     padding: 2px 0;
     transition: 0.25s ease;
@@ -388,7 +431,7 @@ svg {
 
 .nav-link:hover {
     color: var(--bb-blue);
-    text-shadow: 0 0 8px rgba(102,170,255,0.5);
+    text-shadow: 0 0 8px rgba(102, 170, 255, 0.5);
 }
 
 .nav-link::after {
@@ -402,7 +445,9 @@ svg {
     transition: 0.35s ease;
 }
 
-.nav-link:hover::after { width: 100%; }
+.nav-link:hover::after {
+    width: 100%;
+}
 
 .nav-link:not(:last-child)::before {
     content: "";
@@ -432,15 +477,17 @@ svg {
         align-items: flex-start;
         background: linear-gradient(
             180deg,
-            rgba(10,10,10,0.95),
-            rgba(10,10,10,0.90),
-            rgba(20,20,40,0.85)
+            rgba(10, 10, 10, 0.95),
+            rgba(10, 10, 10, 0.90),
+            rgba(20, 20, 40, 0.85)
         );
         border-left: 2px solid var(--bb-blue);
         transition: right 0.4s ease;
     }
 
-    .header-nav.active { right: 0; }
+    .header-nav.active {
+        right: 0;
+    }
 
     .nav-link {
         width: 100%;
@@ -448,9 +495,18 @@ svg {
         font-size: 1.2rem;
     }
 
-    .nav-link:hover { padding-left: 8px; }
+    .nav-link:hover {
+        padding-left: 8px;
+    }
 
-    .nav-link::before { display: none; }
+    .nav-link::before {
+        display: none;
+    }
+
+    /* Don't auto-hide header on small screens (your previous tweak) */
+    .enhanced-header.hide {
+        transform: translateY(0) !important;
+    }
 }
 
 
@@ -469,7 +525,8 @@ footer.site-footer::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 0; right: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--bb-blue), transparent);
     opacity: 0.5;
@@ -477,10 +534,23 @@ footer.site-footer::before {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 48px;
     padding-bottom: 40px;
     border-bottom: 1px solid var(--bb-border);
+}
+
+/* nicer behaviour at mid widths */
+@media (max-width: 800px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .footer-col-header {
@@ -509,7 +579,9 @@ footer.site-footer::before {
     transition: 0.3s ease;
 }
 
-.footer-col-header:hover::after { width: 100%; }
+.footer-col-header:hover::after {
+    width: 100%;
+}
 
 .footer-accordion-arrow {
     margin-left: auto;
@@ -528,27 +600,44 @@ footer.site-footer::before {
 }
 
 @media (min-width: 900px) {
-    .footer-col-content { max-height: none !important; }
-    .footer-accordion-arrow { display: none; }
+    .footer-col-content {
+        max-height: none !important;
+    }
+
+    .footer-accordion-arrow {
+        display: none;
+    }
 }
 
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: 8px; }
+.footer-links {
+    list-style: none;
+}
 
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+/* FLEX social + footer links so icons always centre with text */
 .footer-links a {
     color: var(--bb-text-muted);
     font-size: 0.93rem;
     transition: 0.2s ease;
+    display: inline-flex;          /* <— THIS is key for iOS social icons */
+    align-items: center;
+    gap: 6px;
 }
 
 .footer-links a:hover {
     color: var(--bb-blue);
     padding-left: 6px;
-    text-shadow: 0 0 6px rgba(102,170,255,0.6);
+    text-shadow: 0 0 6px rgba(102, 170, 255, 0.6);
 }
 
-/* Social vertical */
-.footer-social-vertical li { margin-bottom: 10px; }
+/* Social vertical layout */
+.footer-social-vertical li {
+    margin-bottom: 10px;
+}
+
 
 /* Footer bottom */
 .footer-bottom {
@@ -559,18 +648,25 @@ footer.site-footer::before {
 .footer-logo-glow {
     height: 60px;
     margin-bottom: 8px;
-    filter: drop-shadow(0 0 10px rgba(102,170,255,0.45));
+    filter: drop-shadow(0 0 10px rgba(102, 170, 255, 0.45));
 }
 
-.footer-bottom a { color: var(--bb-blue); }
-.footer-bottom a:hover { opacity: 0.75; }
+.footer-bottom a {
+    color: var(--bb-blue);
+}
+
+.footer-bottom a:hover {
+    opacity: 0.75;
+}
 
 
 /* ========================================================================
    15. LIGHT THEME OVERRIDES
    ======================================================================== */
 
-html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
+html[data-theme="light"] footer.site-footer {
+    background: #f7f7f7;
+}
 
 
 /* ========================================================================
@@ -589,7 +685,9 @@ html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
     transition: 0.25s;
 }
 
-.skip-link:focus { top: 10px; }
+.skip-link:focus {
+    top: 10px;
+}
 
 
 /* ========================================================================
@@ -600,86 +698,5 @@ html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
     * {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
-    }
-}
-
-/* ========================================================================
-   ICON SYSTEM — CLEAN + UNIFIED
-   ======================================================================== */
-
-/* Base icon size (matches your inline SVG sizes) */
-.nav-icon,
-.footer-icon,
-.footer-header-icon {
-    width: 22px !important;
-    height: 22px !important;
-    stroke-width: 2;
-    flex-shrink: 0;
-    vertical-align: middle;
-    position: relative;
-    top: 0; /* default baseline */
-    display: inline-block;
-}
-
-/* ============================================================
-   DESKTOP (≥ 1100px)
-   Footer icons look perfect → match nav + social to footer logic
-============================================================ */
-@media (min-width: 1100px) {
-    .nav-icon,
-    .footer-icon,
-    .footer-header-icon {
-        top: -1px; /* slight lift for crisp baseline */
-    }
-}
-
-/* ============================================================
-   SMALL DESKTOP (900px–1099px)
-   Icons sit slightly lower → lift more
-============================================================ */
-@media (min-width: 900px) and (max-width: 1099px) {
-    .nav-icon,
-    .footer-icon,
-    .footer-header-icon {
-        top: -2px;
-    }
-}
-
-/* ============================================================
-   TABLET / SMALL DESKTOP (600px–899px)
-   Icons stabilize → restore slight lift
-============================================================ */
-@media (min-width: 600px) and (max-width: 899px) {
-    .nav-icon,
-    .footer-icon,
-    .footer-header-icon {
-        top: -1px;
-    }
-}
-
-/* ============================================================
-   TRUE iOS SAFARI FIX – Works on ALL iPhones
-   We copy the footer icon alignment to nav + social
-============================================================ */
-@media screen and (hover: none) and (pointer: coarse) {
-
-    /* Footer icons already correct */
-    .footer-icon {
-        top: 0 !important;
-    }
-
-    /* Nav icons too high → match footer baseline */
-    .nav-icon {
-        top: 0 !important;
-    }
-
-    /* Footer header icons sit slightly low → raise slightly */
-    .footer-header-icon {
-        top: 1px !important;
-    }
-
-    /* Social icons match the footer icons */
-    .footer-social-vertical .footer-icon {
-        top: 0 !important;
     }
 }
