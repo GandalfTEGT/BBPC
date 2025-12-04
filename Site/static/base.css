@@ -643,6 +643,7 @@ html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
     .footer-icon,
     .footer-header-icon {
         position: relative;
-        top: 3px;   /* push downward */
+        top: -3px;   /* push downward */
     }
 }
+
