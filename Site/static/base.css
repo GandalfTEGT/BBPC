@@ -812,29 +812,41 @@ svg {
     display: inline-block;
 }
 
+/* Remove hard overrides */
 svg.nav-icon,
 svg.footer-icon,
 svg.footer-header-icon {
-    width: 22px !important;
-    height: 22px !important;
-    stroke: currentColor !important;
-    fill: none !important;
+    width: auto !important;
+    height: auto !important;
 }
 
-@media (max-width: 900px) {
-    svg.nav-icon {
-        width: 20px !important;
-        height: 20px !important;
-    }
-}
-
-.nav-icon, .footer-icon, .footer-header-icon {
+/* Proper class sizing */
+.nav-icon {
     width: 22px;
     height: 22px;
-    min-width: 22px;
-    min-height: 22px;
-    flex-shrink: 0;
-    stroke: currentColor;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-header-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Mobile-specific Safari-safe override */
+@media (max-width: 900px) {
+    .nav-icon {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    .footer-icon,
+    .footer-header-icon {
+        width: 18px !important;
+        height: 18px !important;
+    }
 }
 
 
