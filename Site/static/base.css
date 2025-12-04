@@ -503,8 +503,8 @@ footer.site-footer::before {
 
 /* FOOTER ICON SIZING */
 .footer-icon {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     stroke: var(--bb-blue);
     opacity: 0.85;
     margin-right: 6px;
@@ -833,6 +833,7 @@ button:hover .bb-icon {
         filter: drop-shadow(0 0 0px rgba(102,170,255,0.0));
     }
 }
+
 
 
 
