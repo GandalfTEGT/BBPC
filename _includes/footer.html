@@ -84,9 +84,24 @@
         </li>
         <li>
           <a href="https://twitter.com/bonniebytepc" target="_blank">
-            <svg class="footer-icon" viewBox="0 0 24 24" stroke="#currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 6L18 19"></path>
-              <path d="M18 6L5 19"></path>
+            <svg class="footer-icon" viewBox="0 0 24 24">
+              <path d="M5 20 L19 4"
+                    stroke="#66aaff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    mask="url(#bbx-mask)" />
+              <path d="M4 4 L9 4 L20 20 L15 20 Z"
+                    stroke="#66aaff"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+              <mask id="bbx-mask">
+                <rect width="24" height="24" fill="white"/>
+                <!-- Same shape as main diagonal, but filled to cut out the stroke -->
+                <path d="M4 4 L9 4 L20 20 L15 20 Z" fill="black"/>
+              </mask>
             </svg>
             Twitter
           </a>
