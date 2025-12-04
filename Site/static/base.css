@@ -826,3 +826,12 @@ svg.footer-header-icon {
         height: 20px !important;
     }
 }
+
+.nav-icon, .footer-icon, .footer-header-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    flex-shrink: 0;
+    stroke: currentColor;
+}
