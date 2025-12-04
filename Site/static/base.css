@@ -651,6 +651,136 @@ html[data-theme="light"] footer.site-footer {
 }
 
 
+/* ============================================================
+   PREMIUM HEADER — visual match to footer
+   ============================================================ */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(13,13,13,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--bb-blue);
+    z-index: 1000;
+    padding: 14px 0;
+    transition: padding 0.3s ease, background 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* Glossy line matching the footer */
+.site-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--bb-blue), transparent);
+    opacity: 0.45;
+}
+
+.site-header.shrink {
+    padding: 6px 0;
+    background: rgba(8,8,8,0.92);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo glow */
+.header-logo img {
+    height: 80px;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 6px rgba(102,170,255,0.25));
+}
+
+.site-header.shrink .header-logo img {
+    height: 60px;
+    filter: drop-shadow(0 0 4px rgba(102,170,255,0.15));
+}
+
+/* ===============================
+   NAV LINKS (premium styling)
+   =============================== */
+
+.header-nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--bb-text);
+    font-weight: 500;
+    position: relative;
+    padding: 2px 0;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* Glow on hover */
+.nav-link:hover {
+    color: var(--bb-blue);
+    text-shadow: 0 0 8px rgba(102,170,255,0.6);
+}
+
+/* BB blue animated underline */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--bb-blue);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===============================
+   MOBILE MENU
+   =============================== */
+
+@media (max-width: 900px) {
+    .header-nav {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 280px;
+        height: 100vh;
+        padding: 100px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgba(10,10,10,0.98);
+        border-left: 2px solid var(--bb-blue);
+        transition: right 0.35s ease;
+    }
+
+    .header-nav.active {
+        right: 0;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+        width: 100%;
+        padding: 12px 0;
+    }
+
+    /* mobile glow effect */
+    .nav-link:hover {
+        padding-left: 6px;
+    }
+}
+
+/* Theme toggle button hover glow */
+.theme-toggle:hover {
+    box-shadow: 0 0 12px rgba(102,170,255,0.45);
+}
 
 
 
