@@ -53,7 +53,7 @@ body {
     background-color: var(--bb-bg);
     color: var(--bb-text);
     line-height: 1.6;
-    padding-top: 80px; /* header offset */
+    padding-top: 80px;
 }
 
 .container {
@@ -312,17 +312,17 @@ svg {
     display: inline-block;
 }
 
-/* Core icon classes */
+/* Normalized icon classes */
 .nav-icon,
 .footer-icon,
 .footer-header-icon {
     stroke: currentColor;
     fill: none;
     flex-shrink: 0;
-    display: inline-block;
+    vertical-align: middle;
 }
 
-/* Sizes – match your inline attributes and keep it simple */
+/* Desktop sizes (match your inline sizes) */
 .nav-icon {
     width: 22px;
     height: 22px;
@@ -334,7 +334,7 @@ svg {
     height: 20px;
 }
 
-/* Slightly smaller icons on small screens */
+/* Mobile sizes */
 @media (max-width: 900px) {
     .nav-icon,
     .footer-icon,
@@ -348,7 +348,7 @@ svg {
 .nav-link:hover .nav-icon,
 .footer-links a:hover .footer-icon {
     opacity: 1;
-    transform: scale(1.05);
+    transform: scale(1.15);
     filter: drop-shadow(0 0 6px rgba(102, 170, 255, 0.6));
 }
 
@@ -421,9 +421,9 @@ svg {
 .nav-link {
     color: var(--bb-text);
     font-weight: 500;
-    display: inline-flex;          /* FLEX: align icon + text */
-    align-items: center;           /* vertical centering */
+    display: flex;
     gap: 6px;
+    align-items: center; /* flex aligns icon + label perfectly */
     position: relative;
     padding: 2px 0;
     transition: 0.25s ease;
@@ -463,7 +463,7 @@ svg {
 }
 
 
-/* MOBILE NAV */
+/* MOBILE NAV DRAWER */
 @media (max-width: 900px) {
 
     .header-nav {
@@ -502,10 +502,26 @@ svg {
     .nav-link::before {
         display: none;
     }
+}
 
-    /* Don't auto-hide header on small screens (your previous tweak) */
-    .enhanced-header.hide {
-        transform: translateY(0) !important;
+/* Light-theme frosted glass mobile drawer (Option C) */
+@media (max-width: 900px) {
+    html[data-theme="light"] .header-nav {
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(14px);
+        border-left-color: var(--bb-blue);
+    }
+
+    html[data-theme="light"] .nav-link {
+        color: #222;
+    }
+
+    html[data-theme="light"] .nav-link:hover {
+        color: var(--bb-blue);
+    }
+
+    html[data-theme="light"] .mobile-theme-container {
+        border-top-color: rgba(0, 0, 0, 0.08);
     }
 }
 
@@ -532,22 +548,22 @@ footer.site-footer::before {
     opacity: 0.5;
 }
 
+/* 4 → 2 → 1 layout, predictable across zoom levels */
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 48px;
     padding-bottom: 40px;
     border-bottom: 1px solid var(--bb-border);
 }
 
-/* nicer behaviour at mid widths */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
     .footer-grid {
         grid-template-columns: 1fr;
     }
@@ -617,12 +633,13 @@ footer.site-footer::before {
     margin-bottom: 8px;
 }
 
-/* FLEX social + footer links so icons always centre with text */
+/* IMPORTANT: this is what makes social/footer icons align
+   perfectly with text on ALL platforms (including iOS). */
 .footer-links a {
     color: var(--bb-text-muted);
     font-size: 0.93rem;
     transition: 0.2s ease;
-    display: inline-flex;          /* <— THIS is key for iOS social icons */
+    display: inline-flex;
     align-items: center;
     gap: 6px;
 }
@@ -633,11 +650,10 @@ footer.site-footer::before {
     text-shadow: 0 0 6px rgba(102, 170, 255, 0.6);
 }
 
-/* Social vertical layout */
+/* Social vertical */
 .footer-social-vertical li {
     margin-bottom: 10px;
 }
-
 
 /* Footer bottom */
 .footer-bottom {
