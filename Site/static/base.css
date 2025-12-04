@@ -809,6 +809,7 @@ svg {
     text-rendering: geometricPrecision;
     image-rendering: optimizeQuality;
     -webkit-backface-visibility: hidden;
+    display: inline-block;
 }
 
 svg.nav-icon,
@@ -835,3 +836,4 @@ svg.footer-header-icon {
     flex-shrink: 0;
     stroke: currentColor;
 }
+
