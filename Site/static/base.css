@@ -851,6 +851,15 @@ svg {
    z-index: 2;
 }
 
+/* Fix Safari baseline misalignment for icons in links */
+.footer-icon,
+.footer-header-icon,
+.nav-icon {
+    vertical-align: middle;
+    position: relative;
+    top: 1px; /* Adjust between 1–2px depending on appearance */
+}
+
 
 
 
