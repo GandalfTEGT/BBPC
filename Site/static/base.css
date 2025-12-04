@@ -785,6 +785,20 @@ html[data-theme="light"] footer.site-footer {
     opacity: 0.7;
 }
 
+.nav-icon-img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 4px;
+    opacity: 0.8;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.nav-link:hover .nav-icon-img {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
 /* ===============================
      MOBILE MENU
    =============================== */
@@ -882,6 +896,7 @@ button:hover .bb-icon {
         filter: drop-shadow(0 0 0px rgba(102,170,255,0.0));
     }
 }
+
 
 
 
