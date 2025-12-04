@@ -602,3 +602,27 @@ html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
         animation-duration: 0.01ms !important;
     }
 }
+
+/* FORCE all BB icons to a fixed size – Safari-safe */
+.nav-icon,
+.footer-icon,
+.footer-header-icon {
+    width: 22px !important;
+    height: 22px !important;
+    flex-shrink: 0;
+    stroke-width: 2;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: 1px; /* optional fine-tuning */
+}
+
+/* Smaller on mobile */
+@media (max-width: 900px) {
+    .nav-icon,
+    .footer-icon,
+    .footer-header-icon {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}
