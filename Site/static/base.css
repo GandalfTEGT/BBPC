@@ -614,7 +614,6 @@ html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    bottom: 1px;
 }
 
 
@@ -625,6 +624,59 @@ html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
     .footer-header-icon {
         position: relative;
         top: -1px;   /* move up slightly */
+    }
+}
+
+/* ============================================================
+   ICON ALIGNMENT — FINAL 3-TIER FIX
+   ============================================================ */
+
+/* Base icon rendering */
+.nav-icon,
+.footer-icon,
+.footer-header-icon {
+    width: 22px !important;
+    height: 22px !important;
+    flex-shrink: 0;
+    stroke-width: 2;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: 0; /* default baseline */
+}
+
+/* ------------------------------------------------------------
+   1) FULL DESKTOP (1100px+) — slight lift
+------------------------------------------------------------ */
+@media (min-width: 1100px) {
+    .nav-icon,
+    .footer-icon,
+    .footer-header-icon {
+        top: -1px;
+    }
+}
+
+/* ------------------------------------------------------------
+   2) SMALL DESKTOP / TABLETS (901px–1099px)
+      Needs higher lift than desktop
+------------------------------------------------------------ */
+@media (max-width: 1099px) {
+    .nav-icon,
+    .footer-icon,
+    .footer-header-icon {
+        top: -2px;
+    }
+}
+
+/* ------------------------------------------------------------
+   3) iOS SAFARI FIX (iPhone/iPad)
+      iOS draws SVGs too high. Push them down.
+------------------------------------------------------------ */
+@supports (-webkit-touch-callout: none) {
+    .nav-icon,
+    .footer-icon,
+    .footer-header-icon {
+        top: 3px !important;
     }
 }
 
