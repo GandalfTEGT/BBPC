@@ -501,6 +501,11 @@ footer.site-footer::before {
     opacity: 0.8;
 }
 
+.footer-icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.75;
+}
 /* ===========================
    Accordion content sections
    =========================== */
@@ -814,6 +819,7 @@ button:hover .bb-icon {
         filter: drop-shadow(0 0 0px rgba(102,170,255,0.0));
     }
 }
+
 
 
 
