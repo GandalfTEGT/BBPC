@@ -645,6 +645,8 @@ footer.site-footer::before {
     display: flex;
     align-items: center;
     gap: 6px;
+    pointer-events: auto;
+    touch-action: manipulation;
 }
 
 /* Animated underline */
@@ -681,6 +683,9 @@ footer.site-footer::before {
 /* Accordion content sections (collapsed by default) */
 .footer-col-content {
     max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    display: block; /* Safari needs this to animate max-height */
     overflow: hidden;
     transition: max-height 0.35s ease;
 }
@@ -848,5 +853,6 @@ svg.footer-header-icon {
         height: 18px !important;
     }
 }
+
 
 
