@@ -173,3 +173,37 @@ if (typeof module !== 'undefined' && module.exports) {
     };
 
 }
+
+/* ============================================================
+   HEADER INTERACTIONS
+   ============================================================ */
+
+const bbHeader = document.getElementById("bb-header");
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+    const current = window.scrollY;
+
+    // Shrink
+    if (current > 40) {
+        bbHeader.classList.add("shrink");
+    } else {
+        bbHeader.classList.remove("shrink");
+    }
+
+    // Glow
+    if (current > 120) {
+        bbHeader.classList.add("glow");
+    } else {
+        bbHeader.classList.remove("glow");
+    }
+
+    // Auto-hide
+    if (current > lastScroll && current > 150) {
+        bbHeader.classList.add("hide");
+    } else {
+        bbHeader.classList.remove("hide");
+    }
+
+    lastScroll = current;
+});
