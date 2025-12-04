@@ -614,7 +614,7 @@ html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    top: 1px;
+    top: 2px;
 }
 
 
@@ -627,6 +627,7 @@ html[data-theme="light"] footer.site-footer { background: #f7f7f7; }
         top: -1px;   /* move up slightly */
     }
 }
+
 
 
 
