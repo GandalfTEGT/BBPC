@@ -807,7 +807,7 @@ html[data-theme="light"] .footer-bottom {
 }
 
 /* ========================================================================
-   19. SAFARI SVG FIX
+   19. SAFARI-SAFE SVG + ICON NORMALIZATION
    ======================================================================== */
 
 svg {
@@ -818,47 +818,41 @@ svg {
     display: inline-block;
 }
 
-/* Proper class sizing */
-.nav-icon {
-    max-width: 22px;
-    max-height: 22px;
-}
-
-.footer-icon {
-    max-width: 20px;
-    max-height: 20px;
-}
-
+/* Universal icon baseline */
+.nav-icon,
+.footer-icon,
 .footer-header-icon {
-    max-width: 20px;
-    max-height: 20px;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+    stroke: currentColor;
+    fill: none;
 }
 
-/* Mobile-specific Safari-safe override */
+/* Desktop sizing */
+.nav-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.footer-header-icon,
+.footer-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Mobile sizing */
 @media (max-width: 900px) {
     .nav-icon,
-    .footer-icon,
-    .footer-header-icon {
-        width: 1px !important;      /* Safari ignores these intentionally */
-        height: 1px !important;     /* We set them tiny and scale them */
-        transform: scale(0.9) !important;  /* 22px → ~20px */
-        transform-origin: center center !important;
+    .footer-header-icon,
+    .footer-icon {
+        width: 18px;
+        height: 18px;
     }
 }
 
-.footer-col {
-     position: relative;
-   z-index: 2;
-}
 
-/* Fix Safari baseline misalignment for icons in links */
-.footer-icon,
-.footer-header-icon,
-.nav-icon {
-    vertical-align: middle;
-    position: relative;
-    top: 4px; /* Adjust between 1–2px depending on appearance */
-}
+
 
 
 
