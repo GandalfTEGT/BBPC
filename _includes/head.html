@@ -37,16 +37,25 @@
 <link rel="dns-prefetch" href="https://assets.mailerlite.com">
 
 <link rel="preload" href="/images/LogoFull.png" as="image">
-<link rel="preload" href="/Site/static/base.css" as="style">
+<link rel="preload" href="/static/base.css" as="style">
 <link rel="preload" href="/favicon.ico" as="image">
 
 <!-- Core styles -->
-<link rel="stylesheet" href="/Site/static/base.css">
-<link rel="stylesheet" href="/Site/static/dark-theme.css">
-<link rel="stylesheet" href="/Site/static/embeds.css">
-<link rel="stylesheet" href="/Site/static/home.css">
-<link rel="stylesheet" href="/Site/static/warranty.css">
-<link rel="stylesheet" href="/Site/static/airflow.css">
+<link rel="stylesheet" href="/static/base.css">
+<link rel="stylesheet" href="/static/dark-theme.css">
+<link rel="stylesheet" href="/static/embeds.css">
+
+{% if page.url == "/" or page.url == "/index.html" %}
+<link rel="stylesheet" href="/static/home.css">
+{% endif %}
+
+{% if page.url contains "/legal/" or page.url == "/docs/" %}
+<link rel="stylesheet" href="/static/legal.css">
+{% endif %}
+
+{% if page.url contains "/airflow/" %}
+<link rel="stylesheet" href="/static/airflow.css">
+{% endif %}
 
 <!-- Favicon & Icons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -113,18 +122,18 @@
 {% endif %}
 
 <!-- Core scripts -->
-<script src="/Site/static/scripts/main.js" defer></script>
-<script src="/Site/static/scripts/cookie-banner.js" defer></script>
+<script src="/static/scripts/main.js" defer></script>
+<script src="/static/scripts/cookie-banner.js" defer></script>
 
 <!-- Page-specific scripts -->
 {% if page.url == "/" or page.url == "/index.html" %}
-  <script src="/Site/static/scripts/home.js" defer></script>
+  <script src="/static/scripts/home.js" defer></script>
 {% endif %}
 
 {% if page.url contains "/legal/" or page.url == "/docs/" %}
-  <script src="/Site/static/scripts/warranty.js" defer></script>
+  <script src="/static/scripts/legal.js" defer></script>
 {% endif %}
 
 {% if page.url contains "/tools/airflow" %}
-  <script src="/Site/static/scripts/airflow.js" defer></script>
+  <script src="/static/scripts/airflow.js" defer></script>
 {% endif %}
