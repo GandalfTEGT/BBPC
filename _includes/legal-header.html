@@ -1,0 +1,36 @@
+<!-- ============================================================
+     BONNIEBYTE PC - LEGAL PAGE HEADER INCLUDE
+     Inserts: Last Updated Date + Owner/Website/Email block
+     Used in: Privacy Policy, Cookie Policy, Terms of Service, Warranty, Returns, etc.
+     ============================================================ -->
+
+<!-- Auto-updating Last Updated date -->
+<p><strong>Last Updated:</strong> {{ page.date | date: "%-d %B %Y" }}</p>
+
+<!-- Owner / Website / Email block -->
+<p>
+  <strong>Owner:</strong> BonnieByte PC<br>
+  <strong>Website:</strong> 
+  <a href="https://www.bonniebytepc.com">https://www.bonniebytepc.com</a><br>
+  <strong>Email:</strong> 
+  <a href="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a>
+</p>
+
+<!-- Optional SEO structured data for legal documents -->
+{%- comment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ page.title }}",
+  "description": "{{ page.description | default: 'Legal information for BonnieByte PC.' }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "BonnieByte PC",
+    "url": "https://www.bonniebytepc.com",
+    "email": "help@bonniebytepc.com"
+  }
+}
+</script>
+{%- endcomment -%}
