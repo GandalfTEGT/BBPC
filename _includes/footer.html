@@ -178,20 +178,23 @@
   </script>
 
   <script>
-    function doGTranslate(lang) {
-        if (!lang) return;
-    
-        function setLang() {
-            var sel = document.querySelector('.gtranslate select');
-            if (!sel) return setTimeout(setLang, 50);
-            sel.value = lang;
-            sel.dispatchEvent(new Event('change'));
-        }
-    
-        setLang();
-    }
+      function doGTranslate(lang) {
+          if (!lang) return;
+      
+          // Ensure format: "en|fr"
+          let full = "en|" + lang;
+      
+          function attempt() {
+              const sel = document.querySelector('.gtranslate select');
+              if (!sel) return setTimeout(attempt, 50);
+      
+              sel.value = full;
+              sel.dispatchEvent(new Event('change'));
+          }
+      
+          attempt();
+      }
   </script>
 
-  
+  <div class="gtranslate" style="display:none;"></div>  
 </footer>
-<div class="gtranslate" style="display:none;"></div>
