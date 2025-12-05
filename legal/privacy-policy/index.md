@@ -7,8 +7,8 @@ title: Privacy Policy | BonnieByte PC
         <h1>Privacy Policy</h1>
         <p><strong>Last Updated:</strong> 3 December 2025</p>
         <p><strong>Owner:</strong> BonnieByte PC</p>
-        <p><strong>Website:</strong> https://www.bonniebytepc.com</p>
-        <p><strong>Email:</strong> help@bonniebytepc.com</p>
+        <p><strong>Website:</strong> <a href="/">https://www.bonniebytepc.com</a></p>
+        <p><strong>Email:</strong> <a hre="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a></p>
         <h2>1. Who We Are</h2>
         <p>
             BonnieByte PC is a UK-based PC components brand that sells high-quality cooling
@@ -18,7 +18,7 @@ title: Privacy Policy | BonnieByte PC
         <h2>2. What This Policy Covers</h2>
         <p>This policy applies to:</p>
         <ul>
-            <li>Our website (bonniebytepc.com)</li>
+            <li>Our website (<a href="/">bonniebytepc.com</a>)</li>
             <li>Amazon customers who contact us for support</li>
             <li>Emails sent to hello@, help@, support@, warranty@, orders@, returns@, sales@, or any other email address with the <strong>"@bonniebytepc.com"</strong> domain</li>
             <li>Future purchases made through our Shopify store</li>
@@ -113,7 +113,6 @@ title: Privacy Policy | BonnieByte PC
             Updates will appear here with a new “Last Updated” date.
         </p>
         <h2>14. Contact Us</h2>
-        <p><strong>Email:</strong> help@bonniebytepc.com</p>
-        <p><strong>Address:</strong> 14 Greenbank Place, Dundee, DD2 2DE, UK</p>
+        <p><strong>Email:</strong> <a href="mailtp:help@bonniebytepc.com">help@bonniebytepc.com</a></p>
     </div>
 </div>
