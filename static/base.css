@@ -228,88 +228,32 @@ section {
     color: #fff;
 }
 
+
 /* ========================================================================
    8.1 LANGUAGE SELECT 
    ======================================================================== */
 
-/* DESKTOP LANGUAGE SELECT */
+/* DESKTOP LANGUAGE SELECT - circular, matches theme toggle */
 .lang-select select {
     background: transparent;
-    color: #fff;
-    border: 1px solid #444;
-    padding: 4px 6px;
-    border-radius: 4px;
-    font-family: inherit;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-.lang-select select:hover {
-    border-color: var(--bb-blue);
-}
-
-/* Mobile theme + language row */
-.mobile-theme-container {
-    display: none;
-}
-
-/* Visible only on mobile */
-@media (max-width: 900px) {
-
-    .mobile-theme-container {
-        display: flex;              /* INLINE layout */
-        align-items: center;
-        gap: 12px;                  /* spacing between theme toggle + select */
-        width: 100%;
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid var(--bb-border);
-    }
-
-    /* Mobile language select styled like theme toggle */
-    .mobile-theme-container select {
-        background: transparent;
-        border: 2px solid var(--bb-blue);
-        height: 42px;
-        padding: 0 14px;
-        border-radius: 6px;
-        color: var(--bb-blue);
-        font-weight: bold;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: 0.25s ease;
-    }
-
-    .mobile-theme-container select:hover,
-    .mobile-theme-container select:focus {
-        background: var(--bb-blue);
-        color: #fff;
-    }
-}
-
-
-/* Hide desktop language selector on mobile */
-@media (max-width: 900px) {
-    .lang-select {
-        display: none !important;
-    }
-   
-    .header-nav {
-     overflow-y: auto;
-     overflow-x: hidden; /* ensures nothing bleeds outside */
-    }
-}
-
-/* DESKTOP LANGUAGE SWITCHER - MATCH THEME TOGGLE */
-.lang-select select {
-    background: transparent;
-    border: 2px solid var(--bb-blue);
-    padding: 6px 14px;
-    border-radius: 50px;
     color: var(--bb-blue);
+    border: 2px solid var(--bb-blue);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-family: inherit;
     font-weight: bold;
     cursor: pointer;
     transition: 0.25s ease;
+    text-align: center;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Center the text inside the circle */
+.lang-select select option {
+    text-align: center;
 }
 
 .lang-select select:hover {
@@ -317,6 +261,70 @@ section {
     color: #fff;
 }
 
+/* Base: hidden on desktop for mobile container, shown in media query */
+.mobile-theme-container {
+    display: none;
+}
+
+/* MOBILE-ONLY HEADER CONTROLS (theme + language inline) */
+@media (max-width: 900px) {
+
+    /* Inline row inside mobile nav drawer */
+    .mobile-theme-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--bb-border);
+    }
+
+    /* Mobile language select - circular like theme toggle */
+    .mobile-theme-container select {
+        background: transparent;
+        color: var(--bb-blue);
+        border: 2px solid var(--bb-blue);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        font-family: inherit;
+        font-weight: bold;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: 0.25s ease;
+        text-align: center;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .mobile-theme-container select option {
+        text-align: center;
+    }
+
+    .mobile-theme-container select:hover,
+    .mobile-theme-container select:focus {
+        background: var(--bb-blue);
+        color: #fff;
+    }
+
+    /* Hide desktop language selector on mobile */
+    .lang-select {
+        display: none !important;
+    }
+
+    /* Hide desktop theme toggle on mobile (use mobile one instead) */
+    .header-actions #theme-toggle {
+        display: none !important;
+    }
+
+    /* Ensure nav drawer content doesn't bleed outside */
+    .header-nav {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
 
 
 /* ========================================================================
@@ -352,28 +360,12 @@ section {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-.mobile-theme-container {
-    display: none;
-}
-
 @media (max-width: 900px) {
     .mobile-menu-toggle {
         display: flex;
     }
-
-    .mobile-theme-container {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding-top: 20px;
-        margin-top: 20px;
-        border-top: 1px solid var(--bb-border);
-    }
-
-    .header-actions #theme-toggle {
-        display: none !important;
-    }
 }
+
 
 /* ========================================================================
    10. SCROLL PROGRESS
@@ -512,7 +504,7 @@ svg {
     font-weight: 500;
     display: flex;
     gap: 6px;
-    align-items: center; /* flex aligns icon + label perfectly */
+    align-items: center;
     position: relative;
     padding: 2px 0;
     transition: 0.25s ease;
@@ -593,7 +585,7 @@ svg {
     }
 }
 
-/* Light-theme frosted glass mobile drawer (Option C) */
+/* Light-theme frosted glass mobile drawer */
 @media (max-width: 900px) {
     html[data-theme="light"] .header-nav {
         background: rgba(255, 255, 255, 0.88);
@@ -637,7 +629,7 @@ footer.site-footer::before {
     opacity: 0.5;
 }
 
-/* 4 → 2 → 1 layout, predictable across zoom levels */
+/* 4 → 2 → 1 layout */
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -722,8 +714,6 @@ footer.site-footer::before {
     margin-bottom: 8px;
 }
 
-/* IMPORTANT: this is what makes social/footer icons align
-   perfectly with text on ALL platforms (including iOS). */
 .footer-links a {
     color: var(--bb-text-muted);
     font-size: 0.93rem;
@@ -768,6 +758,7 @@ footer.site-footer::before {
     scroll-margin-top: 100px;
 }
 
+
 /* ========================================================================
    15. LIGHT THEME OVERRIDES
    ======================================================================== */
@@ -808,10 +799,3 @@ html[data-theme="light"] footer.site-footer {
         animation-duration: 0.01ms !important;
     }
 }
-
-
-
-
-
-
-
