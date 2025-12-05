@@ -51,15 +51,12 @@ title: Cookie Policy | BonnieByte PC
             <li><strong>Browser settings:</strong> You can block or delete cookies using your browser’s privacy options. This may affect functionality on some websites, but will not affect essential cookies on ours.</li>
             <li><strong>The cookie banner:</strong> When you first visit our site, you can choose to accept or reject optional cookies. At this time, we only use essential cookies, so rejecting optional cookies will not affect your experience.</li>
             <li><strong>Reset cookie preferences:</strong> You can reset your decision at any time using the “Reset Cookie Preferences” button below. 
-                <button id="bbpc-scroll-to-reset" class="bbpc-btn bbpc-btn-secondary">
+                <button id="bbpc-scroll-to-reset" class="button button-secondary">
                     Go to Cookie Reset Options
                 </button> 
 This will remove your previous choice and show the cookie banner again on your next visit.</li>
             <li><strong>Reset cookie preferences (footer link):</strong> You can also access the reset option from any page on our website using the “Change Cookie Settings” link found in the footer.</li>
         </ul>
-        <button id="bbpc-reset-cookie-consent" class="bbpc-btn bbpc-btn-secondary">
-            Reset Cookie Preferences
-        </button>
         <p>
             This allows you to withdraw consent or change your preference easily if we introduce optional 
             analytics or other non-essential cookies in the future.
