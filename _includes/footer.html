@@ -75,7 +75,6 @@
       <ul class="footer-links footer-col-content footer-social-vertical">
         <li>
           <a href="https://instagram.com/bonniebytepc" target="_blank">
-            <!-- Instagram -->
             <svg class="footer-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" preserveAspectRatio="xMidYMid meet" width="20" height="20">
               <rect x="5" y="5" width="14" height="14" rx="4" />
               <circle cx="12" cy="12" r="3" />
@@ -87,7 +86,6 @@
 
         <li>
           <a href="https://tiktok.com/@bonniebytepc" target="_blank">
-            <!-- BB TikTok Icon -->
             <svg class="footer-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" preserveAspectRatio="xMidYMid meet" width="20" height="20">
               <path d="M10 4V14.5" />
               <circle cx="10" cy="17.5" r="2.5" />
@@ -99,7 +97,7 @@
 
         <li>
           <a href="https://twitter.com/bonniebytepc" target="_blank">
-            <svg class="footer-icon" viewBox="0 0 24 24" stroke="currentColor"; fill="none"; preserveAspectRatio="xMidYMid meet" width="20" height="20">
+            <svg class="footer-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" preserveAspectRatio="xMidYMid meet" width="20" height="20">
               <defs>
                 <clipPath id="bbx-hide">
                   <rect x="0" y="0" width="24" height="24"/>
@@ -125,7 +123,6 @@
 
         <li>
           <a href="https://facebook.com/bonniebytepc" target="_blank">
-            <!-- Facebook -->
             <svg class="footer-icon" viewBox="0 0 24 24" stroke="currentColor" fill="none" preserveAspectRatio="xMidYMid meet" width="20" height="20">
               <rect x="5" y="5" width="14" height="14" rx="3" />
               <path d="M13 8H11.5C10.4 8 9.5 8.9 9.5 10V16" />
@@ -155,15 +152,16 @@
     <p>&copy; <span id="footer-year"></span> BonnieByte PC. All rights reserved.</p>
   </div>
 
+  <!-- Hidden wrapper for GTranslate widget (kept off-screen) -->
+  <div class="bb-lang-selector" aria-hidden="true"></div>
+
   <script>
     document.querySelectorAll(".footer-col-header").forEach(header => {
-    
-        // Safari needs an explicit button role + type to allow clicking inside grid layouts
         header.setAttribute("type", "button");
     
         header.addEventListener("click", (ev) => {
             ev.preventDefault();
-            ev.stopPropagation();  // Safari requires this to avoid grid click-cancelling
+            ev.stopPropagation();
     
             const expanded = header.getAttribute("aria-expanded") === "true";
             const content = header.nextElementSibling;
@@ -182,15 +180,15 @@
   <script>
     function doGTranslate(lang) {
         if (!lang) return;
-    
+
+        // accept "en" or "en|fr" styles
         var langCode = lang.includes('|') ? lang.split('|')[1] : lang;
-    
-        // Find GTranslate's hidden <select>
-        var selector = document.querySelector('.gtranslate select');
-    
-        if (selector) {
-            selector.value = langCode;
-            selector.dispatchEvent(new Event('change'));
+        langCode = langCode.toLowerCase();
+
+        if (window.gtranslateSettings && typeof window.gtranslateSettings.switchLanguage === "function") {
+            window.gtranslateSettings.switchLanguage(langCode);
+        } else {
+            console.warn("GTranslate not ready, cannot switch language to:", langCode);
         }
     }
   </script>
