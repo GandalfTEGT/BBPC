@@ -241,9 +241,37 @@ section {
    8.1 LANGUAGE DROPDOWN (shared desktop + mobile)
    ======================================================================== */
 
+/* Wrapper in the header (next to theme toggle) */
 .bb-lang-dropdown {
     position: relative;
-    margin-left: 12px;
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* Floating bar that appears just under the header */
+.bb-lang-menu {
+    position: fixed;
+    left: 50%;
+    top: 72px; /* JS will override with the exact header bottom when opened */
+    transform: translateX(-50%);
+    display: none;      /* shown when .bb-lang-dropdown.open is set */
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(10, 10, 10, 0.98);
+    border: 2px solid var(--bb-blue);
+    box-shadow: 0 0 18px rgba(102, 170, 255, 0.6);
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: min(420px, 100vw - 24px);
+    box-sizing: border-box;
+    z-index: 1200;
+}
+
+.bb-lang-dropdown.open .bb-lang-menu {
+    display: flex;
 }
 
 /* Base button style – circular, matches theme toggle */
@@ -299,46 +327,15 @@ section {
         inset 0 0 6px rgba(102, 170, 255, 0.4);
 }
 
-/* Menu positioning - horizontal bar under the header */
-.bb-lang-dropdown .bb-lang-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, 8px); /* small gap below header bottom */
-    display: none;
-    flex-direction: row;
-    padding: 8px 10px;
-    background: var(--bb-panel);
-    border: 2px solid var(--bb-blue);
-    border-radius: 999px; /* pill-shaped bar */
-    box-shadow: 0 0 12px rgba(102, 170, 255, 0.4);
-    z-index: 2000;
-    gap: 8px;
-}
-
-/* When open */
-.bb-lang-dropdown.open .bb-lang-menu {
-    display: flex;
-}
-
-
-/* Desktop: put the language options in a horizontal row under the header */
-@media (min-width: 901px) {
-    .bb-lang-menu {
-        flex-direction: row;  /* <– horizontal */
-        top: 56px;            /* visually under the header line */
-    }
-
-    .bb-lang-menu .lang-btn {
-        width: 46px;
-        height: 46px;
-    }
+/* Active button (visible one) */
+.bb-lang-toggle {
+    position: relative;
 }
 
 /* Mobile tweaks */
 @media (max-width: 900px) {
     .bb-lang-dropdown {
-        margin-left: 8px;
+        margin-left: 10px;
     }
 
     .lang-btn {
@@ -347,8 +344,8 @@ section {
     }
 
     .bb-lang-menu {
-        top: 48px;        /* just below the EN circle */
-        right: 0;
+        max-width: calc(100vw - 24px);
+        padding: 8px;
     }
 }
 
@@ -844,6 +841,7 @@ body .goog-te-banner-frame + .skiptranslate {
         animation-duration: 0.01ms !important;
     }
 }
+
 
 
 
