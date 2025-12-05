@@ -274,16 +274,13 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdown.classList.remove("open");
             activeBtn.setAttribute("aria-expanded", "false");
 
-            // Trigger translation using GTranslate's own function
+            // Trigger translation via hidden Google widget
             if (typeof doGTranslate === "function") {
-                // GTranslate expects values like "en|fr"
-                doGTranslate("en|" + lang);
-            } else if (window.gtranslateSettings && typeof window.gtranslateSettings.switchLanguage === "function") {
-                window.gtranslateSettings.switchLanguage(lang);
+                doGTranslate(lang); // "en", "gd", "fr", "de", "es"
             }
-
         });
     });
+
 
     // Close on outside click
     document.addEventListener("click", (e) => {
@@ -293,11 +290,20 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Initialise from GTranslate cookie if present
-    const match = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
-    const initialLang = match ? match[1] : (window.gtranslateSettings && window.gtranslateSettings.default_language) || "en";
+    // Initialise from Google Translate cookie if present
+    const match = document.cookie.match(/googtrans=\/([^;]+)/);
+    let initialLang = "en";
+
+    if (match && match[1]) {
+        // cookie looks like "/en/fr" or "/en/de"
+        const parts = match[1].split("/");
+        initialLang = parts[parts.length - 1] || "en";
+    }
+
     setActiveLangUI(initialLang);
 });
+
+
 
 
 
