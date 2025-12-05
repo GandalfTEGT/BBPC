@@ -6,8 +6,8 @@ title: Home | BonnieByte PC
     <div class="container hero-inner">
         <div class="hero-main">
             <picture>
-                <source srcset="/Site/images/LogoFull.webp" type="image/webp">
-                <img src="/Site/images/LogoFull.png" alt="Bonnie Byte PC" class="hero-logo">
+                <source srcset="/images/LogoFull.webp" type="image/webp">
+                <img src="/images/LogoFull.png" alt="Bonnie Byte PC" class="hero-logo">
             </picture>
             <p class="hero-tagline">Certified Performance, Crafted with Scottish Pride.</p>
             <p class="hero-subtitle">
@@ -245,16 +245,16 @@ title: Home | BonnieByte PC
         <p>Follow along for updates, build pics, and future product drops.</p>
         <div class="social-links">
             <a href="https://instagram.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
-                <img src="/Site/images/icons/Instagram.png" width="56" style="display:block;">
+                <img src="/images/icons/instagram.png" width="56" style="display:block;">
             </a>
             <a href="https://tiktok.com/@bonniebytepc" target="_blank" rel="noopener noreferrer">
-                <img src="/Site/images/icons/TikTok.png" width="47" style="display:block;">
+                <img src="/images/icons/tiktok.png" width="47" style="display:block;">
             </a>
             <a href="https://twitter.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
-                <img src="/Site/images/icons/Twitter.png" width="64" style="display:block;">
+                <img src="/images/icons/twitter.png" width="64" style="display:block;">
             </a>
             <a href="https://facebook.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
-                <img src="/Site/images/icons/Facebook.png" width="30" style="display:block;">
+                <img src="/images/icons/facebook.png" width="30" style="display:block;">
             </a>
         </div>
     </div>
