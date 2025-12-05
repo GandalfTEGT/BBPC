@@ -3,14 +3,13 @@ function initializeTheme() {
     const themeIcon = themeToggle?.querySelector('.theme-icon');
     if (!themeToggle || !themeIcon) return;
 
-    const mobileToggle = document.getElementById('theme-toggle-mobile');
-
-    // ---- Helper functions ----
+    // single shared toggle for desktop + mobile now
+    const mobileToggle = null;
 
     function persistTheme(theme) {
         try {
             if (typeof BBCookies !== "undefined") {
-                BBCookies.set("bb_theme", theme, 365);  
+                BBCookies.set("bb_theme", theme, 365);
             }
         } catch (e) {
             console.warn("BB theme cookie error:", e);
@@ -20,7 +19,6 @@ function initializeTheme() {
     function readInitialTheme() {
         let theme = null;
 
-        // 1) Cookie takes priority
         try {
             if (typeof BBCookies !== "undefined") {
                 const cookieTheme = BBCookies.get("bb_theme");
@@ -30,7 +28,6 @@ function initializeTheme() {
             }
         } catch (e) {}
 
-        // 2) Fallback: system preference
         if (!theme) {
             const prefersDark = window.matchMedia &&
                 window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -46,7 +43,6 @@ function initializeTheme() {
         persistTheme(theme);
     }
 
-    // ---- Initial Theme Load ----
     const initialTheme = readInitialTheme();
     applyTheme(initialTheme);
 
@@ -56,11 +52,9 @@ function initializeTheme() {
         applyTheme(nextTheme);
     }
 
-    // ---- Event Listeners ----
     themeToggle.addEventListener('click', toggleTheme);
     if (mobileToggle) mobileToggle.addEventListener('click', toggleTheme);
 }
-
 
 
 // Mobile menu functionality
@@ -105,6 +99,7 @@ function initializeMobileMenu() {
     });
 }
 
+
 // Scroll progress functionality
 function initializeScrollProgress() {
     const scrollProgress = document.querySelector('.scroll-progress');
@@ -121,6 +116,7 @@ function initializeScrollProgress() {
     });
 }
 
+
 // Header scroll behavior
 function initializeHeaderScroll() {
     const siteHeader = document.querySelector('.site-header');
@@ -136,6 +132,7 @@ function initializeHeaderScroll() {
     });
 }
 
+
 // Make header logo clickable to scroll to top
 function initializeHeaderLogo() {
     const headerLogo = document.querySelector('.header-logo');
@@ -150,21 +147,25 @@ function initializeHeaderLogo() {
     }
 }
 
+
 // Smooth scrolling for anchor links
 function initializeSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (!target) return;
+
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         });
     });
 }
+
 
 // Initialize all general functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -188,17 +189,19 @@ if (typeof module !== 'undefined' && module.exports) {
         initializeHeaderLogo,
         initializeSmoothScrolling
     };
-
 }
 
+
 /* ============================================================
-   HEADER INTERACTIONS
+   HEADER INTERACTIONS (extra shrink/hide behavior)
    ============================================================ */
 
 const bbHeader = document.getElementById("bb-header");
 let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
+    if (!bbHeader) return;
+
     const current = window.scrollY;
 
     // Shrink
@@ -225,29 +228,71 @@ window.addEventListener("scroll", () => {
     lastScroll = current;
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const dropdown = document.querySelector(".lang-dropdown");
-    const activeBtn = document.querySelector("#active-lang-btn");
-    const activeFlag = document.querySelector("#active-lang-flag");
-    const activeCode = document.querySelector("#active-lang-code");
 
-    activeBtn.addEventListener("click", () => {
-        dropdown.classList.toggle("open");
+/* ============================================================
+   LANGUAGE DROPDOWN LOGIC (shared desktop + mobile)
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdown   = document.querySelector(".bb-lang-dropdown");
+    const activeBtn  = document.getElementById("bb-active-lang");
+    const activeFlag = document.getElementById("bb-active-flag");
+    const activeCode = document.getElementById("bb-active-code");
+    const menu       = document.getElementById("bb-lang-menu");
+
+    if (!dropdown || !activeBtn || !activeFlag || !activeCode || !menu) return;
+
+    function setActiveLangUI(lang) {
+        const code = (lang || "en").toLowerCase();
+        const btn = menu.querySelector(`.bb-lang-option[data-lang="${code}"]`);
+        if (!btn) return;
+
+        menu.querySelectorAll(".bb-lang-option").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const img = btn.querySelector("img");
+        if (img) {
+            activeFlag.src = img.src;
+            activeFlag.alt = img.alt || code.toUpperCase();
+        }
+        activeCode.textContent = code.toUpperCase();
+    }
+
+    // Toggle dropdown
+    activeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle("open");
+        activeBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    document.querySelectorAll(".lang-menu .lang-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-
-            const code = btn.dataset.lang.toUpperCase();
-            const img = btn.querySelector("img").src;
-
-            activeFlag.src = img;
-            activeCode.textContent = code;
-
+    // Option click
+    menu.querySelectorAll(".bb-lang-option").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const lang = btn.dataset.lang;
+            setActiveLangUI(lang);
             dropdown.classList.remove("open");
+            activeBtn.setAttribute("aria-expanded", "false");
+
+            // Trigger translation
+            if (typeof doGTranslate === "function") {
+                doGTranslate(lang);
+            } else if (window.gtranslateSettings && typeof window.gtranslateSettings.switchLanguage === "function") {
+                window.gtranslateSettings.switchLanguage(lang);
+            }
         });
     });
+
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".bb-lang-dropdown")) {
+            dropdown.classList.remove("open");
+            activeBtn.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    // Initialise from GTranslate cookie if present
+    const match = document.cookie.match(/googtrans=\/auto\/([a-z]+)/);
+    const initialLang = match ? match[1] : (window.gtranslateSettings && window.gtranslateSettings.default_language) || "en";
+    setActiveLangUI(initialLang);
 });
-
-
-
