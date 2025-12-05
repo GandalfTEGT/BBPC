@@ -178,21 +178,33 @@
   </script>
 
   <script>
-      function doGTranslate(langPair) {
-          if (!langPair) return;
-  
-          function attempt() {
-              const sel = document.querySelector('.gtranslate select');
-              if (!sel) return setTimeout(attempt, 50);
-  
-              // langPair should already look like "en|fr"
-              sel.value = langPair;
-              sel.dispatchEvent(new Event('change'));
+      function doGTranslate(lang) {
+          if (!lang) return;
+      
+          // ensure "en|xx" format
+          let pair = lang.includes("|") ? lang : `en|${lang}`;
+      
+          function apply() {
+              // Try v2 API first
+              if (window.gtranslateSettings && typeof window.gtranslateSettings.switchLanguage === "function") {
+                  window.gtranslateSettings.switchLanguage(pair.split("|")[1]);
+                  return;
+              }
+      
+              // Otherwise fallback to pushing value into hidden select
+              const sel = document.querySelector(".gtranslate select");
+              if (!sel) {
+                  return setTimeout(apply, 50);
+              }
+      
+              sel.value = pair;
+              sel.dispatchEvent(new Event("change"));
           }
-  
-          attempt();
+      
+          apply();
       }
   </script>
+
 
 
   <div class="gtranslate" style="display:none;"></div>  
