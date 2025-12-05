@@ -1,4 +1,3 @@
-// Theme toggle functionality
 function initializeTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle?.querySelector('.theme-icon');
@@ -6,30 +5,22 @@ function initializeTheme() {
 
     const mobileToggle = document.getElementById('theme-toggle-mobile');
 
-    // --- Helpers using cookies + localStorage ---
+    // ---- Helper functions ----
 
     function persistTheme(theme) {
-        // Cookie (essential UX)
         try {
             if (typeof BBCookies !== "undefined") {
-                BBCookies.set("bb_theme", theme, 365);
+                BBCookies.set("bb_theme", theme, 365);  
             }
         } catch (e) {
             console.warn("BB theme cookie error:", e);
-        }
-
-        // Keep your existing localStorage behaviour for safety
-        try {
-            localStorage.setItem('theme', theme);
-        } catch (e) {
-            // ignore
         }
     }
 
     function readInitialTheme() {
         let theme = null;
 
-        // 1) Cookie wins if present
+        // 1) Cookie takes priority
         try {
             if (typeof BBCookies !== "undefined") {
                 const cookieTheme = BBCookies.get("bb_theme");
@@ -37,28 +28,13 @@ function initializeTheme() {
                     theme = cookieTheme;
                 }
             }
-        } catch (e) {
-            console.warn("BB theme cookie read error:", e);
-        }
+        } catch (e) {}
 
-        // 2) Fallback to previous localStorage behaviour
+        // 2) Fallback: system preference
         if (!theme) {
-            try {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark' || savedTheme === 'light') {
-                    theme = savedTheme;
-                }
-            } catch (e) {
-                // ignore
-            }
-        }
-
-        // 3) Finally, system preference or default light
-        if (!theme) {
-            const prefersDark =
-                window.matchMedia &&
+            const prefersDark = window.matchMedia &&
                 window.matchMedia('(prefers-color-scheme: dark)').matches;
-            theme = prefersDark ? 'dark' : 'light';
+            theme = prefersDark ? "dark" : "light";
         }
 
         return theme;
@@ -66,30 +42,25 @@ function initializeTheme() {
 
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        const icon = theme === 'dark' ? '☀️' : '🌙';
-        themeIcon.textContent = icon;
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
         persistTheme(theme);
     }
 
-    // --- Initial setup ---
+    // ---- Initial Theme Load ----
     const initialTheme = readInitialTheme();
     applyTheme(initialTheme);
 
-    // Toggle function
     function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme') === 'dark'
-            ? 'dark'
-            : 'light';
-        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
         applyTheme(nextTheme);
     }
 
-    // Listeners
+    // ---- Event Listeners ----
     themeToggle.addEventListener('click', toggleTheme);
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', toggleTheme);
-    }
+    if (mobileToggle) mobileToggle.addEventListener('click', toggleTheme);
 }
+
 
 
 // Mobile menu functionality
@@ -253,3 +224,4 @@ window.addEventListener("scroll", () => {
 
     lastScroll = current;
 });
+
