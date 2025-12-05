@@ -180,18 +180,18 @@
   <script>
     function doGTranslate(lang) {
         if (!lang) return;
-
-        // accept "en" or "en|fr" styles
-        var langCode = lang.includes('|') ? lang.split('|')[1] : lang;
-        langCode = langCode.toLowerCase();
-
-        if (window.gtranslateSettings && typeof window.gtranslateSettings.switchLanguage === "function") {
-            window.gtranslateSettings.switchLanguage(langCode);
-        } else {
-            console.warn("GTranslate not ready, cannot switch language to:", langCode);
+    
+        function setLang() {
+            var sel = document.querySelector('.gtranslate select');
+            if (!sel) return setTimeout(setLang, 50);
+            sel.value = lang;
+            sel.dispatchEvent(new Event('change'));
         }
+    
+        setLang();
     }
   </script>
+
   
 </footer>
 <div class="gtranslate" style="display:none;"></div>
