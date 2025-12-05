@@ -232,77 +232,71 @@ section {
    8.1 LANGUAGE SELECT 
    ======================================================================== */
 
+/* DESKTOP LANGUAGE SELECT */
 .lang-select select {
-  background: transparent;
-  color: #fff;
-  border: 1px solid #444;
-  padding: 4px 6px;
-  border-radius: 4px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.25s ease;
 }
 
-/* ------------------------------
-   MOBILE LANGUAGE SELECTOR
-   Matches theme toggle styling
------------------------------- */
+.lang-select select:hover {
+    border-color: var(--bb-blue);
+}
+
+/* MOBILE LANGUAGE SELECTOR — HIDDEN ON DESKTOP */
 .mobile-lang-select {
-  display: flex;
-  align-items: center;
-  margin-left: 12px;
+    display: none; /* Invisible on desktop */
 }
 
-.mobile-lang-select select {
-  appearance: none;
-  background: var(--header-bg, #111);
-  color: var(--header-text, #fff);
-  border: 1px solid var(--header-border, #333);
-  padding: 6px 10px;
-  font-size: 14px;
-  border-radius: 6px;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+/* MOBILE VISIBLE AREA */
+@media (max-width: 900px) {
+
+    /* Show only inside mobile navigation drawer */
+    .mobile-lang-select {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--bb-border);
+    }
+
+    /* MOBILE DROPDOWN — THEME-MATCHED STYLE (like theme toggle) */
+    .mobile-lang-select select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.1rem;
+        background: transparent;
+        border: 2px solid var(--bb-blue);
+        border-radius: 6px;
+        color: var(--bb-text);
+        cursor: pointer;
+        font-family: inherit;
+        transition: 0.25s ease;
+    }
+
+    .mobile-lang-select select:hover,
+    .mobile-lang-select select:focus {
+        background: var(--bb-blue);
+        color: #fff;
+    }
+
+    /* MOBILE DROPDOWN OPTIONS */
+    .mobile-lang-select select option {
+        background: #fff;
+        color: #000;
+    }
+
+    html[data-theme="dark"] .mobile-lang-select select option {
+        background: #222;
+        color: #fff;
+    }
 }
 
-/* Hover/Focus */
-.mobile-lang-select select:hover,
-.mobile-lang-select select:focus {
-  border-color: var(--accent-color, #6cf);
-  background: var(--header-hover-bg, #1a1a1a);
-}
-
-/* Dark mode variables */
-[data-theme="dark"] .mobile-lang-select select {
-  background: #111;
-  color: #fff;
-  border-color: #333;
-}
-
-[data-theme="dark"] .mobile-lang-select select:hover {
-  background: #1a1a1a;
-  border-color: #6cf;
-}
-
-/* Light mode variables */
-[data-theme="light"] .mobile-lang-select select {
-  background: #f2f2f2;
-  color: #111;
-  border-color: #ccc;
-}
-
-[data-theme="light"] .mobile-lang-select select:hover {
-  background: #e4e4e4;
-  border-color: #555;
-}
-
-/* Make dropdown options readable */
-.mobile-lang-select select option {
-  background: #fff;
-  color: #000;
-}
-[data-theme="dark"] .mobile-lang-select select option {
-  background: #222;
-  color: #fff;
-}
 
 /* ========================================================================
    9. MOBILE MENU TOGGLE
@@ -793,6 +787,7 @@ html[data-theme="light"] footer.site-footer {
         animation-duration: 0.01ms !important;
     }
 }
+
 
 
 
