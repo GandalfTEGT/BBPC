@@ -97,3 +97,26 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.append(banner);
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const resetBtn = document.getElementById("bbpc-reset-cookie-consent");
+    if (!resetBtn) return;
+
+    resetBtn.addEventListener("click", () => {
+        // Remove consent cookie
+        try {
+            if (typeof BBCookies !== "undefined") {
+                BBCookies.erase("bb_cookie_consent");
+            }
+        } catch (e) {}
+
+        // Remove old localStorage value just in case
+        localStorage.removeItem("bbpc_cookie_choice");
+
+        // Give user confirmation
+        alert("Your cookie preferences have been reset. The cookie banner will appear again on your next page load.");
+
+        // Optional: refresh immediately
+        // location.reload();
+    });
+});
