@@ -274,12 +274,14 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdown.classList.remove("open");
             activeBtn.setAttribute("aria-expanded", "false");
 
-            // Trigger translation
+            // Trigger translation using GTranslate's own function
             if (typeof doGTranslate === "function") {
-                doGTranslate(lang);
+                // GTranslate expects values like "en|fr"
+                doGTranslate("en|" + lang);
             } else if (window.gtranslateSettings && typeof window.gtranslateSettings.switchLanguage === "function") {
                 window.gtranslateSettings.switchLanguage(lang);
             }
+
         });
     });
 
@@ -292,9 +294,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Initialise from GTranslate cookie if present
-    const match = document.cookie.match(/googtrans=\/auto\/([a-z]+)/);
+    const match = document.cookie.match(/googtrans=\/[a-z]+\/([a-z]+)/);
     const initialLang = match ? match[1] : (window.gtranslateSettings && window.gtranslateSettings.default_language) || "en";
     setActiveLangUI(initialLang);
 });
+
 
 
