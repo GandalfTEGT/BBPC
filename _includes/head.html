@@ -141,3 +141,29 @@
 <!-- GTranslate -->
 <script>window.gtranslateSettings = {"default_language":"en","languages":["en","gd","es","de","fr"],"wrapper_selector":".bb-lang-selector"};</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    function setActiveLang(lang) {
+        document.querySelectorAll(".lang-btn").forEach(btn => {
+            btn.classList.toggle("active", btn.dataset.lang === lang);
+        });
+    }
+
+    // read cookie used by GTranslate
+    function getCurrentLang() {
+        let match = document.cookie.match(/googtrans=\/auto\/([a-z]+)/);
+        return match ? match[1] : "en";
+    }
+
+    setActiveLang(getCurrentLang());
+
+    window.addEventListener("click", function (e) {
+        if (e.target.closest(".lang-btn")) {
+            let lang = e.target.closest(".lang-btn").dataset.lang;
+            setActiveLang(lang);
+        }
+    });
+});
+</script>
