@@ -260,15 +260,17 @@ window.addEventListener("scroll", () => {
 });
 
 
-// ===============================
-// LANGUAGE DROPDOWN LOGIC
-// ===============================
+/* ============================================================
+   LANGUAGE DROPDOWN LOGIC (shared desktop + mobile)
+   ============================================================ */
+
 document.addEventListener("DOMContentLoaded", function () {
     const dropdown   = document.querySelector(".bb-lang-dropdown");
     const activeBtn  = document.getElementById("bb-active-lang");
     const activeFlag = document.getElementById("bb-active-flag");
     const activeCode = document.getElementById("bb-active-code");
     const menu       = document.getElementById("bb-lang-menu");
+    const headerEl   = document.getElementById("bb-header");
 
     if (!dropdown || !activeBtn || !activeFlag || !activeCode || !menu) return;
 
@@ -288,17 +290,35 @@ document.addEventListener("DOMContentLoaded", function () {
         activeCode.textContent = code.toUpperCase();
     }
 
+    function positionLangMenu() {
+        if (!menu) return;
+
+        let topPx = 72; // sensible fallback
+        if (headerEl) {
+            const rect = headerEl.getBoundingClientRect();
+            topPx = rect.bottom; // sit flush with bottom of header
+        }
+
+        menu.style.top = `${topPx}px`;
+    }
+
     // Toggle dropdown
     activeBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-
-        // if mobile menu is open, ignore clicks
-        if (document.documentElement.classList.contains('bb-menu-open')) {
-            return;
-        }
-
-        const isOpen = dropdown.classList.toggle("open");
+        const isOpen = !dropdown.classList.contains("open");
+        dropdown.classList.toggle("open", isOpen);
         activeBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+        if (isOpen) {
+            positionLangMenu();
+        }
+    });
+
+    // Re-position on resize while open
+    window.addEventListener("resize", () => {
+        if (dropdown.classList.contains("open")) {
+            positionLangMenu();
+        }
     });
 
     // Option click
@@ -312,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Trigger translation
             if (typeof doGTranslate === "function") {
-                doGTranslate(lang); // our footer helper wraps "en|lang"
+                doGTranslate(lang);
             } else if (window.gtranslateSettings && typeof window.gtranslateSettings.switchLanguage === "function") {
                 window.gtranslateSettings.switchLanguage(lang);
             }
@@ -329,6 +349,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialise from GTranslate cookie if present
     const match = document.cookie.match(/googtrans=\/auto\/([a-z]+)/);
-    const initialLang = match ? match[1] : (window.gtranslateSettings && window.gtranslateSettings.default_language) || "en";
+    const initialLang = match ? match[1] :
+        (window.gtranslateSettings && window.gtranslateSettings.default_language) || "en";
     setActiveLangUI(initialLang);
 });
+
+
