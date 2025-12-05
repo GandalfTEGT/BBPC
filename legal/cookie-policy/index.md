@@ -94,7 +94,7 @@ This will remove your previous choice and show the cookie banner again on your n
             You can change your cookie decision at any time. Clicking the button below will reset your
             cookie preferences and show the cookie banner again on your next page load.
         </p>
-        <button id="bbpc-reset-cookie-consent" class="bbpc-btn bbpc-btn-secondary">
+        <button id="bbpc-reset-cookie-consent" class="button">
             Reset Cookie Preferences
         </button>
         <p>
