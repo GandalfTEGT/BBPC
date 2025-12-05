@@ -2,6 +2,11 @@
 layout: legal
 title: Privacy Policy | BonnieByte PC
 date: 2025-12-05
+changelog:
+  - date: 5 December 2025
+    note: "Updated cookie categories and reset preference instructions."
+  - date: 21 November 2025
+    note: "Added MailerLite and reCAPTCHA explanations."
 ---
 <h2>1. Who We Are</h2>
 <p>
@@ -104,7 +109,14 @@ date: 2025-12-05
 </p>
 <h2>13. Changes to This Policy</h2>
 <p>
-    Updates will appear here with a new “Last Updated” date.
+    {% if page.changelog %}
+    <h3>Change History</h3>
+    <ul>
+      {% for entry in page.changelog %}
+        <li><strong>{{ entry.date }}</strong> — {{ entry.note }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 </p>
 <h2>14. Contact Us</h2>
 <p><strong>Email:</strong> <a href="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a></p>
