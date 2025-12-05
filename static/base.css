@@ -204,6 +204,14 @@ section {
     height: 60px;
 }
 
+/* Hide language dropdown when mobile menu is open */
+.header-nav.active ~ .header-actions .bb-lang-dropdown {
+    display: none !important;
+}
+
+.header-actions {
+    position: relative;
+}
 
 /* ========================================================================
    8. THEME TOGGLE
@@ -232,11 +240,25 @@ section {
 /* ========================================================================
    8.1 LANGUAGE DROPDOWN (shared desktop + mobile)
    ======================================================================== */
-
+/* Correct language dropdown container */
 .bb-lang-dropdown {
     position: relative;
-    margin-left: 10px;
+    margin-left: 12px;
 }
+
+/* Menu positioning (under the active button) */
+.bb-lang-dropdown .bb-lang-menu {
+    position: absolute;
+    top: 48px;      /* dropdown appears BELOW active button */
+    right: 0;       /* aligned to the right side */
+    display: none;
+}
+
+/* When open */
+.bb-lang-dropdown.open .bb-lang-menu {
+    display: flex;
+}
+
 
 /* Base button style – circular, matches theme toggle */
 .lang-btn {
@@ -296,22 +318,6 @@ section {
     position: relative;
 }
 
-/* Dropdown menu */
-.bb-lang-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 52px;
-    right: 0;
-    padding: 10px;
-    background: var(--bb-panel);
-    border: 2px solid var(--bb-blue);
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(102, 170, 255, 0.4);
-    z-index: 2000;
-    gap: 8px;
-}
-
 /* Show when open */
 .bb-lang-dropdown.open .bb-lang-menu {
     display: flex;
@@ -328,7 +334,7 @@ section {
         height: 40px;
     }
 
-    .bb-lang-menu {
+    .bb-lang-dropdown .bb-lang-menu {
         top: 48px;
     }
 }
@@ -802,3 +808,4 @@ html[data-theme="light"] footer.site-footer {
         animation-duration: 0.01ms !important;
     }
 }
+
