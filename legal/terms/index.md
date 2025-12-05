@@ -107,7 +107,7 @@ title: Terms of Service | BonnieByte PC
             These websites are not under our control, and we are not responsible for their content or
             privacy practices. We recommend reading their terms and privacy policies.
         </p>
-        <h3>7.1 Availability of the Website</h2>
+        <h3>7.1 Availability of the Website</h3>
         <p>
             While we strive to keep the BonnieByte PC website online and functioning at all times, 
             we do not guarantee uninterrupted availability or that the website will be free from errors.
