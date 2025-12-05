@@ -178,5 +178,21 @@
         });
     });
   </script>
- <!-- test -->
+
+  <script>
+    function doGTranslate(lang) {
+        if (!lang) return;
+    
+        var langCode = lang.includes('|') ? lang.split('|')[1] : lang;
+    
+        // Find GTranslate's hidden <select>
+        var selector = document.querySelector('.gtranslate select');
+    
+        if (selector) {
+            selector.value = langCode;
+            selector.dispatchEvent(new Event('change'));
+        }
+    }
+  </script>
+
 </footer>
