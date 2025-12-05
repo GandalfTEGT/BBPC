@@ -3,7 +3,7 @@ layout: default
 title: Support | BonnieByte PC
 ---
 <div class="container">
-    <div class="policy-container">
+    <div class="support-panel">
         <h1>Support</h1>
         <p>Need help with your BonnieByte PC product? You’re in the right place.</p>
         <h2>Contact Emails</h2>
