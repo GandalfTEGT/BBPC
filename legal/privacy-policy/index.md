@@ -8,7 +8,7 @@ title: Privacy Policy | BonnieByte PC
         <p><strong>Last Updated:</strong> 3 December 2025</p>
         <p><strong>Owner:</strong> BonnieByte PC</p>
         <p><strong>Website:</strong> <a href="/">https://www.bonniebytepc.com</a></p>
-        <p><strong>Email:</strong> <a hre="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a></p>
+        <p><strong>Email:</strong> <a href="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a></p>
         <h2>1. Who We Are</h2>
         <p>
             BonnieByte PC is a UK-based PC components brand that sells high-quality cooling
@@ -85,7 +85,7 @@ title: Privacy Policy | BonnieByte PC
         <h2>8. Your Rights</h2>
         <p>
             You can request access, correction, deletion, objection, or data portability at any time.
-            Simply email us at help@bonniebytepc.com.
+            Simply email us at <a href="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a>.
         </p>
         <h2>9. Children’s Data</h2>
         <p>We do not knowingly collect data from children under 13.</p>
@@ -113,6 +113,6 @@ title: Privacy Policy | BonnieByte PC
             Updates will appear here with a new “Last Updated” date.
         </p>
         <h2>14. Contact Us</h2>
-        <p><strong>Email:</strong> <a href="mailtp:help@bonniebytepc.com">help@bonniebytepc.com</a></p>
+        <p><strong>Email:</strong> <a href="mailto:help@bonniebytepc.com">help@bonniebytepc.com</a></p>
     </div>
 </div>
