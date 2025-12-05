@@ -1,101 +1,94 @@
 ---
-layout: default
+layout: legal
 title: 2-Year Warranty | BonnieByte PC
 ---
-<div class="container">
-    <div class="policy-container">
-        <h1>BonnieByte PC – 2-Year Limited Warranty</h1>
-        <p><strong>Effective Date:</strong> 15/11/2025</p>
-        <p><strong>Brand:</strong> BonnieByte PC</p>
-        <p><strong>Website:</strong> <a href="/">https://www.bonniebytepc.com</a></p>
-        <p><strong>Support Email:</strong> <a href="mailto:warranty@bonniebytepc.com">warranty@bonniebytepc.com</a></p>
-        <h2>1. Summary</h2>
-        <p>Your Northern Wind 120mm ARGB fan bundle is covered by a <strong>2-year limited warranty</strong> from the date of purchase. If anything goes wrong due to a manufacturing defect, we will repair it, replace the faulty component, or replace the full bundle when appropriate. Clear, fair, and no hassle.</p>
-        <h2>2. Who Is Covered?</h2>
-        <p>This warranty applies only to the <strong>original purchaser</strong>. Your product must be purchased from an authorised retailer, including our official Amazon UK store.</p>
-        <h2>3. What’s Covered?</h2>
-        <p>This warranty covers defects in materials or workmanship under normal use. This includes:</p>
-        <ul>
-            <li>A fan motor that fails or does not spin</li>
-            <li>Complete ARGB lighting failure (full ring not lighting)</li>
-            <li>Magnetic controller hub failure (no PWM, no power, no ARGB passthrough)</li>
-            <li>Faulty PWM or ARGB cables</li>
-        </ul>
-        <h2>4. What’s Not Covered?</h2>
-        <p>This warranty does not apply to faults caused by:</p>
-        <ul>
-            <li>Accidental damage (drops, impacts, liquid, crushed cables)</li>
-            <li>Improper installation, including forcing connector pins</li>
-            <li>Plugging ARGB into a 12V header (incorrect voltage)</li>
-            <li>Short circuits, exposed wires, or electrical misuse</li>
-            <li>Normal wear and tear or dust build-up</li>
-            <li>Small LED brightness variances or slight colour blending</li>
-            <li>Minor motor hum at very low RPM (normal PWM behaviour)</li>
-            <li>Fan ramping caused by BIOS fan curves (normal behaviour)</li>
-            <li>Unauthorised repairs or modifications</li>
-            <li>Damage from fire, storms, floods, or similar events</li>
-            <li>Products sold as used, refurbished, or “for parts”</li>
-        </ul>
-        <h2>5. The BonnieByte Promise</h2>
-        <p>We build our products to last — but on the rare chance something goes wrong, we fix it quickly and without hassle. No complicated processes, no arguing over tiny faults. Just fair, friendly, fast support.</p>
-        <h2>6. Quick Checks (Before Contacting Support)</h2>
-        <h3>RGB / Lighting Issues</h3>
-        <ul>
-            <li>Ensure ARGB is connected to a <strong>5V 3-pin</strong> header (NOT 12V RGB)</li>
-            <li>Check the alignment arrows on the connectors</li>
-            <li>Try a different ARGB port on the hub</li>
-            <li>Disable motherboard LED overrides if present</li>
-        </ul>
-        <h3>Fan Not Spinning</h3>
-        <ul>
-            <li>Ensure the PWM cable is fully inserted</li>
-            <li>Check BIOS settings are set to <strong>PWM mode</strong>, not DC</li>
-            <li>Swap the fan to a different hub port</li>
-            <li>Try a known-working cable</li>
-        </ul>
-        <h3>Hub Not Responding</h3>
-        <ul>
-            <li>Check SATA power is connected properly</li>
-            <li>Ensure both ARGB and PWM leads are connected</li>
-            <li>Check for hub LED power indicators</li>
-        </ul>
-        <p>If these steps don’t fix the issue, we’ll handle it from there.</p>
-        <h2>7. What We Will Do</h2>
-        <p>If your issue is covered by this warranty, we will choose the best solution:</p>
-        <h3>Component Replacement (Most Common)</h3>
-        <p>If only one component (fan, hub, or cable) is faulty, we will send a <strong>replacement component</strong> rather than a full bundle.</p>
-        <h3>Multiple Component Failure</h3>
-        <p>If two or more items in the bundle fail, we may replace the <strong>entire bundle</strong>.</p>
-        <h3>Dead on Arrival (First 30 Days)</h3>
-        <p>If your bundle arrives with major faults, we will replace the <strong>entire bundle</strong> at no cost.</p>
-        <h3>Refunds</h3>
-        <p>If repair or replacement is not possible, we may provide a refund.</p>
-        <h3>Replacement ETA</h3>
-        <p>Replacements are normally dispatched within <strong>1 working day</strong> after approval.</p>
-        <h2>8. Discounted Replacement (Accidental Damage)</h2>
-        <p>If the issue was caused by accidental damage (broken connector, bent pin, cable damage), we can still help by offering a <strong>discounted replacement part at cost price</strong>. No judgement — just support.</p>
-        <h2>9. Replacement Process</h2>
-        <h3>Standard Process</h3>
-        <p>We email you a <strong>pre-paid return label</strong>. After receiving and confirming the defect, we ship your replacement component or bundle.</p>
-        <h3>Advanced Replacement (At Our Discretion)</h3>
-        <p>To minimise downtime, we may send the replacement first and provide a return label for the faulty item. You must return the faulty part within 14 days, or a charge may apply.</p>
-        <h2>10. What We Need From You</h2>
-        <p>To help us diagnose the issue quickly, please provide:</p>
-        <ul>
-            <li><strong>A description of the problem</strong></li>
-            <li>Photos or a short video showing the issue</li>
-            <li>Proof of purchase (Amazon order number or receipt)</li>
-            <li>Your name and shipping address</li>
-        </ul>
-        <h2>11. Limitation of Liability</h2>
-        <p>To the fullest extent permitted by law, BonnieByte PC is not responsible for loss of data, loss of profits, or any incidental or consequential damages. This warranty works <strong>alongside</strong> your consumer rights and does not limit or replace them.</p>
-        <h2>12. Governing Law</h2>
-        <p>This warranty is governed by the laws of <strong>Scotland</strong>. If you live in England, Wales, or Northern Ireland, your local consumer rights still apply. Any disputes will normally be handled in Scottish courts unless your local law requires otherwise.</p>
-        <h2>13. Lifetime Support</h2>
-        <p>Even after your 2-year warranty expires, we will still provide free help, troubleshooting, and general support for as long as you own your BonnieByte product.</p>
-        <h2>14. Contact Us</h2>
-        <p>For warranty claims or support, email us at:</p>
-        <p><a href="mailto:warranty@bonniebytepc.com">warranty@bonniebytepc.com</a></p>
-        <p>We normally respond within <strong>1–2 business days</strong>.</p>
-    </div>
-</div>
+<p><strong>Effective Date:</strong> 15/11/2025</p>
+<p><strong>Support Email:</strong> <a href="mailto:warranty@bonniebytepc.com">warranty@bonniebytepc.com</a></p>
+<h2>1. Summary</h2>
+<p>Your Northern Wind 120mm ARGB fan bundle is covered by a <strong>2-year limited warranty</strong> from the date of purchase. If anything goes wrong due to a manufacturing defect, we will repair it, replace the faulty component, or replace the full bundle when appropriate. Clear, fair, and no hassle.</p>
+<h2>2. Who Is Covered?</h2>
+<p>This warranty applies only to the <strong>original purchaser</strong>. Your product must be purchased from an authorised retailer, including our official Amazon UK store.</p>
+<h2>3. What’s Covered?</h2>
+<p>This warranty covers defects in materials or workmanship under normal use. This includes:</p>
+<ul>
+    <li>A fan motor that fails or does not spin</li>
+    <li>Complete ARGB lighting failure (full ring not lighting)</li>
+    <li>Magnetic controller hub failure (no PWM, no power, no ARGB passthrough)</li>
+    <li>Faulty PWM or ARGB cables</li>
+</ul>
+<h2>4. What’s Not Covered?</h2>
+<p>This warranty does not apply to faults caused by:</p>
+<ul>
+    <li>Accidental damage (drops, impacts, liquid, crushed cables)</li>
+    <li>Improper installation, including forcing connector pins</li>
+    <li>Plugging ARGB into a 12V header (incorrect voltage)</li>
+    <li>Short circuits, exposed wires, or electrical misuse</li>
+    <li>Normal wear and tear or dust build-up</li>
+    <li>Small LED brightness variances or slight colour blending</li>
+    <li>Minor motor hum at very low RPM (normal PWM behaviour)</li>
+    <li>Fan ramping caused by BIOS fan curves (normal behaviour)</li>
+    <li>Unauthorised repairs or modifications</li>
+    <li>Damage from fire, storms, floods, or similar events</li>
+    <li>Products sold as used, refurbished, or “for parts”</li>
+</ul>
+<h2>5. The BonnieByte Promise</h2>
+<p>We build our products to last — but on the rare chance something goes wrong, we fix it quickly and without hassle. No complicated processes, no arguing over tiny faults. Just fair, friendly, fast support.</p>
+<h2>6. Quick Checks (Before Contacting Support)</h2>
+<h3>RGB / Lighting Issues</h3>
+<ul>
+    <li>Ensure ARGB is connected to a <strong>5V 3-pin</strong> header (NOT 12V RGB)</li>
+    <li>Check the alignment arrows on the connectors</li>
+    <li>Try a different ARGB port on the hub</li>
+    <li>Disable motherboard LED overrides if present</li>
+</ul>
+<h3>Fan Not Spinning</h3>
+<ul>
+    <li>Ensure the PWM cable is fully inserted</li>
+    <li>Check BIOS settings are set to <strong>PWM mode</strong>, not DC</li>
+    <li>Swap the fan to a different hub port</li>
+    <li>Try a known-working cable</li>
+</ul>
+<h3>Hub Not Responding</h3>
+<ul>
+    <li>Check SATA power is connected properly</li>
+    <li>Ensure both ARGB and PWM leads are connected</li>
+    <li>Check for hub LED power indicators</li>
+</ul>
+<p>If these steps don’t fix the issue, we’ll handle it from there.</p>
+<h2>7. What We Will Do</h2>
+<p>If your issue is covered by this warranty, we will choose the best solution:</p>
+<h3>Component Replacement (Most Common)</h3>
+<p>If only one component (fan, hub, or cable) is faulty, we will send a <strong>replacement component</strong> rather than a full bundle.</p>
+<h3>Multiple Component Failure</h3>
+<p>If two or more items in the bundle fail, we may replace the <strong>entire bundle</strong>.</p>
+<h3>Dead on Arrival (First 30 Days)</h3>
+<p>If your bundle arrives with major faults, we will replace the <strong>entire bundle</strong> at no cost.</p>
+<h3>Refunds</h3>
+<p>If repair or replacement is not possible, we may provide a refund.</p>
+<h3>Replacement ETA</h3>
+<p>Replacements are normally dispatched within <strong>1 working day</strong> after approval.</p>
+<h2>8. Discounted Replacement (Accidental Damage)</h2>
+<p>If the issue was caused by accidental damage (broken connector, bent pin, cable damage), we can still help by offering a <strong>discounted replacement part at cost price</strong>. No judgement — just support.</p>
+<h2>9. Replacement Process</h2>
+<h3>Standard Process</h3>
+<p>We email you a <strong>pre-paid return label</strong>. After receiving and confirming the defect, we ship your replacement component or bundle.</p>
+<h3>Advanced Replacement (At Our Discretion)</h3>
+<p>To minimise downtime, we may send the replacement first and provide a return label for the faulty item. You must return the faulty part within 14 days, or a charge may apply.</p>
+<h2>10. What We Need From You</h2>
+<p>To help us diagnose the issue quickly, please provide:</p>
+<ul>
+    <li><strong>A description of the problem</strong></li>
+    <li>Photos or a short video showing the issue</li>
+    <li>Proof of purchase (Amazon order number or receipt)</li>
+    <li>Your name and shipping address</li>
+</ul>
+<h2>11. Limitation of Liability</h2>
+<p>To the fullest extent permitted by law, BonnieByte PC is not responsible for loss of data, loss of profits, or any incidental or consequential damages. This warranty works <strong>alongside</strong> your consumer rights and does not limit or replace them.</p>
+<h2>12. Governing Law</h2>
+<p>This warranty is governed by the laws of <strong>Scotland</strong>. If you live in England, Wales, or Northern Ireland, your local consumer rights still apply. Any disputes will normally be handled in Scottish courts unless your local law requires otherwise.</p>
+<h2>13. Lifetime Support</h2>
+<p>Even after your 2-year warranty expires, we will still provide free help, troubleshooting, and general support for as long as you own your BonnieByte product.</p>
+<h2>14. Contact Us</h2>
+<p>For warranty claims or support, email us at:</p>
+<p><a href="mailto:warranty@bonniebytepc.com">warranty@bonniebytepc.com</a></p>
+<p>We normally respond within <strong>1–2 business days</strong>.</p>
