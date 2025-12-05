@@ -176,36 +176,5 @@
         });
     });
   </script>
-
-  <script>
-      function doGTranslate(lang) {
-          if (!lang) return;
-      
-          // ensure "en|xx" format
-          let pair = lang.includes("|") ? lang : `en|${lang}`;
-      
-          function apply() {
-              // Try v2 API first
-              if (window.gtranslateSettings && typeof window.gtranslateSettings.switchLanguage === "function") {
-                  window.gtranslateSettings.switchLanguage(pair.split("|")[1]);
-                  return;
-              }
-      
-              // Otherwise fallback to pushing value into hidden select
-              const sel = document.querySelector(".gtranslate select");
-              if (!sel) {
-                  return setTimeout(apply, 50);
-              }
-      
-              sel.value = pair;
-              sel.dispatchEvent(new Event("change"));
-          }
-      
-          apply();
-      }
-  </script>
-
-
-
   <div class="gtranslate" style="display:none;"></div>  
 </footer>
