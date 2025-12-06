@@ -805,6 +805,11 @@ footer.site-footer::before {
     scroll-margin-top: 100px;
 }
 
+@media (max-width: 900px) {
+   .footer-brand {
+      width: 75%
+   }
+}
 /* ========================================================================
    PRODUCT GRID & CARD STYLES (Restored)
    ======================================================================== */
@@ -969,6 +974,7 @@ body .goog-te-banner-frame + .skiptranslate {
         animation-duration: 0.01ms !important;
     }
 }
+
 
 
 
