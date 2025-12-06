@@ -412,14 +412,16 @@ section {
    ======================================================================== */
 
 .scroll-progress {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    top: 0;
     left: 0;
     height: 3px;
     width: 0%;
     background: var(--bb-blue);
-    transition: width 0.2s;
+    z-index: 2000; /* higher than header */
+    transition: width 0.2s ease;
 }
+
 
 
 /* ========================================================================
@@ -491,6 +493,7 @@ svg {
         background 0.35s ease,
         transform 0.35s ease,
         border-color 0.35s ease;
+    margin-top: 3px;
 }
 
 .enhanced-header::before {
@@ -958,6 +961,7 @@ body .goog-te-banner-frame + .skiptranslate {
         animation-duration: 0.01ms !important;
     }
 }
+
 
 
 
