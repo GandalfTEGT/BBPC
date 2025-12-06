@@ -806,7 +806,7 @@ footer.site-footer::before {
 }
 
 @media (max-width: 900px) {
-   .footer-brand {
+   .footer-brand img {
       width: 75%
    }
 }
@@ -974,6 +974,7 @@ body .goog-te-banner-frame + .skiptranslate {
         animation-duration: 0.01ms !important;
     }
 }
+
 
 
 
