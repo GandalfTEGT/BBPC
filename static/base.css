@@ -129,6 +129,7 @@ a:hover {
    ======================================================================== */
 
 .button {
+    font-family: 'Orbitron', sans-serif;
     display: inline-block;
     padding: 12px 24px;
     border-radius: 6px;
@@ -145,6 +146,7 @@ a:hover {
 }
 
 .button-secondary {
+    font-family: 'Orbitron', sans-serif;
     background: transparent;
     border: 2px solid var(--bb-blue);
     color: var(--bb-blue);
@@ -956,6 +958,7 @@ body .goog-te-banner-frame + .skiptranslate {
         animation-duration: 0.01ms !important;
     }
 }
+
 
 
 
