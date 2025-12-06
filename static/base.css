@@ -170,6 +170,7 @@ a:hover {
     flex-wrap: wrap;
     gap: var(--space-sm);
     justify-content: center;
+    margin-top: 5px;
 }
 
 
@@ -968,6 +969,7 @@ body .goog-te-banner-frame + .skiptranslate {
         animation-duration: 0.01ms !important;
     }
 }
+
 
 
 
