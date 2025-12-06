@@ -12,7 +12,7 @@ title: Documentation | BonnieByte PC
         <h2>Product Manuals</h2>
         <ul>
             <li>
-                <strong>Northern Wind 120 ARGB Fan Kit</strong><br>
+                <strong><span class="orbitron">Northern Wind 120 ARGB Fan Kit</span></strong><br>
                 User Manual – <em>coming soon as downloadable PDF and web version.</em>
             </li>
         </ul>
