@@ -6,8 +6,8 @@ title: Home | BonnieByte PC
     <div class="container hero-inner">
         <div class="hero-main">
             <picture>
-                <source srcset="/images/LogoFull.webp" type="image/webp">
-                <img src="/images/LogoFull.png" alt="Bonnie Byte PC" class="hero-logo">
+                <source srcset="/images/LogoDetail.webp" type="image/webp">
+                <img src="/images/LogoDetail.png" alt="Bonnie Byte PC" class="hero-logo">
             </picture>
             <p class="hero-tagline">Certified Performance, Crafted with Scottish Pride.</p>
             <p class="hero-subtitle">
