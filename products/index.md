@@ -16,7 +16,7 @@ title: "Products | BonnieByte PC"
           <article class="product-card">
             <div class="product-media">
               {% if p.thumbnail %}
-                <img src="{{ p.thumbnail }}" alt="{{ p.full_name }}" class="product-image">
+                <a href="/products/{{ id }}/"><img src="{{ p.thumbnail }}" alt="{{ p.full_name }}" class="product-image"></a>
               {% else %}
                 <div class="product-image-placeholder">
                   <span>Product render coming soon</span>
