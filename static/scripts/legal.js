@@ -112,5 +112,30 @@ if (typeof module !== 'undefined' && module.exports) {
 
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const key = "bb_scroll_" + window.location.pathname;
+
+    // Restore scroll if we have it
+    try {
+        const saved = localStorage.getItem(key);
+        if (saved) {
+            const y = parseInt(saved, 10);
+            if (!isNaN(y)) {
+                window.scrollTo({ top: y, behavior: "auto" });
+            }
+        }
+    } catch (e) {
+        console.warn("BB legal scroll restore failed:", e);
+    }
+
+    // Save scroll as the user moves
+    window.addEventListener("scroll", () => {
+        try {
+            localStorage.setItem(key, String(window.scrollY));
+        } catch (e) {}
+    });
+});
+
+
 
 
