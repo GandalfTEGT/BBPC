@@ -255,12 +255,18 @@
     }
 
     function verifyTranslationSuccess(lang) {
+        // Skip failure detection entirely for English
+        if (lang === "en") return;
+            
         const sample = document.body.innerText.slice(0, 600).toLowerCase();
         const markers = [" warranty ", " support ", " product ", " bonniebyte "];
         const translatedLikely = !markers.some(m => sample.includes(m));
 
         if (!translatedLikely) {
             setTimeout(() => {
+                // Skip checks for English on the second pass too
+                if (lang === "en") return;
+
                 const s2 = document.body.innerText.slice(0, 600).toLowerCase();
                 const ok = !markers.some(m => s2.includes(m));
 
