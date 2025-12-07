@@ -20,5 +20,8 @@ title: Warranty Information | BonnieByte PC
             {% endif %}
         {% endfor %}
         </ul>
+        {% for product_id in site.data.products %}
+          {{ product_id }} → warranty_enabled = "{{ site.data.products[product_id].warranty_enabled }}"
+        {% endfor %}
     </div>
 </div>
