@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: warranty
 title: Warranty Information | BonnieByte PC
 ---
 <div class="container">
