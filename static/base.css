@@ -816,7 +816,7 @@ footer.site-footer::before {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 32px;
     margin-top: 32px;
 }
@@ -909,6 +909,13 @@ footer.site-footer::before {
   display: block;
 }
 
+.product-image {
+    width: 100%;
+    height: auto;
+    max-height: 240px; /* you can adjust */
+    object-fit: contain;
+    display: block;
+}
 /* ========================================================================
    14.1. SUPPORT PAGE
    ======================================================================== */
@@ -1055,6 +1062,7 @@ body .goog-te-gadget {
     opacity: 0.7;
     transform: translateY(-2px);
 }
+
 
 
 
