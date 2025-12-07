@@ -10,8 +10,8 @@ title: "Products | BonnieByte PC"
     </header>
     <div class="product-grid">
       {% for product in site.data.products %}
-      {% assign id = product[0] %}
-      {% assign p = product[1] %}
+        {% assign id = product[0] %}
+        {% assign p = product[1] %}
         {% if p.product_visible != false %}
           <article class="product-card">
             <div class="product-media">
@@ -56,35 +56,6 @@ title: "Products | BonnieByte PC"
           </article>
         {% endif %}
       {% endfor %}
-      <article class="product-card product-card--placeholder">
-        <div class="product-media">
-          <div class="product-image-placeholder"><span>Future product</span></div>
-        </div>
-        <div class="product-body">
-          <h2>Coming Soon</h2>
-          <p>We’re already planning the next additions to the BonnieByte PC lineup. More cooling options and accessories are on the way.</p>
-          <ul class="product-features">
-            <li>Thoughtful aesthetics</li>
-            <li>Honest performance specs</li>
-            <li>UK-based support</li>
-          </ul>
-          <p class="product-coming-soon-note">Want to hear about new launches first? <a href="/#notify">Join the launch list</a>.</p>
-        </div>
-      </article>
-      <article class="product-card product-card--placeholder">
-        <div class="product-media">
-          <div class="product-image-placeholder"><span>Future product</span></div>
-        </div>
-        <div class="product-body">
-          <h2>More Hardware on the Horizon</h2>
-          <p>As BonnieByte PC grows, we’ll expand into more PC components and accessories that follow the same values: performance, presentation, and price.</p>
-          <ul class="product-features">
-            <li>Clean presentation</li>
-            <li>Real-world testing</li>
-            <li>Clear documentation</li>
-          </ul>
-        </div>
-      </article>
     </div>
   </div>
 </section>
