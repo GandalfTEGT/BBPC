@@ -278,33 +278,73 @@
        USER-FRIENDLY ERROR MESSAGE ON TOTAL FAILURE
        ============================================================ */
     function showTranslationError() {
-        if (document.getElementById("translation-error-banner")) return;
+    if (document.getElementById("translation-error-banner")) return;
 
-        const banner = document.createElement("div");
-        banner.id = "translation-error-banner";
-        banner.textContent = "Automatic translation is temporarily unavailable. Please try again shortly.";
-        banner.style.position = "fixed";
-        banner.style.bottom = "20px";
-        banner.style.left = "50%";
-        banner.style.transform = "translateX(-50%)";
-        banner.style.background = "rgba(0,0,0,0.85)";
-        banner.style.border = "2px solid #66aaff";
-        banner.style.padding = "12px 18px";
-        banner.style.borderRadius = "8px";
-        banner.style.color = "#fff";
-        banner.style.zIndex = "999999";
-        banner.style.fontSize = "0.9rem";
-        banner.style.boxShadow = "0 0 12px rgba(102,170,255,0.5)";
-        banner.style.fontFamily = "Inter, sans-serif";
+    const banner = document.createElement("div");
+    banner.id = "translation-error-banner";
+    banner.style.position = "fixed";
+    banner.style.bottom = "20px";
+    banner.style.left = "50%";
+    banner.style.transform = "translateX(-50%)";
+    banner.style.background = "rgba(0,0,0,0.85)";
+    banner.style.border = "2px solid #66aaff";
+    banner.style.padding = "12px 18px";
+    banner.style.borderRadius = "8px";
+    banner.style.color = "#fff";
+    banner.style.zIndex = "999999";
+    banner.style.fontSize = "0.9rem";
+    banner.style.boxShadow = "0 0 12px rgba(102,170,255,0.5)";
+    banner.style.fontFamily = "Inter, sans-serif";
+    banner.style.display = "flex";
+    banner.style.gap = "12px";
+    banner.style.alignItems = "center";
 
-        document.body.appendChild(banner);
+    // Message
+    const msg = document.createElement("span");
+    msg.textContent = "Automatic translation is temporarily unavailable.";
 
-        setTimeout(() => {
+    // Retry button
+    const retry = document.createElement("button");
+    retry.textContent = "Retry";
+    retry.style.background = "#66aaff";
+    retry.style.color = "#000";
+    retry.style.border = "none";
+    retry.style.padding = "6px 12px";
+    retry.style.borderRadius = "6px";
+    retry.style.cursor = "pointer";
+    retry.style.fontSize = "0.85rem";
+    retry.style.fontWeight = "600";
+
+    retry.onclick = () => {
+        banner.remove();
+
+        // Retry using last chosen language from your bb_lang cookie
+        let lastLang = null;
+        try {
+            lastLang = BBCookies.get("bb_lang");
+        } catch(e) {}
+
+        if (!lastLang) {
+            // Fall back to English if nothing stored
+            lastLang = "en";
+        }
+
+        doGTranslate(lastLang);
+    };
+
+    banner.appendChild(msg);
+    banner.appendChild(retry);
+    document.body.appendChild(banner);
+
+    // Auto-remove after 12 seconds if user ignores it
+    setTimeout(() => {
+        if (banner) {
             banner.style.opacity = "0";
             banner.style.transition = "opacity 0.4s ease";
             setTimeout(() => banner.remove(), 600);
-        }, 4000);
-    }
+        }
+    }, 12000);
+}
 </script>
 
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
