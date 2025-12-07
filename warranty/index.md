@@ -16,10 +16,10 @@ title: Warranty Information | BonnieByte PC
                         <span class="orbitron notranslate">{{ p.short_name | upcase }}</span>
                     </a>
                     – {{ p.full_name }}
-                    {{ site.data.products | jsonify }}
                 </li>
             {% endif %}
         {% endfor %}
+        {{ site.data.products | jsonify }}
         </ul>
     </div>
 </div>
