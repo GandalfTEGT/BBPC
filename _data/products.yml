@@ -1,0 +1,45 @@
+# ================================
+# BONNIEBYTE PC — PRODUCT REGISTRY
+# ================================
+northern_wind_120:
+  sku: "BB-NW120-ARGB-001"
+  full_name: "Northern Wind 120mm ARGB Fan Bundle"
+  short_name: "Northern Wind"
+  html_name: "<span class=\"orbitron notranslate\">NORTHERN WIND</span>"
+  warranty_enabled: true
+  manual_enabled: true
+  product_type: "fan_kit"
+  release_date: "2025-11-01"
+  variants:
+    - black
+    - white
+  specs:
+    airflow: "58 CFM"
+    static_pressure: "1.3 mmH2O"   # removed subscript ₂
+    noise: "19-29 dBA"             # replaced en dash
+    bearing: "Hydraulic"
+    leds: "24"
+    rpm: "800-1600 RPM"
+
+# -------------------------------
+# TEMPLATE FOR FUTURE PRODUCTS
+# -------------------------------
+template_product:
+  sku: "SKU-HERE"
+  full_name: "Full Product Name Here"
+  short_name: "Short Name"
+  html_name: "<span class=\"orbitron notranslate\">PRODUCT NAME</span>"
+  warranty_enabled: false   # set to false so it doesn't show up
+  manual_enabled: false
+  product_type: "fan_kit"
+  release_date: "YYYY-MM-DD"
+  variants:
+    - variant_a
+    - variant_b
+  specs:
+    airflow: ""
+    static_pressure: ""
+    noise: ""
+    bearing: ""
+    leds: ""
+    rpm: ""
