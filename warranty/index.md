@@ -1,5 +1,5 @@
 ---
-layout: legal
+layout: default
 title: Warranty Information | BonnieByte PC
 ---
 <div class="container">
@@ -7,15 +7,17 @@ title: Warranty Information | BonnieByte PC
         <h1>Warranty Information</h1>
         <p>Find warranty coverage information for all eligible BonnieByte PC products.</p>
         <h2>Available Warranty Pages</h2>
-        <h3>DEBUG</h3>
-        <p>Keys:</p>
-        {{ site.data.products | keys }}
-        <p>Raw dump:</p>
-        {{ site.data.products | jsonify }}
-        <p>Loop test (no IF):</p>
         <ul>
         {% for product_id in site.data.products %}
-            <li>{{ product_id }} — warranty_enabled: {{ site.data.products[product_id].warranty_enabled | inspect }}</li>
+            {% assign p = site.data.products[product_id] %}
+            {% if p.warranty_enabled %}
+                <li>
+                    <a href="/warranty/{{ product_id }}">
+                        <span class="orbitron notranslate">{{ p.short_name | upcase }}</span>
+                    </a>
+                    – {{ p.full_name }}
+                </li>
+            {% endif %}
         {% endfor %}
         </ul>
     </div>
