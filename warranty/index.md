@@ -11,6 +11,7 @@ title: Warranty Information | BonnieByte PC
         {% for product_id in site.data.products %}
             {% assign p = site.data.products[product_id] %}
             {% if p.warranty_enabled %}
+            ["sku", "full_name", "short_name", "warranty_enabled​"]
                 <li>
                     <a href="{{ '/warranty/' | append: product_id | append: '/' | relative_url }}">
                         <span class="orbitron notranslate">{{ p.short_name | upcase }}</span>
