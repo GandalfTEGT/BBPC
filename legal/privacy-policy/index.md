@@ -39,6 +39,7 @@ changelog:
   <li>Cookie-consent state cookies</li>
 </ul>
 <p>
+  We also use small functional cookies to remember website preferences such as language, theme, banner visibility, and support navigation context.
   These cookies do not track you, do not identify you, and do not require consent under UK law.
   If in the future we introduce optional analytics or marketing cookies, you will be asked to opt in.
 </p>
