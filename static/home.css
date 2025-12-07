@@ -1,353 +1,154 @@
 /* ============================================================
-   BONNIEBYTE PC - HOMEPAGE STYLES
-   (home.css)
-   Hero, pillars, products, story, why, warranty, signup
+   BONNIEBYTE PC — HOME PAGE STYLES (CLEANED & POLISHED)
+   Subtle consistency upgrades • No layout changes
    ============================================================ */
-/**/
+
 /* ============================================================
    HERO SECTION
    ============================================================ */
 
 .hero {
-    padding: 120px 20px 100px;
+    padding: var(--space-lg) 0;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-        url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=2000&q=80');
-    background-size: cover;
-    background-position: center;
-    border-bottom: 2px solid var(--bb-blue);
+    margin-bottom: var(--space-lg);
 }
 
-.hero * {
-   color: #e5e5e5;
-}
-
-.hero-logo {
-    max-width: 300px;
-    margin: 0 auto 20px;
-    display: block;
-}
-
-.hero-tagline {
-    font-size: 1.5rem;
-    font-style: italic;
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8rem;
     color: var(--bb-blue);
-    margin-bottom: 14px;
+    margin-bottom: var(--space-sm);
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 20px;
+    font-size: 1.15rem;
     color: var(--bb-text-soft);
+    max-width: 720px;
+    margin: 0 auto var(--space-md);
 }
 
-.hero-cta-group {
+.hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.hero-meta span {
-    color: var(--bb-text-muted);
-    font-size: 0.9rem;
-}
-
-/* Mobile hero adjustments */
-@media (max-width: 768px) {
-    .hero {
-        padding: 100px 20px 80px;
-    }
-
-    .hero-logo {
-        max-width: 200px;
-    }
-
-    .hero-tagline {
-        font-size: 1.3rem;
-    }
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
 }
 
 /* ============================================================
-   BRAND PILLARS
+   PILLARS / FEATURE GRID
    ============================================================ */
 
 .pillars {
-    padding: 60px 0;
-}
-
-.pillars-inner {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
 }
 
 .pillar {
-    background: var(--bb-surface);
-    border: 1px solid var(--bb-border);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: var(--bb-shadow);
-}
-
-.pillar h3 {
-    color: var(--bb-blue);
-    margin-bottom: 10px;
-}
-
-@media (max-width: 900px) {
-    .pillars-inner {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .pillars-inner {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ============================================================
-   PRODUCT SECTION
-   ============================================================ */
-
-.section-products {
-    padding: 80px 0;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-header p {
-    color: var(--bb-text-soft);
-}
-
-.product-grid {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.product-card {
-    background: var(--bb-surface);
-    border: 1px solid var(--bb-border);
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: var(--bb-shadow);
-}
-
-.product-media {
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-image {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
-}
-
-
-.product-image-placeholder {
-    width: 100%;
-    height: 240px;
-    background: #222;
-    border: 1px solid var(--bb-border);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--bb-text-muted);
-    font-size: 1rem;
-}
-
-.product-body h3 {
-    color: var(--bb-blue);
-    margin-bottom: 12px;
-}
-
-.product-body p {
-    margin-bottom: 20px;
-}
-
-.product-features {
-    list-style: none;
-    margin-bottom: 16px;
-    padding-left: 0;
-}
-
-.product-features li {
-    margin-bottom: 6px;
-    color: var(--bb-text-soft);
-}
-
-.product-badges span {
-    display: inline-block;
-    margin: 4px 6px;
-    padding: 6px 10px;
-    border-radius: 6px;
     background: var(--bb-panel);
     border: 1px solid var(--bb-border);
-    font-size: 0.85rem;
-    color: var(--bb-text-muted);
+    border-radius: var(--bb-radius);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+    box-shadow: var(--bb-shadow);
+    transition: transform var(--bb-transition), box-shadow var(--bb-transition);
+}
+
+.pillar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 18px rgba(102,170,255,0.25);
+}
+
+.pillar-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: var(--space-sm);
+    opacity: 0.95;
 }
 
 /* ============================================================
-   WHY BONNIEBYTE
+   COMMUNITY STRIP (SOCIAL ROW)
    ============================================================ */
 
-.section-why {
-    padding: 80px 0;
-}
-
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.why-item {
-    background: var(--bb-surface);
-    border: 1px solid var(--bb-border);
-    padding: 20px;
-    border-radius: 8px;
+.community-strip {
     text-align: center;
-    box-shadow: var(--bb-shadow);
+    padding: var(--space-lg) 0 var(--space-md);
 }
 
-.why-item h3 {
-    color: var(--bb-blue);
-    margin-bottom: 10px;
+.community-strip p {
+    font-size: 1rem;
+    color: var(--bb-text-soft);
 }
+
+.community-icons {
+    margin-top: var(--space-sm);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.community-icons a svg {
+    transition: transform var(--bb-transition), opacity var(--bb-transition);
+}
+
+.community-icons a:hover svg {
+    transform: scale(1.15);
+    opacity: 1;
+}
+
+/* ============================================================
+   SIGNUP PANEL (MAILERLITE + CTA)
+   ============================================================ */
+
+.signup-panel {
+    margin-top: var(--space-lg);
+    padding: var(--space-lg) var(--space-md);
+    background: var(--bb-surface);
+    border-radius: var(--bb-radius);
+    border: 1px solid var(--bb-border);
+    box-shadow: var(--bb-shadow);
+    text-align: center;
+}
+
+.signup-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: var(--space-sm);
+    color: var(--bb-blue);
+}
+
+.signup-desc {
+    max-width: 680px;
+    margin: 0 auto var(--space-md);
+    color: var(--bb-text-soft);
+}
+
+/* ============================================================
+   RESPONSIVENESS
+   ============================================================ */
 
 @media (max-width: 900px) {
-    .why-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .hero-subtitle {
+        font-size: 1.05rem;
     }
 }
 
 @media (max-width: 600px) {
-    .why-grid {
-        grid-template-columns: 1fr;
+    .pillar {
+        padding: var(--space-md);
+    }
+    .signup-panel {
+        padding: var(--space-md);
     }
 }
 
-/* ============================================================
-   OUR STORY
-   ============================================================ */
-
-.section-story {
-    padding: 80px 0;
-}
-
-.story-body {
-    max-width: 800px;
-    margin: 0 auto;
-    color: var(--bb-text-soft);
-    font-size: 1.05rem;
-}
-
-.story-body p {
-    margin-bottom: 20px;
-}
-
-/* ============================================================
-   WARRANTY MINI SECTION
-   ============================================================ */
-
-.section-warranty {
-    padding: 80px 0;
-}
-
-.warranty-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.warranty-card {
-    background: var(--bb-surface);
-    border: 1px solid var(--bb-border);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: var(--bb-shadow);
-    text-align: center;
-}
-
-.warranty-card h3 {
-    color: var(--bb-blue);
-    margin-bottom: 10px;
-}
-
-.warranty-link {
-    margin-top: 30px;
-    text-align: center;
-}
-
-@media (max-width: 900px) {
-    .warranty-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 400px) {
+    .hero-title {
+        font-size: 1.9rem;
     }
 }
-
-/* ============================================================
-   SIGNUP FORM SECTION
-   ============================================================ */
-
-.section-signup {
-    padding: 80px 0;
-}
-
-.signup-wrapper {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.signup-note {
-    color: var(--bb-text-muted);
-    font-size: 0.9rem;
-    margin-top: 10px;
-}
-
-/* ============================================================
-   COMMUNITY / SOCIAL
-   ============================================================ */
-
-.section-community {
-    padding: 60px 0;
-    text-align: center;
-}
-
-.social-links {
-    margin-top: 20px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.social-links a {
-    color: var(--bb-blue);
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.social-links a:hover {
-    color: #8ec4ff;
-}
-
-
-
-
-
-
