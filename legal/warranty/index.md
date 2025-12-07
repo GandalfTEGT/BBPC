@@ -6,7 +6,7 @@ date: 2025-12-05
 <p><strong>Effective Date:</strong> 15/11/2025</p>
 <p><strong>Support Email:</strong> <a href="mailto:warranty@bonniebytepc.com">warranty@bonniebytepc.com</a></p>
 <h2>1. Summary</h2>
-<p>Your Northern Wind 120mm ARGB fan bundle is covered by a <strong>2-year limited warranty</strong> from the date of purchase. If a failure occurs due to a manufacturing defect, we will repair it, replace the faulty component, or replace the full bundle where appropriate. Clear, fair, and hassle-free.</p>
+<p>Your <span class="orbitron notranslate">NORTHERN WIND</span> 120mm ARGB fan bundle is covered by a <strong>2-year limited warranty</strong> from the date of purchase. If a failure occurs due to a manufacturing defect, we will repair it, replace the faulty component, or replace the full bundle where appropriate. Clear, fair, and hassle-free.</p>
 <h2>2. Who Is Covered?</h2>
 <p>This warranty applies to the <strong>original purchaser</strong> only. Products must be purchased from an authorised retailer, including our official Amazon UK store or our future direct website store.</p>
 <h2>3. What’s Covered?</h2>
