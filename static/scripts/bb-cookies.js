@@ -105,3 +105,54 @@ function bbRandomHex(bytes = 16) {
         console.warn("BB language cookie failed:", e);
     }
 })();
+
+// ============================================================
+// 4. Operational banner helpers (non-marketing, essential UX)
+// ============================================================
+function bbDismissBanner(id, days = 30) {
+    try {
+        if (!id) return;
+        BBCookies.set(`bb_banner_${id}`, "1", days);
+    } catch (e) {
+        console.warn("BB banner cookie failed:", e);
+    }
+}
+
+function bbIsBannerDismissed(id) {
+    try {
+        if (!id) return false;
+        return BBCookies.get(`bb_banner_${id}`) === "1";
+    } catch (e) {
+        return false;
+    }
+}
+
+// ============================================================
+// 5. Support context helpers (remember where user came from)
+// ============================================================
+function bbSetSupportOrigin(path) {
+    try {
+        if (!path) return;
+        // Keep it short and simple
+        const value = String(path).slice(0, 200);
+        BBCookies.set("bb_support_origin", value, 1);
+    } catch (e) {
+        console.warn("BB support origin cookie failed:", e);
+    }
+}
+
+function bbGetSupportOrigin() {
+    try {
+        return BBCookies.get("bb_support_origin");
+    } catch (e) {
+        return null;
+    }
+}
+
+function bbClearSupportOrigin() {
+    try {
+        BBCookies.erase("bb_support_origin");
+    } catch (e) {
+        console.warn("BB clear support origin failed:", e);
+    }
+}
