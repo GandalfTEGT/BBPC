@@ -1034,7 +1034,13 @@ body .goog-te-gadget {
     unicode-bidi: plaintext !important;
 }
 
+.goog-te-gadget {
+    visibility: hidden !important; /* hides visually */
+}
 
+.goog-te-combo {
+    visibility: visible !important; /* ensures Safari sees a visible select to bind to */
+}
 /* ========================================================================
    17. SOCIAL ICONS
    ======================================================================== */
@@ -1065,6 +1071,7 @@ body .goog-te-gadget {
     opacity: 0.7;
     transform: translateY(-2px);
 }
+
 
 
 
