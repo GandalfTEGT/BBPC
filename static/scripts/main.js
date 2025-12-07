@@ -274,8 +274,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!dropdown || !activeBtn || !activeFlag || !activeCode || !menu) return;
 
+    function normaliseLang(code) {
+        if (!code) return "en";
+        return String(code).toLowerCase().split("-")[0]; // "en-GB" -> "en"
+    }
+
     function setActiveLangUI(lang) {
-        const code = (lang || "en").toLowerCase();
+        const code = normaliseLang(lang);
         const btn = menu.querySelector(`.bb-lang-option[data-lang="${code}"]`);
         if (!btn) return;
 
@@ -293,10 +298,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function positionLangMenu() {
         if (!menu) return;
 
-        let topPx = 72; // sensible fallback
+        let topPx = 72; // fallback
         if (headerEl) {
             const rect = headerEl.getBoundingClientRect();
-            topPx = rect.bottom; // sit flush with bottom of header
+            topPx = rect.bottom;
         }
 
         menu.style.top = `${topPx}px`;
@@ -326,27 +331,28 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.addEventListener("click", (e) => {
             e.stopPropagation();
             const lang = btn.dataset.lang;
-        
-            // Update active UI
+
             setActiveLangUI(lang);
-        
-            // Close dropdown
             dropdown.classList.remove("open");
             activeBtn.setAttribute("aria-expanded", "false");
-        
-            // Save user preference
-            if (typeof BBCookies !== "undefined") {
-                BBCookies.set("bb_lang", lang, 365);
+
+            // Persist preference as an essential functional cookie
+            try {
+                if (typeof BBCookies !== "undefined") {
+                    BBCookies.set("bb_lang", lang, 365);
+                }
+            } catch (err) {
+                console.warn("BB lang cookie error:", err);
             }
-        
+
             // Trigger translation
             if (typeof doGTranslate === "function") {
                 doGTranslate(lang);
-            } else if (window.gtranslateSettings?.switchLanguage) {
+            } else if (window.gtranslateSettings &&
+                       typeof window.gtranslateSettings.switchLanguage === "function") {
                 window.gtranslateSettings.switchLanguage(lang);
             }
         });
-
     });
 
     // Close dropdown on outside click
@@ -357,31 +363,60 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Initialise from GTranslate cookie if present
-    // Match both /auto/xx and /en/xx and support 2-part codes
-    const match = document.cookie.match(/googtrans=\/[a-zA-Z-]+\/([a-zA-Z-]+)/);
-    
-    // Base detected language
-    let initialLang = match ? match[1].toLowerCase() :
-        ((window.gtranslateSettings && window.gtranslateSettings.default_language) || "en");
-    
-    // Apply UI update for the detected language
-    setActiveLangUI(initialLang);
-    
-    // If bb_lang exists, override googtrans cookie
-    const bbLang = typeof BBCookies !== "undefined" ? BBCookies.get("bb_lang") : null;
-    
-    if (bbLang && bbLang !== initialLang) {
-        setActiveLangUI(bbLang);
-        if (typeof doGTranslate === "function") {
-            doGTranslate(bbLang);
+    // --- Initialise from cookies / settings ---
+
+    // 1) Try to read the actual GTranslate cookie (works for /auto/en, /en/en-GB, etc.)
+    const gtMatch = document.cookie.match(/googtrans=\/[a-zA-Z-]+\/([a-zA-Z-]+)/);
+    let initialLang = "en";
+
+    if (gtMatch && gtMatch[1]) {
+        initialLang = normaliseLang(gtMatch[1]);
+    } else {
+        // 2) Fallback to our bb_lang cookie
+        try {
+            if (typeof BBCookies !== "undefined") {
+                const cookieLang = BBCookies.get("bb_lang");
+                if (cookieLang) {
+                    initialLang = normaliseLang(cookieLang);
+                }
+            }
+        } catch (err) {
+            console.warn("BB lang cookie read error:", err);
+        }
+
+        // 3) Fallback to GTranslate config default
+        if (!initialLang && window.gtranslateSettings && window.gtranslateSettings.default_language) {
+            initialLang = normaliseLang(window.gtranslateSettings.default_language);
         }
     }
 
+    setActiveLangUI(initialLang);
+
+    // Mark language labels as "notranslate" so Google doesn't mangle them
+    document.querySelectorAll('.lang-btn span').forEach(el => {
+        el.classList.add('notranslate');
+    });
+
+    // Remember where user was before going to Support/Docs (for future UX)
+    const originLinks = document.querySelectorAll(
+        'a.nav-link[href="/support/"], a.nav-link[href="/docs/"]'
+    );
+
+    originLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            try {
+                if (typeof bbSetSupportOrigin === "function") {
+                    bbSetSupportOrigin(
+                        window.location.pathname + window.location.search + window.location.hash
+                    );
+                }
+            } catch (e) {
+                console.warn("BB support origin capture failed:", e);
+            }
+        });
+    });
 });
 
-document.querySelectorAll('.lang-btn span').forEach(el => {
-    el.classList.add('notranslate');
-});
+
 
 
