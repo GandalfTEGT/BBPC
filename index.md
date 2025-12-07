@@ -68,8 +68,8 @@ title: Home | BonnieByte PC
         <div class="product-grid">
             <article class="product-card">
                 <div class="product-media">
-                    <div class="product-image-placeholder">
-                        <span>Product render coming soon</span>
+                    <div class="product-image">
+                        <span><img src="/images/products/hero.webp"></span>
                     </div>
                 </div>
                 <div class="product-body">
