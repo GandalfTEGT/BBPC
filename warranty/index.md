@@ -17,6 +17,7 @@ title: Warranty Information | BonnieByte PC
                     </a>
                     – {{ p.full_name }}
                 </li>
+            {{ product_id }} — {{ p.warranty_enabled | inspect }}
             {% endif %}
         {% endfor %}
         </ul>
