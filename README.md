@@ -6,18 +6,18 @@ BonnieByte PC is a Scottish-based PC cooling and components brand.
 The website includes product pages, documentation, warranties, support guides, tools, and legal information.
 
 ## 📁 Project Structure
-/_layouts → Page templates (default, product, warranty, etc.)
-/_includes → Shared components (header, footer, warranty sections)
-/_includes/warranty_sections → Modular warranty content blocks
-/_data → Products registry (products.yml)
-/legal → Policies (privacy, cookies, terms, shipping, returns)
-/warranty → Warranty index + product warranty pages
-/products → Product catalogue + product detail pages
-/docs → Manuals, setup guides, documentation index
-/support → Customer support pages
-/static → CSS & JS assets (base.css, scripts, home.css, etc.)
-index.md → Homepage
-_config.yml → Jekyll configuration
+- /_layouts → Page templates (default, product, warranty, etc.)
+- /_includes → Shared components (header, footer, warranty sections)
+- /_includes/warranty_sections → Modular warranty content blocks
+- /_data → Products registry (products.yml)
+- /legal → Policies (privacy, cookies, terms, shipping, returns)
+- /warranty → Warranty index + product warranty pages
+- /products → Product catalogue + product detail pages
+- /docs → Manuals, setup guides, documentation index
+- /support → Customer support pages
+- /static → CSS & JS assets (base.css, scripts, home.css, etc.)
+- index.md → Homepage
+- _config.yml → Jekyll configuration
 
 
 ## 🚀 Deployment
