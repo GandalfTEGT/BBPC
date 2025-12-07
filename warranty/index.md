@@ -11,19 +11,14 @@ title: Warranty Information | BonnieByte PC
         {% for product_id in site.data.products %}
             {% assign p = site.data.products[product_id] %}
             {% if p.warranty_enabled %}
-            ["sku", "full_name", "short_name", "warranty_enabled​"]
                 <li>
                     <a href="{{ '/warranty/' | append: product_id | append: '/' | relative_url }}">
                         <span class="orbitron notranslate">{{ p.short_name | upcase }}</span>
                     </a>
                     – {{ p.full_name }}
                 </li>
-            {{ product_id }} — {{ p.warranty_enabled | inspect }}
             {% endif %}
         {% endfor %}
         </ul>
-        {% for product_id in site.data.products %}
-          {{ product_id }} → warranty_enabled = "{{ site.data.products[product_id].warranty_enabled }}"
-        {% endfor %}
     </div>
 </div>
