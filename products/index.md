@@ -24,7 +24,7 @@ title: "Products | BonnieByte PC"
               {% endif %}
             </div>
             <div class="product-body">
-              <h2><span class="orbitron notranslate">{{ p.short_name | upcase }}</span> {{ p.full_name | replace: p.short_name,'' }}</h2>
+              <h2><a href="/products/{{ id }}/"><span class="orbitron notranslate">{{ p.short_name | upcase }}</span> {{ p.full_name | replace: p.short_name,'' }}</a></h2>
               {% if p.description %}
                 <p>{{ p.description }}</p>
               {% endif %}
