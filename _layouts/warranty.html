@@ -1,0 +1,23 @@
+---
+layout: legal
+---
+{% assign product = site.data.products[page.product_id] %}
+{% if product == nil %}
+<p>Error: Product not found in registry.</p>
+{% endif %}
+<p><strong>Effective Date:</strong> {{ page.effective_date }}</p>
+<p><strong>Support Email:</strong> <a href="mailto:warranty@bonniebytepc.com">warranty@bonniebytepc.com</a></p>
+<h2>1. Summary</h2>
+<p>Your {{ product.html_name }} ({{ product.full_name }}, SKU: {{ product.sku }}) is covered by a <strong>2-year limited warranty</strong> from the date of purchase. If a failure occurs due to a manufacturing defect, we will repair or replace the faulty component, or where appropriate, replace the full {{ product.short_name }} bundle.</p>
+{% include warranty_sections/covered.html product=product %}
+{% include warranty_sections/not_covered.html product=product %}
+{% include warranty_sections/promise.html product=product %}
+{% include warranty_sections/checks.html product=product %}
+{% include warranty_sections/resolution.html product=product %}
+{% include warranty_sections/discounted.html product=product %}
+{% include warranty_sections/process.html product=product %}
+{% include warranty_sections/requirements.html product=product %}
+{% include warranty_sections/liability.html product=product %}
+{% include warranty_sections/law.html product=product %}
+{% include warranty_sections/lifetime.html product=product %}
+{% include warranty_sections/contact.html %}
