@@ -5,13 +5,14 @@ title: "Warranty Information | BonnieByte PC"
 <div class="container warranty-directory">
   <div class="policy-container">
     <h1>Warranty Information</h1>
-    <p>Find warranty coverage information for all eligible BonnieByte PC products.</p>
-    <h2>Products With Warranty</h2>
-    {%- comment -%}
-    We sort SAFELY by converting the hash into an array of 
-    [key, object] pairs, then sorting by object.full_name.
-    This avoids breaking your working logic.
-    {%- endcomment -%}
+    <p>
+      Every BonnieByte PC product is backed by a clear, reliable warranty.  
+      Select your product below to view exact coverage, exclusions, and how to request support.
+    </p>
+    <h2>Products With Warranty Coverage</h2>
+    {% comment %}
+    Build a sortable list of products as [key||full_name]
+    {% endcomment %}
     {% assign products_array = site.data.products %}
     {% assign product_list = "" | split: "" %}
     {% for product in products_array %}
@@ -26,7 +27,6 @@ title: "Warranty Information | BonnieByte PC"
         {% assign id = entry | split: "||" | first %}
         {% assign p = site.data.products[id] %}
         {% if p.warranty_enabled %}
-          {%- comment -%} NEW badge logic {%- endcomment -%}
           {% assign today = 'now' | date: "%s" %}
           {% assign release = p.release_date | date: "%s" %}
           {% assign age_days = today | minus: release | divided_by: 86400 %}
@@ -38,10 +38,14 @@ title: "Warranty Information | BonnieByte PC"
               {% endif %}
             </div>
             <div class="warranty-info">
-              <h3 class="orbitron">{{ p.short_name }}</h3>
+              <h3 class="orbitron notranslate">{{ p.short_name }}</h3>
               <div class="meta">
-                <span class="category">{{ p.product_type | replace: "_", " " | capitalize }}</span>
-                <span class="warranty-term">{{ p.warranty_length | default: "2 years" }}</span>
+                <span class="category">
+                  {{ p.product_type | replace: "_", " " | capitalize }}
+                </span>
+                <span class="warranty-term">
+                  {{ p.warranty_length | default: "2-Year Warranty" }}
+                </span>
               </div>
               <p class="full-name">{{ p.full_name }}</p>
             </div>
