@@ -1,7 +1,6 @@
 # ================================
 # BONNIEBYTE PC — PRODUCT REGISTRY
 # ================================
-
 northern_wind_120:
   sku: "BB-NW120-ARGB-001"
   full_name: "Northern Wind 120mm ARGB Fan Bundle"
@@ -21,7 +20,6 @@ northern_wind_120:
     bearing: "Hydraulic"
     leds: "24"
     rpm: "800–1600 RPM"
-
 # ————————————————
 # TEMPLATE FOR FUTURE PRODUCTS
 # ————————————————
