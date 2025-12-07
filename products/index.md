@@ -17,13 +17,13 @@ title: Products | BonnieByte PC
                     </div>
                 </div>
                 <div class="product-body">
-                    <h2><span class="notranslate">NORTHERN WIND</span> 120 ARGB Fan Kit (5-Pack)</h2>
+                    <h2><span class="orbitron notranslate">NORTHERN WIND</span> 120 ARGB Fan Kit (5-Pack)</h2>
                     <p>
                         A complete cooling and lighting upgrade in one kit. Quiet 120mm PWM ARGB fans,
                         a clean control hub, and a focus on reliable airflow over fake specs.
                     </p>
                     <ul class="product-features">
-                        <li><span class="notranslate">NORTHERN WIND</span> 5× 120mm PWM ARGB fans</li>
+                        <li><span class="orbitron notranslate">NORTHERN WIND</span> 5× 120mm PWM ARGB fans</li>
                         <li>Included ARGB control hub</li>
                         <li>Static-pressure focused design</li>
                         <li>Sleeved black cables for clean builds</li>
