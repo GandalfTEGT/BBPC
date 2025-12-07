@@ -994,14 +994,24 @@ body .goog-te-gadget {
     z-index: 999999 !important;
 }
 
-.goog-te-gadget span,
+/* Allow GTranslate select to render internally, but still hide visually */
 .goog-te-gadget img {
     display: none !important;
 }
 
+/* Keep spans visible ONLY long enough for widget to build the select */
+@media (max-width: 900px) {
+    .goog-te-gadget span {
+        opacity: 0;  /* invisible but not removed */
+        font-size: 0; 
+    }
+}
+
+
 .notranslate {
     unicode-bidi: plaintext !important;
 }
+
 
 
 
