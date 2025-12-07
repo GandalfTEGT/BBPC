@@ -1025,7 +1025,36 @@ body .goog-te-gadget {
 }
 
 
+/* ========================================================================
+   17. SOCIAL ICONS
+   ======================================================================== */
 
+.social-links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    stroke: currentColor;
+    fill: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover .social-icon {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
 
 
 
