@@ -16,6 +16,8 @@ northern_wind_120:
     bearing: "Hydraulic"
     leds: "24"
     rpm: "800-1600 RPM"
+  thumbnail: "/images/products/northern_wind_120.png"
+  warranty_length: "2 years"
 
 template_product:
   sku: "SKU-HERE"
