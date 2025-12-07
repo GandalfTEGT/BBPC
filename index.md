@@ -66,39 +66,43 @@ title: Home | BonnieByte PC
             <p>Focused on the essentials: airflow, aesthetics, and reliability.</p>
         </header>
         <div class="product-grid">
-            <article class="product-card">
-                <div class="product-media">
-                    <div class="product-media">
-                        <img src="/images/products/hero.webp" alt="" class="product-image">
-                    </div>
-                </div>
-                <div class="product-body">
-                    <h3><span class="orbitron notranslate">NORTHERN WIND</span> 120 ARGB Fan Bundle (5-Pack)</h3>
-                    <p>
-                        A complete cooling and lighting upgrade in one kit. Quiet 120mm fans, vivid ARGB lighting,
-                        and an included control hub for simple, clean builds.
-                    </p>
+            {% for product in site.data.products %}
+              {% assign id = product[0] %}
+              {% assign p = product[1] %}
+              {% if p.featured == true %}
+                <article class="product-card">
+                  <a href="/products/{{ id }}/" class="product-media">
+                    <img src="{{ p.thumbnail }}" alt="{{ p.full_name }}" class="product-image">
+                    <img src="{{ p.thumbnail | default: '/images/products/default.png' }}" …>
+                  </a>
+                  <div class="product-body">
+                    <h3>
+                      <a href="/products/{{ id }}/">
+                        <span class="orbitron notranslate">{{ p.short_name | upcase }}</span>
+                        {{ p.full_name | replace: p.short_name, '' }}
+                      </a>
+                    </h3>
+                    <p>{{ p.description }}</p>
                     <ul class="product-features">
-                        <li><span class="orbitron notranslate">NORTHERN WIND</span>5× 120mm PWM ARGB fans</li>
-                        <li>Addressable RGB hub included</li>
-                        <li>Optimised for static pressure & airflow</li>
-                        <li>Sleeved black cables for a clean look</li>
+                      {% for f in p.features %}
+                        <li>{{ f }}</li>
+                      {% endfor %}
                     </ul>
                     <div class="product-badges">
-                        <span>UKCA Ready</span>
-                        <span>2-Year </span>
-                        <span>Launch Pricing Soon</span>
+                      {% if p.ukca %}<span>UKCA Ready</span>{% endif %}
+                      {% if p.warranty_enabled %}<span>{{ p.warranty_length }}</span>{% endif %}
+                      {% if p.status %}<span>{{ p.status }}</span>{% endif %}
                     </div>
                     <div class="button-group">
-                        <a href="https://amazon.co.uk" class="button button-secondary" target="_blank" rel="noopener noreferrer">
-                            Buy on Amazon UK
-                        </a>
-                        <a href="/products" class="button button-secondary">
-                            View Details
-                        </a>
+                      {% if p.amazon_url %}
+                        <a href="{{ p.amazon_url }}" class="button button-secondary" target="_blank">Buy on Amazon UK</a>
+                      {% endif %}
+                      <a href="/products/{{ id }}/" class="button button-secondary">View Details</a>
                     </div>
-                </div>
-            </article>
+                  </div>
+                </article>
+              {% endif %}
+            {% endfor %}
         </div>
     </div>
 </section>
