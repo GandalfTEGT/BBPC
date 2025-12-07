@@ -19,7 +19,6 @@ title: Warranty Information | BonnieByte PC
                 </li>
             {% endif %}
         {% endfor %}
-        {{ site.data.products | jsonify }}
         </ul>
     </div>
 </div>
