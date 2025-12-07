@@ -248,16 +248,31 @@ title: Home | BonnieByte PC
         <p>Follow along for updates, build pics, and future product drops.</p>
         <div class="social-links">
             <a href="https://instagram.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
-                <img src="/images/icons/instagram.png" width="56" style="display:block;">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <rect x="5" y="5" width="14" height="14" rx="4"/>
+                    <circle cx="12" cy="12" r="3"/>
+                    <circle cx="16.2" cy="7.8" r="0.9"/>
+                </svg>
             </a>
             <a href="https://tiktok.com/@bonniebytepc" target="_blank" rel="noopener noreferrer">
-                <img src="/images/icons/tiktok.png" width="47" style="display:block;">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M10 4V14.5"/>
+                    <circle cx="10" cy="17.5" r="2.5"/>
+                    <path d="M10 6.5C12 9 15 9.5 17 9.5V4"/>
+                </svg>
             </a>
             <a href="https://twitter.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
-                <img src="/images/icons/twitter.png" width="64" style="display:block;">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M3 21 L21 3" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M3 3 L11 3 L21 21 L13 21 Z" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
             </a>
             <a href="https://facebook.com/bonniebytepc" target="_blank" rel="noopener noreferrer">
-                <img src="/images/icons/facebook.png" width="30" style="display:block;">
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <rect x="5" y="5" width="14" height="14" rx="3"/>
+                    <path d="M13 8H11.5C10.4 8 9.5 8.9 9.5 10V16"/>
+                    <path d="M10 12H13"/>
+                </svg>
             </a>
         </div>
     </div>
