@@ -1,40 +1,139 @@
+# How to Use the BonnieByte PC Website
+A quick guide for customers navigating bonniebytepc.com.
 
-If translation breaks:
-- Clear cookies
-- Check browser script blocking
-- Confirm Google's script is loaded
+## 🏠 1. Homepage
 
-Admins do NOT need to modify this unless troubleshooting.
+The homepage gives you:
+- A quick overview of the brand
+- Product highlights
+- Updates and announcements
+- Email signup for future news
 
----
-
-## 🛠️ 8. Backups and Restoration
-
-To restore the website:
-1. Download the repo as a ZIP  
-2. Keep a local copy  
-3. If something breaks:
-   - Delete repo files  
-   - Re-upload your saved ZIP  
-   - GitHub Pages will rebuild automatically
+Buttons lead to Products, Support, and Tools.
 
 ---
 
-## 💡 9. Safe Editing Principles
+## 🧊 2. Viewing Products
 
-- Do not delete `_config.yml`
-- Do not rename `_layouts`, `_includes`, or `_data`
-- Edit one section at a time
-- Test changes on a branch if unsure
-- Keep folder structure exactly as is
-- Avoid touching JS unless necessary
-- Make backups before large edits
+Go to:
+
+**Products → Browse Catalog**
+
+Each product page includes:
+- Product name
+- Description
+- Key features
+- Specs table
+- Warranty link
+- Manual link (if available)
+- Amazon purchase link (if available)
 
 ---
 
-## 🆘 10. Support
+## 📝 3. Reading Product Manuals
 
-For internal help contact:  
-**michael@bonniebytepc.com**
+Go to:
 
-For website technical support, note changes and notify the dev team.
+**Docs → Product Manuals**
+
+Every manual includes:
+- Installation steps
+- Cable diagrams
+- Troubleshooting guidance
+
+---
+
+## 🛡️ 4. Warranty Information
+
+Visit:
+
+**Warranty → Product Warranty**
+
+Each warranty page explains:
+- Eligibility  
+- Coverage  
+- What is not covered  
+- How to request a replacement  
+- Required information  
+- Response expectations  
+
+The information is specific to the product you selected.
+
+---
+
+## 🧰 5. Tools (Airflow Calculator)
+
+Located under:
+
+**Tools → Airflow Calculator**
+
+You can:
+- Enter your fan configuration
+- Calculate intake/output balance
+- Optimize airflow for your build
+
+---
+
+## 🆘 6. Support
+
+The Support page includes:
+- Contact information  
+- Troubleshooting guidance  
+- RMA instructions  
+- Links to manuals & warranties  
+
+You can contact support at:  
+**support@bonniebytepc.com**
+
+---
+
+## 🌍 7. Changing Language
+
+In the header, click the **language circle** to choose:
+- English  
+- Gaelic  
+- French  
+- German  
+- Spanish  
+
+The site will translate automatically.
+
+---
+
+## 📦 8. Orders, Returns, and Shipping
+
+Under **Legal**, you can find:
+
+- Shipping Policy  
+- Returns & Refunds  
+- Warranty Terms  
+- Terms of Service  
+
+This tells you everything about:
+- Delivery expectations  
+- Return windows  
+- Refund conditions  
+- Coverage rules  
+
+---
+
+## 🔐 9. Privacy & Cookies
+
+Under **Legal**, you can view:
+- Privacy Policy  
+- Cookie Policy  
+
+These explain how your data is used and stored.
+
+---
+
+## ✉️ 10. Contact
+
+For general enquiries:  
+**hello@bonniebytepc.com**
+
+For support:  
+**support@bonniebytepc.com**
+
+For warranty claims:  
+Follow instructions on the product warranty page.
