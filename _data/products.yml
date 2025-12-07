@@ -2,8 +2,6 @@ northern_wind_120:
   warranty_enabled: true
   full_name: "Northern Wind 120mm ARGB Fan Bundle"
   short_name: "Northern Wind"
-
-template_product:
-  warranty_enabled: false
-  full_name: "Template Product"
-  short_name: "Template"
+  manual_enabled: true
+  product_type: "fan_kit"
+  release_date: "2025-11-01"
