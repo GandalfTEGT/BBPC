@@ -27,7 +27,7 @@ title: Home | BonnieByte PC
                 <h2>Launching Soon</h2>
                 <p>Our debut <span class="orbitron notranslate">NORTHERN WIND 120</span> ARGB fan bundle is almost ready. Be first in line for launch-day pricing and early stock.</p>
                 <ul class="hero-list">
-                    <li> 5× <span class="orbitron notranslate">NORTHERN WIND</span> 120mm ARGB fans</li>
+                    <li> 5× <span class="orbitron notranslate">NORTHERN WIND</span> 120mm<br>ARGB fans</li>
                     <li>Included control hub</li>
                     <li>Addressable lighting support</li>
                     <li>Quiet performance-focused design</li>
