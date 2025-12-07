@@ -205,45 +205,107 @@
       }, 'google_translate_element');
     }
 
-    // Used by our custom language buttons
+    /* ============================================================
+       BONNIEBYTE PC — SAFARI STABILITY PATCH FOR GTRANSLATE
+       ============================================================ */
     function doGTranslate(lang) {
         if (!lang) return;
 
-        function attempt(count = 0) {
-             if (count > 50) return; // give up after ~5 seconds
+        let attempts = 0;
+        const maxAttempts = 60; // ~6 seconds
+        let translationApplied = false;
 
-             let combo = null;
+        function tryApply() {
+            attempts++;
 
-             // 1. Try inline select
-             combo = document.querySelector(".goog-te-combo");
-             if (combo) {
-                 combo.value = lang;
-                 combo.dispatchEvent(new Event("change"));
-                 return;
-             }
+            // Inline mode
+            let combo = document.querySelector(".goog-te-combo");
+            if (combo) {
+                combo.value = lang;
+                combo.dispatchEvent(new Event("change"));
+                translationApplied = true;
+            }
 
-             // 2. Try iframe mode
-             const iframe = document.querySelector("iframe.goog-te-menu-frame");
-             if (iframe) {
-                 try {
-                     const innerCombo = iframe.contentDocument.querySelector(".goog-te-combo");
-                     if (innerCombo) {
-                         innerCombo.value = lang;
-                         innerCombo.dispatchEvent(new Event("change"));
-                         return;
-                     }
-                 } catch(e) {
-                     // Safari iframe sandbox timing
-                 }
-          }
+            // iFrame mode
+            const iframe = document.querySelector("iframe.goog-te-menu-frame");
+            if (iframe) {
+                try {
+                    const innerCombo = iframe.contentDocument?.querySelector(".goog-te-combo");
+                    if (innerCombo) {
+                        innerCombo.value = lang;
+                        innerCombo.dispatchEvent(new Event("change"));
+                        translationApplied = true;
+                    }
+                } catch(e) {
+                    // Safari iframe sandbox timing
+                }
+            }
 
-          // 3. Retry until the select actually exists
-          setTimeout(() => attempt(count + 1), 100);
+            if (translationApplied) {
+                setTimeout(() => verifyTranslationSuccess(lang), 300);
+                return;
+            }
+
+            if (attempts < maxAttempts) {
+                return setTimeout(tryApply, 100);
+            }
+
+            showTranslationError();
         }
 
-      attempt();
+        tryApply();
     }
-  </script>
+
+    /* ============================================================
+       VERIFY TRANSLATION SUCCESS — detects Safari "silent fail"
+       ============================================================ */
+    function verifyTranslationSuccess(lang) {
+        const text = document.body.innerText.slice(0, 600).toLowerCase();
+        const englishMarkers = [" warranty ", " support ", " product ", " bonniebyte "];
+
+        const seemsTranslated = !englishMarkers.some(m => text.includes(m));
+        if (!seemsTranslated) {
+            return setTimeout(() => {
+                const t2 = document.body.innerText.slice(0, 600).toLowerCase();
+                const seemsTranslated2 = !englishMarkers.some(m => t2.includes(m));
+
+                if (!seemsTranslated2) showTranslationError();
+            }, 800);
+        }
+    }
+
+    /* ============================================================
+       USER-FRIENDLY ERROR MESSAGE ON TOTAL FAILURE
+       ============================================================ */
+    function showTranslationError() {
+        if (document.getElementById("translation-error-banner")) return;
+
+        const banner = document.createElement("div");
+        banner.id = "translation-error-banner";
+        banner.textContent = "Automatic translation is temporarily unavailable. Please try again shortly.";
+        banner.style.position = "fixed";
+        banner.style.bottom = "20px";
+        banner.style.left = "50%";
+        banner.style.transform = "translateX(-50%)";
+        banner.style.background = "rgba(0,0,0,0.85)";
+        banner.style.border = "2px solid #66aaff";
+        banner.style.padding = "12px 18px";
+        banner.style.borderRadius = "8px";
+        banner.style.color = "#fff";
+        banner.style.zIndex = "999999";
+        banner.style.fontSize = "0.9rem";
+        banner.style.boxShadow = "0 0 12px rgba(102,170,255,0.5)";
+        banner.style.fontFamily = "Inter, sans-serif";
+
+        document.body.appendChild(banner);
+
+        setTimeout(() => {
+            banner.style.opacity = "0";
+            banner.style.transition = "opacity 0.4s ease";
+            setTimeout(() => banner.remove(), 600);
+        }, 4000);
+    }
+</script>
 
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script>
