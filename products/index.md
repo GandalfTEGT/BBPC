@@ -9,10 +9,9 @@ title: "Products | BonnieByte PC"
       <p>High-quality PC cooling and components, built for real-world rigs.</p>
     </header>
     <div class="product-grid">
-      {% assign products = site.data.products %}
-      {% assign product_ids = products | keys | sort_natural %}
-      {% for id in product_ids %}
-        {% assign p = products[id] %}
+      {% for product in site.data.products %}
+      {% assign id = product[0] %}
+      {% assign p = product[1] %}
         {% if p.product_visible != false %}
           <article class="product-card">
             <div class="product-media">
