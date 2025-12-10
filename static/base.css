@@ -658,7 +658,7 @@ footer.site-footer::before {
 
 
 /* ========================================================================
-   PRODUCT GRID & CARD STYLES
+   15. PRODUCT GRID & CARD STYLES
    ======================================================================== */
 
 .product-grid {
@@ -752,7 +752,7 @@ footer.site-footer::before {
 
 
 /* ========================================================================
-   SUPPORT PAGE
+   16. SUPPORT PAGE
    ======================================================================== */
 
 .support-panel {
@@ -770,7 +770,7 @@ footer.site-footer::before {
 
 
 /* ========================================================================
-   LIGHT THEME OVERRIDES
+   17. LIGHT THEME OVERRIDES
    ======================================================================== */
 
 html[data-theme="light"] footer.site-footer {
@@ -779,7 +779,7 @@ html[data-theme="light"] footer.site-footer {
 
 
 /* ========================================================================
-   ACCESSIBILITY
+   18. ACCESSIBILITY
    ======================================================================== */
 
 .skip-link {
@@ -800,7 +800,7 @@ html[data-theme="light"] footer.site-footer {
 
 
 /* ========================================================================
-   GTRANSLATE CLEANUP
+   19. GTRANSLATE CLEANUP
    ======================================================================== */
 
 .goog-te-banner-frame.skiptranslate,
@@ -838,7 +838,7 @@ body .goog-te-gadget {
 
 
 /* ========================================================================
-   REDUCED MOTION
+   20. REDUCED MOTION
    ======================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -850,7 +850,7 @@ body .goog-te-gadget {
 
 
 /* ========================================================================
-   SOCIAL ICONS
+   21. SOCIAL ICONS
    ======================================================================== */
 
 .social-links {
@@ -879,3 +879,4 @@ body .goog-te-gadget {
     opacity: 0.7;
     transform: translateY(-2px);
 }
+
