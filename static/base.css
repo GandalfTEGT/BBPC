@@ -1078,4 +1078,22 @@ body .goog-te-gadget {
     transform: translateY(-2px);
 }
 
+/* Mobile: header always shrunk */
+@media (max-width: 768px) {
+    header.site-header {
+        height: 64px !important;        /* your shrunk height */
+        padding: 0 16px !important;
+    }
+
+    header.site-header:not(.header--scrolled) {
+        height: 64px !important;
+        padding: 0 16px !important;
+    }
+
+    /* Prevent animation flicker on mobile */
+    header.site-header {
+        transition: none !important;
+    }
+}
+
 
