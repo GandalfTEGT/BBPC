@@ -47,18 +47,15 @@ title: "Products | BonnieByte PC"
                 {% endif %}
               </div>
               <div class="button-group">
-                <button
-                  class="btn btn-primary add-to-cart"
-                  type="button"
-                  data-add-to-cart
-                  data-product-sku="{{ p.sku }}"
-                  data-product-name="{{ p.full_name }}"
-                  data-product-price="{{ p.price_preview_gbp }}"
-                  data-product-image="{{ p.thumbnail }}"
-                  data-product-variant="default"
-                >
-                  Add to cart
-                </button>
+                <a class="button" 
+                   data-add-to-cart
+                   data-product-sku="{{ p.sku }}"
+                   data-product-name="{{ p.full_name }}"
+                   data-product-price="{{ p.price_preview_gbp }}"
+                   data-product-image="{{ p.thumbnail }}"
+                   data-product-variant="default">
+                   Add to Cart
+                </a>
                 {% if p.amazon_url %}
                   <a href="{{ p.amazon_url }}" class="button button-secondary" target="_blank" rel="noopener noreferrer">Buy on Amazon UK</a>
                 {% endif %}
