@@ -1,8 +1,8 @@
 /* ============================================================
-   0. NORMALISE AGAINST BASE.CSS BUTTON + ICON STYLING
+   1. CART ICON — MATCH THEME TOGGLE + LANG BUTTONS
    ============================================================ */
 
-.bb-cart-circle-btn {
+.bb-cart-button-circle {
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -16,90 +16,137 @@
     transition: 0.25s ease;
 }
 
-.bb-cart-circle-btn:hover {
+.bb-cart-button-circle:hover {
     background: var(--bb-blue);
     color: #000;
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
-
-/* ============================================================
-   1. CART ICON BUTTON (MATCHES THEME TOGGLE + LANGUAGE BUTTON)
-   ============================================================ */
-
 .bb-cart-toggle {
-    composes: bb-cart-circle-btn;
+    composes: bb-cart-button-circle;
     position: relative;
 }
 
 .bb-cart-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     stroke: currentColor;
     fill: none;
 }
 
-/* Badge: blue neon, matching your brand */
+/* Blue neon badge */
 .bb-cart-count-badge {
     position: absolute;
-    top: -4px;
-    right: -4px;
+    top: -6px;
+    right: -6px;
     background: var(--bb-blue);
     color: #000;
-    padding: 0 6px;
-    height: 18px;
     font-size: 12px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 999px;
     box-shadow: 0 0 10px rgba(102,170,255,0.6);
 }
 
 
+
 /* ============================================================
-   2. CART SIDEBAR HEADER (TITLE SPACING FIX)
+   2. CART DRAWER FIX — OPEN/CLOSE RESTORED
+   ============================================================ */
+
+.bb-cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 360px;
+    height: 100vh;
+    background: var(--bb-panel);
+    border-left: 2px solid var(--bb-blue);
+    z-index: 9999;
+    transition: right .35s ease;
+    overflow-y: auto;
+}
+
+.bb-cart-drawer[aria-hidden="false"] {
+    right: 0;
+}
+
+.bb-cart-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.bb-cart-backdrop[aria-hidden="false"] {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+/* ============================================================
+   3. CART HEADER + CLOSE BUTTON
    ============================================================ */
 
 .bb-cart-drawer-header {
-    padding: 22px 24px;
+    padding: 24px;
     border-bottom: 1px solid var(--bb-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.bb-cart-drawer-header h2 {
-    margin: 0;
-    padding-top: 2px;
-    font-size: 1.35rem;
-    font-family: 'Orbitron', sans-serif;
-}
-
-
-/* Close button matches your circle-icon buttons */
 .bb-cart-close {
-    composes: bb-cart-circle-btn;
-    font-size: 20px;
-    line-height: 0;
+    composes: bb-cart-button-circle;
+    font-size: 18px;
 }
+
 
 
 /* ============================================================
-   3. QUANTITY BUTTONS — MATCH `.button-secondary`
+   4. IMAGE SIZING (STRICT FIX)
    ============================================================ */
 
+.bb-cart-item-image img,
+.bb-cart-preview-thumb img,
+.bb-cart-page-thumb img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain;
+    display: block;
+    max-width: 100%;
+}
+
+
+
+/* ============================================================
+   5. QUANTITY BUTTONS — IMPROVED LAYOUT
+   ============================================================ */
+
+.bb-cart-item-qty,
+.bb-cart-page-qty {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .bb-cart-qty-btn {
-    background: transparent;
-    border: 2px solid var(--bb-blue);
-    color: var(--bb-blue);
     width: 32px;
     height: 32px;
+    border: 2px solid var(--bb-blue);
+    background: transparent;
+    color: var(--bb-blue);
     border-radius: 6px;
     font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: 0.25s ease;
+    transition: .25s ease;
 }
 
 .bb-cart-qty-btn:hover {
@@ -108,122 +155,79 @@
 }
 
 .bb-cart-qty-input {
-    width: 40px;
+    width: 42px;
     height: 32px;
-    background: var(--bb-panel);
-    color: var(--bb-text);
-    border: 1px solid var(--bb-border);
-    border-radius: 6px;
     text-align: center;
+    border: 1px solid var(--bb-border);
+    background: var(--bb-surface);
+    border-radius: 6px;
+    color: var(--bb-text);
 }
 
 
+
 /* ============================================================
-   4. BUTTONS IN CART DRAWER + CART PAGE
+   6. BUTTONS — RESTORE BASE.CSS STYLING
    ============================================================ */
 
 [data-cart-checkout] {
     composes: button;
     width: 100%;
+    margin-top: 12px;
+}
+
+.add-to-cart {
+    composes: button;
 }
 
 .bb-cart-remove {
     background: none;
     border: none;
-    color: #ff5858;
-    font-size: 0.9rem;
+    color: #ff5959;
     cursor: pointer;
-    padding: 0;
+    font-size: 0.85rem;
 }
 
 .bb-cart-remove:hover {
-    text-shadow: 0 0 6px rgba(255,70,70,0.6);
+    text-shadow: 0 0 6px rgba(255,50,50,0.6);
 }
+
 
 
 /* ============================================================
-   5. HOVER PREVIEW FIX + CLEAN ALIGNMENT
+   7. CART PAGE ALIGNMENT + SPACING FIX
    ============================================================ */
 
-.bb-cart-preview {
-    background: var(--bb-panel);
-    border: 1px solid var(--bb-border);
-    border-radius: 8px;
-    padding: 12px;
-    width: 260px;
-    display: none;
-}
-
-.bb-cart-preview[aria-hidden="false"] {
-    display: block;
-}
-
-.bb-cart-preview-item {
-    display: flex;
-    gap: 12px;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--bb-border);
-}
-
-.bb-cart-preview-item:last-child {
-    border-bottom: none;
-}
-
-
-/* ============================================================
-   6. CART PAGE TABLE — ALIGNMENT CLEANUP
-   ============================================================ */
-
-.bb-cart-page-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.bb-cart-page-table th {
-    text-align: left;
-    font-family: 'Orbitron';
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--bb-blue);
+.cart-page h1 {
+    margin-top: 40px;
+    scroll-margin-top: 120px; /* fixes header overlap */
 }
 
 .bb-cart-page-table td {
-    padding: 18px 12px;
     vertical-align: middle;
-    border-bottom: 1px solid var(--bb-border);
+    padding: 20px 14px;
 }
 
 .bb-cart-page-product-inner {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 18px;
 }
 
-
-/* Thumbnails */
-.bb-cart-page-thumb img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-}
-
-
-/* Spacing for bigger screens */
-@media (min-width: 900px) {
-    .bb-cart-page-table td {
-        padding: 26px 16px;
-    }
-}
 
 
 /* ============================================================
-   7. TABLE SEPARATORS — MATCH MOBILE NAV STYLE
+   8. HOVER PREVIEW
    ============================================================ */
 
-.bb-cart-page-table tr {
-    border-bottom: 1px solid var(--bb-border);
+.bb-cart-preview {
+    background: var(--bb-panel);
+    border: 1px solid var(--bb-border);
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
 }
 
-.bb-cart-page-table tr:hover {
-    background: var(--bb-surface);
+.bb-cart-preview[aria-hidden="false"] {
+    display: block;
 }
