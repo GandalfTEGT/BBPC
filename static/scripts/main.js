@@ -6,9 +6,15 @@ function initializeTheme() {
     const themeIcon = themeToggle?.querySelector('.theme-icon');
     if (!themeToggle || !themeIcon) return;
 
-    const mobileToggle = null; // single shared toggle now
-
     function persistTheme(theme) {
+        // Save to localStorage (used by inline <head> script)
+        try {
+            localStorage.setItem("bb-theme", theme);
+        } catch (e) {
+            console.warn("BB theme localStorage error:", e);
+        }
+
+        // Also mirror into bb_theme cookie (for your existing helpers)
         try {
             if (typeof BBCookies !== "undefined") {
                 BBCookies.set("bb_theme", theme, 365);
@@ -18,44 +24,60 @@ function initializeTheme() {
         }
     }
 
-    function readInitialTheme() {
-        let theme = null;
-
-        try {
-            if (typeof BBCookies !== "undefined") {
-                const cookieTheme = BBCookies.get("bb_theme");
-                if (cookieTheme === "dark" || cookieTheme === "light") {
-                    theme = cookieTheme;
-                }
-            }
-        } catch (e) {}
-
-        if (!theme) {
-            const prefersDark = window.matchMedia &&
-                window.matchMedia('(prefers-color-scheme: dark)').matches;
-            theme = prefersDark ? "dark" : "light";
-        }
-
-        return theme;
-    }
-
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
         persistTheme(theme);
     }
 
-    // Avoid resetting theme if inline script already set it early
-    const current = document.documentElement.getAttribute("data-theme");
-    
-    if (current) {
-        // Theme already applied by inline head script — skip re-apply
-        themeIcon.textContent = current === 'dark' ? '☀️' : '🌙';
+    // 1) Read what the inline <head> script already set (no flash)
+    let current = document.documentElement.getAttribute("data-theme");
+
+    // 2) If for some reason it's missing, derive a sensible default
+    if (!current) {
+        // Try localStorage first
+        try {
+            const stored = localStorage.getItem("bb-theme");
+            if (stored === "dark" || stored === "light") {
+                current = stored;
+            }
+        } catch (e) {}
+
+        // Try cookie as secondary source
+        if (!current) {
+            try {
+                if (typeof BBCookies !== "undefined") {
+                    const cookieTheme = BBCookies.get("bb_theme");
+                    if (cookieTheme === "dark" || cookieTheme === "light") {
+                        current = cookieTheme;
+                    }
+                }
+            } catch (e) {}
+
+            // Finally, fall back to OS preference
+            if (!current) {
+                const prefersDark = window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+                current = prefersDark ? "dark" : "light";
+            }
+        }
+
+        // Actually apply if it was missing
+        applyTheme(current);
     } else {
-        // Fallback if no theme set (very rare)
-        const initialTheme = readInitialTheme();
-        document.documentElement.setAttribute("data-theme", initialTheme);
+        // We already have a theme from <head>: just sync icon + storage
+        themeIcon.textContent = current === 'dark' ? '☀️' : '🌙';
+        persistTheme(current);
     }
+
+    // 3) Wire up click toggle
+    themeToggle.addEventListener('click', () => {
+        const active = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = active === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+    });
+}
+
 
 
 
@@ -440,6 +462,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 
 
