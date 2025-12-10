@@ -688,6 +688,42 @@ svg {
     }
 }
 
+/* ========================================================================
+   MOBILE NAV BREAKPOINT EXTENSION — Enable drawer at 1100px
+   ======================================================================== */
+
+@media (max-width: 1100px) {
+    .header-nav {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 280px;
+        height: 100vh;
+        padding: 120px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: linear-gradient(
+            180deg,
+            rgba(10, 10, 10, 0.95),
+            rgba(10, 10, 10, 0.90),
+            rgba(20, 20, 40, 0.85)
+        );
+        border-left: 2px solid var(--bb-blue);
+        transition: right 0.4s ease;
+        display: flex; /* Force mobile drawer mode */
+    }
+
+    .header-nav.active {
+        right: 0;
+    }
+
+    /* Hide desktop nav layout in this range */
+    .header-nav .nav-link {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 1.2rem;
+    }
+}
 
 /* ========================================================================
    14. FOOTER — ACCORDION + ICONS
@@ -1103,6 +1139,7 @@ body .goog-te-gadget {
     opacity: 0.7;
     transform: translateY(-2px);
 }
+
 
 
 
