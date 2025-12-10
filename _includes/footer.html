@@ -306,6 +306,17 @@ function verifyTranslation(lang) {
 function showTranslationError(lang) {
     if (document.getElementById("translation-error-banner")) return;
 
+    // Detect iOS Safari (also true for Chrome/Firefox on iOS because Apple forces WebKit)
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const isIOS = /iPad|iPhone|iPod/.test(ua);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(ua); // Safari engine check
+    const isIOSSafari = isIOS && isSafari;
+
+    // Build optional iOS line
+    const iosLine = isIOSSafari
+        ? `<span style="opacity:0.8; font-size:0.8rem;">iOS Safari may block translation occasionally.</span>`
+        : ``;
+
     const banner = document.createElement("div");
     banner.id = "translation-error-banner";
     banner.style.position = "fixed";
@@ -328,7 +339,7 @@ function showTranslationError(lang) {
     banner.innerHTML = `
         <div style="display:flex; flex-direction:column; line-height:1.25;">
             <span>Automatic translation is temporarily unavailable.</span>
-            <span style="opacity:0.8; font-size:0.8rem;">iOS Safari may block translation occasionally.</span>
+            ${iosLine}
         </div>
         <button id="retry-translate" style="
             background:#66aaff; color:#000; border:none;
