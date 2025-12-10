@@ -304,65 +304,102 @@ function verifyTranslation(lang) {
 
 /* ---------- 6. Error banner ---------- */
 function showTranslationError(lang) {
+    // If user previously disabled the message, skip
+    try {
+        if (BBCookies.get("bb_hide_translate_error") === "1") return;
+    } catch(e){}
+
+    // Do not duplicate banner
     if (document.getElementById("translation-error-banner")) return;
 
-    // Detect iOS Safari (also true for Chrome/Firefox on iOS because Apple forces WebKit)
+    // Detect iOS Safari
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     const isIOS = /iPad|iPhone|iPod/.test(ua);
-    const isSafari = /^((?!chrome|android).)*safari/i.test(ua); // Safari engine check
+    const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
     const isIOSSafari = isIOS && isSafari;
 
-    // Build optional iOS line
     const iosLine = isIOSSafari
         ? `<span style="opacity:0.8; font-size:0.8rem;">iOS Safari may block translation occasionally.</span>`
         : ``;
 
+    // Create banner
     const banner = document.createElement("div");
     banner.id = "translation-error-banner";
     banner.style.position = "fixed";
     banner.style.bottom = "20px";
     banner.style.left = "50%";
     banner.style.transform = "translateX(-50%)";
-    banner.style.background = "rgba(0,0,0,0.85)";
+    banner.style.background = "rgba(0,0,0,0.88)";
     banner.style.border = "2px solid #66aaff";
-    banner.style.padding = "12px 18px";
-    banner.style.borderRadius = "8px";
+    banner.style.padding = "14px 18px";
+    banner.style.borderRadius = "10px";
     banner.style.color = "#fff";
     banner.style.zIndex = "999999";
     banner.style.fontSize = "0.9rem";
-    banner.style.boxShadow = "0 0 12px rgba(102,170,255,0.5)";
+    banner.style.boxShadow = "0 0 14px rgba(102,170,255,0.55)";
     banner.style.fontFamily = "Inter, sans-serif";
     banner.style.display = "flex";
-    banner.style.gap = "12px";
+    banner.style.gap = "18px";
     banner.style.alignItems = "center";
+    banner.style.maxWidth = "90%";
+    banner.style.flexWrap = "wrap";
 
     banner.innerHTML = `
-        <div style="display:flex; flex-direction:column; line-height:1.25;">
+        <div style="display:flex; flex-direction:column; line-height:1.25; flex:1;">
             <span>Automatic translation is temporarily unavailable.</span>
             ${iosLine}
+            <label style="margin-top:6px; font-size:0.78rem; opacity:0.9;">
+                <input type="checkbox" id="bb-hide-msg" style="margin-right:6px;">
+                Don't show this again
+            </label>
         </div>
+
         <button id="retry-translate" style="
             background:#66aaff; color:#000; border:none;
             padding:6px 12px; border-radius:6px; cursor:pointer;
             font-size:0.85rem; font-weight:600;">
             Retry
         </button>
+
+        <button id="bb-close-translate-banner" style="
+            background:none; border:none; color:#fff;
+            font-size:1.2rem; cursor:pointer; padding:4px;">
+            ✕
+        </button>
     `;
 
     document.body.appendChild(banner);
 
+    // Close function shared by both interactions
+    function closeBanner() {
+        const hide = document.getElementById("bb-hide-msg").checked;
+        if (hide) {
+            try {
+                BBCookies.set("bb_hide_translate_error", "1", 365);
+            } catch(e){}
+        }
+
+        banner.style.opacity = "0";
+        banner.style.transition = "opacity 0.35s ease";
+        setTimeout(() => banner.remove(), 350);
+    }
+
+    // Retry button behaviour
     document.getElementById("retry-translate").onclick = () => {
-        banner.remove();
+        closeBanner();
+
         let last = lang;
         try { last = BBCookies.get("bb_lang") || lang; } catch(e){}
         safeTranslate(last);
     };
 
+    // Close button behaviour
+    document.getElementById("bb-close-translate-banner").onclick = closeBanner;
+
+    // Auto-hide after 12 seconds unless user hovered or interacted
     setTimeout(() => {
-        if (banner) {
-            banner.style.opacity = "0";
-            banner.style.transition = "opacity 0.4s";
-            setTimeout(() => banner.remove(), 400);
+        if (document.getElementById("translation-error-banner")) {
+            closeBanner();
         }
     }, 12000);
 }
