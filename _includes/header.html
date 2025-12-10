@@ -81,14 +81,15 @@
         <div class="bb-header-cart-area">
           <div class="bb-cart-toggle-wrapper">
             <button class="bb-cart-toggle" type="button" aria-label="Open cart" data-cart-toggle>
-              <span class="bb-cart-icon" aria-hidden="true">
-                <!-- Simple icon; swap to SVG if you want -->
-                <span class="bb-cart-icon-basket"></span>
-              </span>
-              <span class="bb-cart-count-badge">
-                <span class="bb-cart-count" data-cart-count>0</span>
-              </span>
+              <svg class="bb-cart-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="9" cy="20" r="1.5" fill="currentColor"/>
+                <circle cx="17" cy="20" r="1.5" fill="currentColor"/>
+                <path d="M6 6L4 3H1" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              <span class="bb-cart-count-badge" data-cart-count>0</span>
             </button>
+
         
             <!-- Hover preview (desktop only) -->
             <div class="bb-cart-preview" data-cart-preview aria-hidden="true">
