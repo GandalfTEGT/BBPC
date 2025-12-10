@@ -507,6 +507,7 @@ svg {
         background 0.35s ease,
         transform 0.35s ease,
         border-color 0.35s ease;
+    min-height: 64px;
 }
 
 .enhanced-header::before {
@@ -531,6 +532,7 @@ svg {
 .enhanced-header.shrink {
     padding: 6px 0;
     background: rgba(5, 5, 5, 0.92);
+    min-height: 64px;
 }
 
 .header-logo-img {
@@ -1119,5 +1121,22 @@ body .goog-te-gadget {
     }
 }
 
+@media (max-width: 768px) {
+    .header-actions {
+        padding-right: 10px;  /* brings buttons slightly inward */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-actions {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo-img {
+        height: 48px !important;
+    }
+}
 
 
