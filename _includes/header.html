@@ -77,6 +77,34 @@
       
       <!-- HEADER ACTIONS -->
       <div class="header-actions">
+
+        <div class="bb-header-cart-area">
+          <div class="bb-cart-toggle-wrapper">
+            <button class="bb-cart-toggle" type="button" aria-label="Open cart" data-cart-toggle>
+              <span class="bb-cart-icon" aria-hidden="true">
+                <!-- Simple icon; swap to SVG if you want -->
+                <span class="bb-cart-icon-basket"></span>
+              </span>
+              <span class="bb-cart-count-badge">
+                <span class="bb-cart-count" data-cart-count>0</span>
+              </span>
+            </button>
+        
+            <!-- Hover preview (desktop only) -->
+            <div class="bb-cart-preview" data-cart-preview aria-hidden="true">
+              <div class="bb-cart-preview-inner">
+                <div class="bb-cart-preview-items" data-cart-preview-items></div>
+                <div class="bb-cart-preview-footer">
+                  <div class="bb-cart-preview-subtotal">
+                    Subtotal: <span data-cart-preview-subtotal>£0.00</span>
+                  </div>
+                  <a href="/cart/" class="btn-link bb-cart-preview-view-cart">View cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Theme toggle (shared desktop + mobile) -->
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
           <span class="theme-icon">🌙</span>
@@ -114,7 +142,7 @@
             </button>
           </div>
         </div>
-
+        
         <!-- Mobile menu toggle -->
         <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span>
