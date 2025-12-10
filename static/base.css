@@ -1140,3 +1140,29 @@ body .goog-te-gadget {
 }
 
 
+/* Fix second-shrink issue by reducing logo height on narrow widths */
+@media (max-width: 768px) {
+    .header-logo-img {
+        height: 54px !important; /* was 80px → 60px → now properly scaled for narrow screens */
+    }
+
+    .enhanced-header.shrink .header-logo-img {
+        height: 48px !important;
+    }
+}
+
+/* Improve mobile header spacing & thumb reach */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 12px !important; /* instead of 20px */
+    }
+
+    .header-actions {
+        gap: 8px; /* slightly tighten spacing so cluster isn't too wide */
+        padding-right: 6px; /* pushes cluster away from screen edge */}
+}
+
+.header-actions {
+    flex-wrap: nowrap;
+    overflow: visible;
+}
