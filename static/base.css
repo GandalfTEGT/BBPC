@@ -407,6 +407,7 @@ section {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
+
 @media (max-width: 900px) {
     .mobile-menu-toggle {
         display: flex;
@@ -418,6 +419,15 @@ section {
     }
 }
 
+/* ========================================================================
+   HAMBURGER TABLET FIX — Make menu icon appear earlier (same as language/theme hiding)
+   ======================================================================== */
+
+@media (max-width: 1100px) {
+    .mobile-menu-toggle {
+        display: flex !important;
+    }
+}
 
 /* ========================================================================
    9.1 HEADER TABLET FIX — Prevent overflow between 900px–1100px
