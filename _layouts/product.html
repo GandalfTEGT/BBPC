@@ -31,6 +31,19 @@ layout: default
           {% endfor %}
         </table>
         <div class="product-buttons">
+          {% assign p = site.data.products.northern_wind_120 %}
+            <button
+              class="btn btn-primary add-to-cart"
+              type="button"
+              data-add-to-cart
+              data-product-sku="{{ p.sku }}"
+              data-product-name="{{ p.full_name | escape }}"
+              data-product-price="{{ p.price_preview_gbp }}"
+              data-product-image="{{ p.thumbnail }}"
+              data-product-variant="default"
+            >
+              Add to cart
+            </button>
           {% if p.amazon_url %}
             <a href="{{ p.amazon_url }}" class="button button-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon UK</a>
           {% endif %}
