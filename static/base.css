@@ -220,6 +220,12 @@ section {
     align-items: center;
 }
 
+/* Strong guarantee that all header children remain vertically centered */
+.enhanced-header .header-content,
+.site-header .header-content {
+    align-items: center !important;
+}
+
 .header-logo img {
     height: 100px;
     transition: 0.25s ease;
@@ -1143,13 +1149,14 @@ body .goog-te-gadget {
 /* Fix second-shrink issue by reducing logo height on narrow widths */
 @media (max-width: 768px) {
     .header-logo-img {
-        height: 54px !important; /* was 80px → 60px → now properly scaled for narrow screens */
+        height: 64px !important;  /* previously 54 */
     }
 
     .enhanced-header.shrink .header-logo-img {
-        height: 48px !important;
+        height: 56px !important;  /* previously 48 */
     }
 }
+
 
 /* Improve mobile header spacing & thumb reach */
 @media (max-width: 768px) {
@@ -1165,4 +1172,9 @@ body .goog-te-gadget {
 .header-actions {
     flex-wrap: nowrap;
     overflow: visible;
+}
+
+.enhanced-header,
+.site-header {
+    min-height: 72px;   /* instead of 64px */
 }
