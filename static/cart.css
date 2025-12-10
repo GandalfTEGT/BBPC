@@ -2,271 +2,10 @@
    1. CART ICON — MATCH THEME TOGGLE + LANG BUTTONS
    ============================================================ */
 
-.bb-cart-button-circle {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 2px solid var(--bb-blue);
-    background: transparent;
-    color: var(--bb-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.25s ease;
+.bb-header-cart-area {
+    margin-right: 16px; /* fixes spacing between cart + theme toggle */
 }
 
-.bb-cart-button-circle:hover {
-    background: var(--bb-blue);
-    color: #000;
-    transform: scale(1.06);
-}
-
-.bb-cart-toggle {
-    composes: bb-cart-button-circle;
-    position: relative;
-}
-
-.bb-cart-icon {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-    fill: none;
-}
-
-/* Blue neon badge */
-.bb-cart-count-badge {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: var(--bb-blue);
-    color: #000;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 999px;
-    box-shadow: 0 0 10px rgba(102,170,255,0.6);
-}
-
-
-
-/* ============================================================
-   2. CART DRAWER FIX — OPEN/CLOSE RESTORED
-   ============================================================ */
-
-.bb-cart-drawer {
-    position: fixed;
-    top: 0;
-    right: -400px;
-    width: 360px;
-    height: 100vh;
-    background: var(--bb-panel);
-    border-left: 2px solid var(--bb-blue);
-    z-index: 9999;
-    transition: right .35s ease;
-    overflow-y: auto;
-}
-
-.bb-cart-drawer[aria-hidden="false"] {
-    right: 0;
-}
-
-.bb-cart-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 9998;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s ease;
-}
-
-.bb-cart-backdrop[aria-hidden="false"] {
-    opacity: 1;
-    pointer-events: all;
-}
-
-
-
-/* ============================================================
-   3. CART HEADER + CLOSE BUTTON
-   ============================================================ */
-
-.bb-cart-drawer-header {
-    padding: 24px;
-    border-bottom: 1px solid var(--bb-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.bb-cart-close {
-    composes: bb-cart-button-circle;
-    font-size: 18px;
-}
-
-
-
-/* ============================================================
-   4. IMAGE SIZING (STRICT FIX)
-   ============================================================ */
-
-.bb-cart-item-image img,
-.bb-cart-preview-thumb img,
-.bb-cart-page-thumb img {
-    width: 60px !important;
-    height: 60px !important;
-    object-fit: contain;
-    display: block;
-    max-width: 100%;
-}
-
-
-
-/* ============================================================
-   5. QUANTITY BUTTONS — IMPROVED LAYOUT
-   ============================================================ */
-
-.bb-cart-item-qty,
-.bb-cart-page-qty {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.bb-cart-qty-btn {
-    width: 32px;
-    height: 32px;
-    border: 2px solid var(--bb-blue);
-    background: transparent;
-    color: var(--bb-blue);
-    border-radius: 6px;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: .25s ease;
-}
-
-.bb-cart-qty-btn:hover {
-    background: var(--bb-blue);
-    color: #000;
-}
-
-.bb-cart-qty-input {
-    width: 42px;
-    height: 32px;
-    text-align: center;
-    border: 1px solid var(--bb-border);
-    background: var(--bb-surface);
-    border-radius: 6px;
-    color: var(--bb-text);
-}
-
-
-
-/* ============================================================
-   6. BUTTONS — RESTORE BASE.CSS STYLING
-   ============================================================ */
-
-[data-cart-checkout] {
-    composes: button;
-    width: 100%;
-    margin-top: 12px;
-}
-
-.add-to-cart {
-    composes: button;
-}
-
-.bb-cart-remove {
-    background: none;
-    border: none;
-    color: #ff5959;
-    cursor: pointer;
-    font-size: 0.85rem;
-}
-
-.bb-cart-remove:hover {
-    text-shadow: 0 0 6px rgba(255,50,50,0.6);
-}
-
-
-
-/* ============================================================
-   7. CART PAGE ALIGNMENT + SPACING FIX
-   ============================================================ */
-
-.cart-page h1 {
-    margin-top: 40px;
-    scroll-margin-top: 120px; /* fixes header overlap */
-}
-
-.bb-cart-page-table td {
-    vertical-align: middle;
-    padding: 20px 14px;
-}
-
-.bb-cart-page-product-inner {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-
-
-/* ============================================================
-   8. HOVER PREVIEW
-   ============================================================ */
-
-.bb-cart-preview {
-    background: var(--bb-panel);
-    border: 1px solid var(--bb-border);
-    padding: 12px;
-    border-radius: 8px;
-    display: none;
-}
-
-.bb-cart-preview[aria-hidden="false"] {
-    display: block;
-}
-
-/* Quantity layout fix */
-.bb-cart-item-qty,
-.bb-cart-page-qty {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.bb-cart-qty-btn {
-    order: 1; /* make sure + comes after input */
-}
-
-.bb-cart-qty-btn[data-cart-qty-dec] {
-    order: 0; /* put - before input */
-}
-
-.bb-cart-qty-input {
-    order: 2;
-}
-
-.bb-cart-page-table td,
-.bb-cart-page-table th {
-    vertical-align: middle;
-}
-
-.bb-cart-page-product-inner {
-    align-items: center;
-}
-
-.cart-page h1 {
-    margin-top: 70px !important;
-    scroll-margin-top: 130px;
-}
-
-/* Match theme-toggle + lang-btn buttons */
 .bb-cart-toggle {
     width: 42px;
     height: 42px;
@@ -295,40 +34,81 @@
     fill: none;
 }
 
-[data-cart-checkout] {
-    font-family: 'Orbitron';
-    padding: 12px 24px;
-    border-radius: 6px;
+/* Cart badge */
+.bb-cart-count-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
     background: var(--bb-blue);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+    color: #000;
+    font-size: 12px;
     font-weight: bold;
-    transition: 0.25s ease;
+    padding: 2px 6px;
+    border-radius: 999px;
+    box-shadow: 0 0 10px rgba(102,170,255,0.6);
 }
 
-[data-cart-checkout]:hover {
-    background: #88bbff;
+
+
+/* ============================================================
+   2. DRAWER — OPEN/CLOSE + LAYOUT
+   ============================================================ */
+
+.bb-cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 360px;
+    height: 100vh;
+    background: var(--bb-panel);
+    border-left: 2px solid var(--bb-blue);
+    z-index: 9999;
+    transition: right .35s ease;
+    overflow-y: auto;
+    padding-bottom: 30px;
 }
 
-[data-cart-checkout] {
+.bb-cart-drawer[aria-hidden="false"] {
+    right: 0;
+}
+
+.bb-cart-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+.bb-cart-backdrop[aria-hidden="false"] {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+/* ============================================================
+   3. DRAWER HEADER
+   ============================================================ */
+
+.bb-cart-drawer-header {
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--bb-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bb-cart-drawer-header h2 {
+    margin: 0;
+    font-size: 1.35rem;
+    padding-top: 2px;
     font-family: 'Orbitron';
-    padding: 12px 24px;
-    border-radius: 6px;
-    background: var(--bb-blue);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
-    transition: 0.25s ease;
 }
 
-[data-cart-checkout]:hover {
-    background: #88bbff;
-}
-
+/* Close button matches theme-toggle style */
 .bb-cart-close {
     width: 36px;
     height: 36px;
@@ -348,6 +128,34 @@
     color: #000;
 }
 
+
+
+/* ============================================================
+   4. ITEM IMAGES — CONSISTENT SIZING
+   ============================================================ */
+
+.bb-cart-item-image img,
+.bb-cart-preview-thumb img,
+.bb-cart-page-thumb img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .bb-cart-page-thumb img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+
+/* ============================================================
+   5. QUANTITY BUTTONS — CLEAN LAYOUT
+   ============================================================ */
+
 .bb-cart-item-qty,
 .bb-cart-page-qty {
     display: flex;
@@ -355,17 +163,10 @@
     gap: 10px;
 }
 
-.bb-cart-qty-btn[data-cart-qty-dec] {
-    order: 0;
-}
-
-.bb-cart-qty-input {
-    order: 1;
-}
-
-.bb-cart-qty-btn[data-cart-qty-inc] {
-    order: 2;
-}
+/* Order: [ - ] [ 1 ] [ + ] */
+.bb-cart-qty-btn[data-cart-qty-dec] { order: 0; }
+.bb-cart-qty-input { order: 1; }
+.bb-cart-qty-btn[data-cart-qty-inc] { order: 2; }
 
 .bb-cart-qty-btn {
     width: 32px;
@@ -377,7 +178,7 @@
     font-size: 20px;
     line-height: 0;
     cursor: pointer;
-    transition: 0.25s ease;
+    transition: .25s ease;
 }
 
 .bb-cart-qty-btn:hover {
@@ -392,8 +193,107 @@
     background: var(--bb-surface);
     border: 1px solid var(--bb-border);
     border-radius: 6px;
+    color: var(--bb-text);
 }
 
+
+
+/* ============================================================
+   6. BUTTONS — MATCH YOUR BASE.STYLESHEET
+   ============================================================ */
+
+.add-to-cart,
+[data-cart-checkout] {
+    font-family: 'Orbitron';
+    padding: 12px 24px;
+    border-radius: 6px;
+    background: var(--bb-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.25s ease;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.add-to-cart:hover,
+[data-cart-checkout]:hover {
+    background: #88bbff;
+}
+
+.bb-cart-remove {
+    background: none;
+    border: none;
+    color: #ff5959;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.bb-cart-remove:hover {
+    text-shadow: 0 0 6px rgba(255,50,50,0.6);
+}
+
+
+
+/* ============================================================
+   7. CART PAGE STYLING
+   ============================================================ */
+
 .section.cart-page {
-    padding-top: 120px !important; 
+    padding-top: 90px !important; /* was too large before */
+}
+
+.cart-page h1 {
+    margin-bottom: 30px;
+}
+
+.bb-cart-page-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bb-cart-page-table th,
+.bb-cart-page-table td {
+    vertical-align: middle;
+    padding: 20px 14px;
+    border-bottom: 1px solid var(--bb-border);
+}
+
+.bb-cart-page-product-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+@media (max-width: 600px) {
+    .bb-cart-page-product-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .bb-cart-page-table td {
+        padding: 14px 10px;
+    }
+}
+
+
+
+/* ============================================================
+   8. HOVER PREVIEW
+   ============================================================ */
+
+.bb-cart-preview {
+    background: var(--bb-panel);
+    border: 1px solid var(--bb-border);
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+    width: 260px;
+}
+
+.bb-cart-preview[aria-hidden="false"] {
+    display: block;
 }
