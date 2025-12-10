@@ -1178,3 +1178,18 @@ body .goog-te-gadget {
 .site-header {
     min-height: 72px;   /* instead of 64px */
 }
+
+/* Restore smooth slide animation for header hide/show */
+.enhanced-header {
+    transition:
+        transform 0.35s ease,
+        opacity 0.25s ease,
+        padding 0.25s ease,
+        background 0.35s ease,
+        border-color 0.35s ease !important;
+}
+
+.enhanced-header.hide {
+    opacity: 0;
+    transform: translateY(-100%);
+}
