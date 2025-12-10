@@ -45,18 +45,18 @@ function initializeTheme() {
         persistTheme(theme);
     }
 
-    const initialTheme = readInitialTheme();
-    applyTheme(initialTheme);
-
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        applyTheme(nextTheme);
+    // Avoid resetting theme if inline script already set it early
+    const current = document.documentElement.getAttribute("data-theme");
+    
+    if (current) {
+        // Theme already applied by inline head script — skip re-apply
+        themeIcon.textContent = current === 'dark' ? '☀️' : '🌙';
+    } else {
+        // Fallback if no theme set (very rare)
+        const initialTheme = readInitialTheme();
+        applyTheme(initialTheme);
     }
 
-    themeToggle.addEventListener('click', toggleTheme);
-    if (mobileToggle) mobileToggle.addEventListener('click', toggleTheme);
-}
 
 
 // ===============================
@@ -440,6 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 
 
