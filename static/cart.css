@@ -455,3 +455,19 @@
     }
 }
 
+/* ============================================================
+   14.    FLOATING ANIMATION ELEMENT
+   ============================================================ */
+
+.bb-fly-image {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 999999;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.4s ease;
+}
+
+
