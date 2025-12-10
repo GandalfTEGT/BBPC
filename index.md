@@ -98,7 +98,7 @@ title: Home | BonnieByte PC
                            data-add-to-cart
                            data-product-sku="{{ p.sku }}"
                            data-product-name="{{ p.full_name }}"
-                           data-product-price="{{ p.price_preview_gbp }}"
+                           data-product-price="{{ p.price_gbp }}"
                            data-product-image="{{ p.thumbnail }}"
                            data-product-variant="default">
                            Add to Cart
