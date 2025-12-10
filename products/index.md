@@ -28,6 +28,7 @@ title: "Products | BonnieByte PC"
               {% if p.description %}
                 <p>{{ p.description }}</p>
               {% endif %}
+              <p class="product-price">£{{ p.price_gbp }}</p>
               <ul class="product-features">
                 {% if p.features %}
                   {% for f in p.features %}
