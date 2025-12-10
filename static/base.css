@@ -420,6 +420,28 @@ section {
 
 
 /* ========================================================================
+   9.1 HEADER TABLET FIX — Prevent overflow between 900px–1100px
+   ======================================================================== */
+
+@media (max-width: 1100px) {
+    /* Hide language + theme earlier to avoid overflow */
+    .bb-lang-dropdown,
+    .theme-toggle {
+        display: none !important;
+    }
+
+    /* Show the versions inside the mobile drawer instead */
+    .mobile-nav-utilities {
+        display: flex !important;
+    }
+
+    /* Slightly reduce nav spacing to tighten layout */
+    .header-nav {
+        gap: 20px;
+    }
+}
+
+/* ========================================================================
    10. SCROLL PROGRESS
    ======================================================================== */
 
@@ -1071,6 +1093,7 @@ body .goog-te-gadget {
     opacity: 0.7;
     transform: translateY(-2px);
 }
+
 
 
 
