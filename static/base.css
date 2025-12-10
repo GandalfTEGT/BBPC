@@ -467,10 +467,10 @@ svg {
 
 
 /* ========================================================================
-   13.1 FULL MOBILE MODE FROM 1000px DOWN
+   13.1 FULL MOBILE MODE FROM 960px DOWN
    ======================================================================== */
 
-@media (max-width: 1000px) {
+@media (max-width: 960px) {
 
     /* Show hamburger */
     .mobile-menu-toggle {
@@ -522,7 +522,7 @@ svg {
 
 
 /* Light-theme drawer */
-@media (max-width: 1000px) {
+@media (max-width: 960px) {
     html[data-theme="light"] .header-nav {
         background: rgba(255, 255, 255, 0.88);
         backdrop-filter: blur(14px);
@@ -879,5 +879,6 @@ body .goog-te-gadget {
     opacity: 0.7;
     transform: translateY(-2px);
 }
+
 
 
