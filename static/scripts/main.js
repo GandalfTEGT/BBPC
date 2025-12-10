@@ -148,20 +148,37 @@ function initializeHeaderScroll() {
     const siteHeader = document.querySelector('.site-header');
     if (!siteHeader) return;
     
-    // Disable header shrink behaviour on mobile
+    // Disable header shrinking on mobile — permanently shrunk
     if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector("header.site-header").classList.add("header--scrolled");
-    } else {
-        // run your normal shrinking logic here
+        siteHeader.classList.add("shrink");
+        return; // stop header scroll logic entirely on mobile
     }
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            siteHeader.classList.add('shrink');
-        } else {
-            siteHeader.classList.remove('shrink');
+
+    window.addEventListener("scroll", () => {
+        if (!bbHeader) return;
+    
+        // Mobile: header always shrunk, never auto-hide
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            bbHeader.classList.add("shrink");
+            bbHeader.classList.remove("hide");
+            return;
         }
+    
+        const current = window.scrollY;
+    
+        if (current > 40) bbHeader.classList.add("shrink");
+        else bbHeader.classList.remove("shrink");
+    
+        if (current > 120) bbHeader.classList.add("glow");
+        else bbHeader.classList.remove("glow");
+    
+        if (current > lastScroll && current > 150) bbHeader.classList.add("hide");
+        else bbHeader.classList.remove("hide");
+    
+        lastScroll = current;
     });
+
 }
 
 
@@ -423,6 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 
 
