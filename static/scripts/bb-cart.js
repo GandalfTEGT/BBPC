@@ -251,31 +251,6 @@
   // --- Cart operations ---
 
   function addToCart({ sku, name, price, image, variant }) {
-    // MINI FLY-TO-CART ANIMATION
-    const rect = btn.getBoundingClientRect();
-    const cartRect = document.querySelector('.bb-cart-toggle').getBoundingClientRect();
-    
-    // Create flying image
-    const flyImg = document.createElement('img');
-    flyImg.src = image || btn.getAttribute('data-product-image');
-    flyImg.className = 'bb-fly-image';
-    document.body.appendChild(flyImg);
-    
-    flyImg.style.left = rect.left + "px";
-    flyImg.style.top = rect.top + "px";
-    
-    // Force reflow (browser hack)
-    flyImg.getBoundingClientRect();
-    
-    // Animate to cart icon
-    flyImg.style.transform = `translate(${cartRect.left - rect.left}px, ${cartRect.top - rect.top}px) scale(0.2)`;
-    flyImg.style.opacity = "0";
-    
-    // Remove after animation
-    setTimeout(() => {
-        flyImg.remove();
-    }, 700);
-
     const key = buildItemKey(sku, variant);
     const index = findItemIndex(currentCart, key);
 
@@ -359,42 +334,59 @@
         return;
       }
 
-      addToCart({ sku, name, price, image, variant });
-      // -------------------------------
-      // FLY TO CART ANIMATION
-      // -------------------------------
-      if (image) {
-          const rect = btn.getBoundingClientRect();
-          const cartRect = document.querySelector('.bb-cart-toggle').getBoundingClientRect();
+      // Add to cart
+      if (target.closest('[data-add-to-cart]')) {
+          const btn = target.closest('[data-add-to-cart]');
+          const sku = btn.getAttribute('data-product-sku');
+          const name = btn.getAttribute('data-product-name') || sku;
+          const price = parseFloat(btn.getAttribute('data-product-price') || '0');
+          const image = btn.getAttribute('data-product-image') || '';
+          const variant = btn.getAttribute('data-product-variant') || 'default';
       
-          const flyImg = document.createElement('img');
-          flyImg.src = image;
-          flyImg.className = 'bb-fly-image';
-          document.body.appendChild(flyImg);
+          if (!sku) {
+              console.warn('Add to cart clicked without SKU');
+              return;
+          }
       
-          flyImg.style.left = rect.left + "px";
-          flyImg.style.top = rect.top + "px";
+          // Add item to cart
+          addToCart({ sku, name, price, image, variant });
       
-          flyImg.getBoundingClientRect(); // force reflow
+          // -------------------------------
+          // FLY TO CART ANIMATION
+          // -------------------------------
+          if (image) {
+              const rect = btn.getBoundingClientRect();
+              const cartRect = document.querySelector('.bb-cart-toggle').getBoundingClientRect();
       
-          flyImg.style.transform = `translate(${cartRect.left - rect.left}px, ${cartRect.top - rect.top}px) scale(0.2)`;
-          flyImg.style.opacity = "0";
+              const flyImg = document.createElement('img');
+              flyImg.src = image;
+              flyImg.className = 'bb-fly-image';
+              document.body.appendChild(flyImg);
       
-          setTimeout(() => flyImg.remove(), 700);
-      }
+              flyImg.style.left = rect.left + "px";
+              flyImg.style.top = rect.top + "px";
       
-      // -------------------------------
-      // CART BADGE POP
-      // -------------------------------
-      const badge = document.querySelector(".bb-cart-count-badge");
-      if (badge) {
-          badge.classList.add("pop");
-          setTimeout(() => badge.classList.remove("pop"), 350);
+              flyImg.getBoundingClientRect(); // force reflow
+      
+              flyImg.style.transform = `translate(${cartRect.left - rect.left}px, ${cartRect.top - rect.top}px) scale(0.2)`;
+              flyImg.style.opacity = "0";
+      
+              setTimeout(() => flyImg.remove(), 700);
+          }
+      
+          // -------------------------------
+          // BADGE POP ANIMATION
+          // -------------------------------
+          const badge = document.querySelector(".bb-cart-count-badge");
+          if (badge) {
+              badge.classList.add("pop");
+              setTimeout(() => badge.classList.remove("pop"), 350);
+          }
+      
+          openDrawer();
+          return;
       }
 
-      openDrawer();
-      return;
-    }
 
     // Toggle cart drawer
     if (target.closest('[data-cart-toggle]')) {
