@@ -160,9 +160,7 @@ html[data-theme="dark"] .iucs-consent-ui {
     color: #ffffff !important;
 }
 
-html:not(.theme-light):not(.theme-dark) .site-header {
-    visibility: hidden;
-}
+
 
 html.theme-light .site-header,
 html.theme-dark .site-header {
@@ -174,5 +172,6 @@ html[data-theme] .site-header,
 html[data-theme] footer {
     transition: background-color .25s ease, color .25s ease, border-color .25s ease;
 }
+
 
 
