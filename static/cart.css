@@ -265,3 +265,135 @@
     margin-top: 70px !important;
     scroll-margin-top: 130px;
 }
+
+/* Match theme-toggle + lang-btn buttons */
+.bb-cart-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--bb-blue);
+    background: transparent;
+    color: var(--bb-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s ease;
+    position: relative;
+}
+
+.bb-cart-toggle:hover {
+    background: var(--bb-blue);
+    color: #000;
+    transform: scale(1.06);
+}
+
+.bb-cart-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+}
+
+[data-cart-checkout] {
+    font-family: 'Orbitron';
+    padding: 12px 24px;
+    border-radius: 6px;
+    background: var(--bb-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: 0.25s ease;
+}
+
+[data-cart-checkout]:hover {
+    background: #88bbff;
+}
+
+[data-cart-checkout] {
+    font-family: 'Orbitron';
+    padding: 12px 24px;
+    border-radius: 6px;
+    background: var(--bb-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    transition: 0.25s ease;
+}
+
+[data-cart-checkout]:hover {
+    background: #88bbff;
+}
+
+.bb-cart-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--bb-blue);
+    background: transparent;
+    color: var(--bb-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.bb-cart-close:hover {
+    background: var(--bb-blue);
+    color: #000;
+}
+
+.bb-cart-item-qty,
+.bb-cart-page-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bb-cart-qty-btn[data-cart-qty-dec] {
+    order: 0;
+}
+
+.bb-cart-qty-input {
+    order: 1;
+}
+
+.bb-cart-qty-btn[data-cart-qty-inc] {
+    order: 2;
+}
+
+.bb-cart-qty-btn {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--bb-blue);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--bb-blue);
+    font-size: 20px;
+    line-height: 0;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.bb-cart-qty-btn:hover {
+    background: var(--bb-blue);
+    color: #000;
+}
+
+.bb-cart-qty-input {
+    width: 38px;
+    height: 32px;
+    text-align: center;
+    background: var(--bb-surface);
+    border: 1px solid var(--bb-border);
+    border-radius: 6px;
+}
+
+.section.cart-page {
+    padding-top: 120px !important; 
+}
