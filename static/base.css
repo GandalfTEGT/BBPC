@@ -1234,11 +1234,18 @@ body .goog-te-gadget {
     transform: translateY(-100%);
 }
 
-/* When mobile menu opens, hide cart, theme, language, account */
-html.bb-menu-open .header-actions {
+/* Hide header actions when mobile menu is open... */
+html.bb-menu-open .header-actions > * {
     visibility: hidden;
     opacity: 0;
 }
+
+/* ...but NOT the menu toggle button */
+html.bb-menu-open .header-actions #mobile-menu-toggle {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
 
 html.bb-menu-open .mobile-account-bar {
     visibility: hidden;
@@ -1280,5 +1287,6 @@ html.bb-menu-open .mobile-account-bar {
     font-weight: 600;
     cursor: pointer;
 }
+
 
 
