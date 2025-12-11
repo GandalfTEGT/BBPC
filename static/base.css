@@ -1288,5 +1288,25 @@ html.bb-menu-open .mobile-account-bar {
     cursor: pointer;
 }
 
+/* Mobile menu open: hide all header actions EXCEPT the menu toggle */
+html.bb-menu-open .header-actions > *:not(#mobile-menu-toggle) {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Keep the hamburger/X visible on top of the drawer */
+#mobile-menu-toggle {
+    position: relative;
+    z-index: 5000 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.header-nav.active {
+    z-index: 4000 !important;
+}
+
 
 
