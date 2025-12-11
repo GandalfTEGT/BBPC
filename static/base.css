@@ -1260,3 +1260,57 @@ html[data-theme="light"] .lang-btn:hover {
 .mobile-account-button svg {
     stroke: var(--bb-blue) !important;
 }
+
+/* Better spacing for header actions on mobile + medium screens */
+@media (max-width: 1100px) {
+    .header-actions {
+        gap: 16px !important;
+        padding-right: 10px;
+    }
+
+    .header-content {
+        padding: 0 16px !important;
+        gap: 16px;
+    }
+}
+
+/* FINAL OVERRIDE — mobile menu toggle must always stay visible */
+html.bb-menu-open #mobile-menu-toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+}
+
+/* Hide all OTHER header action buttons when menu open */
+html.bb-menu-open .header-actions > *:not(#mobile-menu-toggle) {
+    display: none !important;
+}
+
+/* Tablet header layout (between desktop and mobile menu breakpoint) */
+@media (max-width: 1100px) and (min-width: 769px) {
+
+    /* Reduce logo slightly */
+    .header-logo-img {
+        height: 70px !important;
+    }
+
+    /* Reduce nav gap */
+    .header-nav {
+        gap: 20px !important;
+    }
+
+    /* Reduce spacing between actions */
+    .header-actions {
+        gap: 12px !important;
+    }
+
+    /* Slightly smaller buttons */
+    .header-actions button,
+    .bb-lang-toggle,
+    .theme-toggle {
+        width: 36px !important;
+        height: 36px !important;
+    }
+}
