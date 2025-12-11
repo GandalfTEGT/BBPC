@@ -25,6 +25,7 @@ title: "Products | BonnieByte PC"
             </div>
             <div class="product-body">
               <h2><a href="/products/{{ id }}/"><span class="orbitron notranslate">{{ p.short_name | upcase }}</span> {{ p.full_name | replace: p.short_name,'' }}</a></h2>
+              <p class="product-price">£{{ p.price_gbp }}</p>
               {% if p.description %}
                 <p>{{ p.description }}</p>
               {% endif %}
@@ -47,6 +48,15 @@ title: "Products | BonnieByte PC"
                 {% endif %}
               </div>
               <div class="button-group">
+                <a class="button" 
+                   data-add-to-cart
+                   data-product-sku="{{ p.sku }}"
+                   data-product-name="{{ p.full_name }}"
+                   data-product-price="{{ p.price_gbp }}"
+                   data-product-image="{{ p.thumbnail }}"
+                   data-product-variant="default">
+                   Add to Cart
+                </a>
                 {% if p.amazon_url %}
                   <a href="{{ p.amazon_url }}" class="button button-secondary" target="_blank" rel="noopener noreferrer">Buy on Amazon UK</a>
                 {% endif %}

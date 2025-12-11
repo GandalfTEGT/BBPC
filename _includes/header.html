@@ -77,6 +77,35 @@
       
       <!-- HEADER ACTIONS -->
       <div class="header-actions">
+
+        <div class="bb-header-cart-area">
+          <div class="bb-cart-toggle-wrapper">
+            <button class="bb-cart-toggle" type="button" aria-label="Open cart" data-cart-toggle>
+              <svg class="bb-cart-icon" width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="9" cy="20" r="1.5" fill="currentColor"/>
+                <circle cx="17" cy="20" r="1.5" fill="currentColor"/>
+                <path d="M6 6L4 3H1" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              <span class="bb-cart-count-badge" data-cart-count>0</span>
+            </button>
+
+        
+            <!-- Hover preview (desktop only) -->
+            <div class="bb-cart-preview" data-cart-preview aria-hidden="true">
+              <div class="bb-cart-preview-inner">
+                <div class="bb-cart-preview-items" data-cart-preview-items></div>
+                <div class="bb-cart-preview-footer">
+                  <div class="bb-cart-preview-subtotal">
+                    Subtotal: <span data-cart-preview-subtotal>£0.00</span>
+                  </div>
+                  <a href="/cart/" class="btn-link bb-cart-preview-view-cart">View cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Theme toggle (shared desktop + mobile) -->
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
           <span class="theme-icon">🌙</span>
@@ -114,7 +143,7 @@
             </button>
           </div>
         </div>
-
+        
         <!-- Mobile menu toggle -->
         <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span>

@@ -6,9 +6,15 @@ function initializeTheme() {
     const themeIcon = themeToggle?.querySelector('.theme-icon');
     if (!themeToggle || !themeIcon) return;
 
-    const mobileToggle = null; // single shared toggle now
-
     function persistTheme(theme) {
+        // Save to localStorage (used by inline <head> script)
+        try {
+            localStorage.setItem("bb-theme", theme);
+        } catch (e) {
+            console.warn("BB theme localStorage error:", e);
+        }
+
+        // Also mirror into bb_theme cookie (for your existing helpers)
         try {
             if (typeof BBCookies !== "undefined") {
                 BBCookies.set("bb_theme", theme, 365);
@@ -18,45 +24,61 @@ function initializeTheme() {
         }
     }
 
-    function readInitialTheme() {
-        let theme = null;
-
-        try {
-            if (typeof BBCookies !== "undefined") {
-                const cookieTheme = BBCookies.get("bb_theme");
-                if (cookieTheme === "dark" || cookieTheme === "light") {
-                    theme = cookieTheme;
-                }
-            }
-        } catch (e) {}
-
-        if (!theme) {
-            const prefersDark = window.matchMedia &&
-                window.matchMedia('(prefers-color-scheme: dark)').matches;
-            theme = prefersDark ? "dark" : "light";
-        }
-
-        return theme;
-    }
-
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
         persistTheme(theme);
     }
 
-    const initialTheme = readInitialTheme();
-    applyTheme(initialTheme);
+    // 1) Read what the inline <head> script already set (no flash)
+    let current = document.documentElement.getAttribute("data-theme");
 
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        applyTheme(nextTheme);
+    // 2) If for some reason it's missing, derive a sensible default
+    if (!current) {
+        // Try localStorage first
+        try {
+            const stored = localStorage.getItem("bb-theme");
+            if (stored === "dark" || stored === "light") {
+                current = stored;
+            }
+        } catch (e) {}
+
+        // Try cookie as secondary source
+        if (!current) {
+            try {
+                if (typeof BBCookies !== "undefined") {
+                    const cookieTheme = BBCookies.get("bb_theme");
+                    if (cookieTheme === "dark" || cookieTheme === "light") {
+                        current = cookieTheme;
+                    }
+                }
+            } catch (e) {}
+
+            // Finally, fall back to OS preference
+            if (!current) {
+                const prefersDark = window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+                current = prefersDark ? "dark" : "light";
+            }
+        }
+
+        // Actually apply if it was missing
+        applyTheme(current);
+    } else {
+        // We already have a theme from <head>: just sync icon + storage
+        themeIcon.textContent = current === 'dark' ? '☀️' : '🌙';
+        persistTheme(current);
     }
 
-    themeToggle.addEventListener('click', toggleTheme);
-    if (mobileToggle) mobileToggle.addEventListener('click', toggleTheme);
+    // 3) Wire up click toggle
+    themeToggle.addEventListener('click', () => {
+        const active = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = active === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+    });
 }
+
+
 
 
 // ===============================
@@ -147,14 +169,12 @@ function initializeScrollProgress() {
 function initializeHeaderScroll() {
     const siteHeader = document.querySelector('.site-header');
     if (!siteHeader) return;
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            siteHeader.classList.add('shrink');
-        } else {
-            siteHeader.classList.remove('shrink');
-        }
-    });
+    
+    // Disable header shrinking on mobile — permanently shrunk
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        siteHeader.classList.add("shrink");
+        return; // stop header scroll logic entirely on mobile
+    }
 }
 
 
@@ -250,7 +270,7 @@ window.addEventListener("scroll", () => {
     }
 
     // Auto-hide
-    if (current > lastScroll && current > 150) {
+    if (current > lastScroll && current > 60) {
         bbHeader.classList.add("hide");
     } else {
         bbHeader.classList.remove("hide");
@@ -416,6 +436,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+
+
+
+
+
 
 
 

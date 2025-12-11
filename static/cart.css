@@ -1,0 +1,494 @@
+/* ============================================================
+   BONNIEBYTE PC — FINAL CART.CSS
+   Cleaned, unified, animation-ready, conflict-free
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. CART ICON BUTTON — MATCH THEME TOGGLE / LANGUAGE BUTTON
+------------------------------------------------------------- */
+
+.bb-header-cart-area {
+    margin-right: 16px;
+}
+
+.bb-cart-toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--bb-blue);
+    background: transparent;
+    color: var(--bb-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s ease;
+    position: relative;
+}
+
+.bb-cart-toggle:hover {
+    background: var(--bb-blue);
+    color: #000;
+    transform: scale(1.06);
+}
+
+.bb-cart-icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* Cart badge */
+.bb-cart-count-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--bb-blue);
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 999px;
+    box-shadow: 0 0 10px rgba(102,170,255,0.6);
+}
+
+/* Badge pop animation */
+@keyframes cartBadgePop {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.35); }
+    70% { transform: scale(0.85); }
+    100% { transform: scale(1); }
+}
+
+.bb-cart-count-badge.pop {
+    animation: cartBadgePop 0.35s ease-out;
+}
+
+
+
+/* ------------------------------------------------------------
+   2. FLY-TO-CART IMAGE ANIMATION
+------------------------------------------------------------- */
+
+.bb-fly-image {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 999999;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.4s ease;
+}
+
+
+
+/* ------------------------------------------------------------
+   3. CART DRAWER (SIDEBAR)
+------------------------------------------------------------- */
+
+.bb-cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 360px;
+    height: 100vh;
+    background: var(--bb-panel);
+    border-left: 2px solid var(--bb-blue);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateX(20px);
+    transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.35s ease-out;
+    overflow-y: auto;
+    padding-bottom: 30px;
+}
+
+.bb-cart-drawer[aria-hidden="false"] {
+    right: 0;
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Drawer backdrop */
+.bb-cart-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.bb-cart-backdrop[aria-hidden="false"] {
+    opacity: 1;
+    pointer-events: all;
+}
+
+
+
+/* ------------------------------------------------------------
+   4. CART DRAWER HEADER
+------------------------------------------------------------- */
+
+.bb-cart-drawer-header {
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--bb-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bb-cart-drawer-header h2 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-family: 'Orbitron';
+}
+
+/* Drawer close */
+.bb-cart-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--bb-blue);
+    background: transparent;
+    color: var(--bb-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.bb-cart-close:hover {
+    background: var(--bb-blue);
+    color: #000;
+}
+
+
+
+/* ------------------------------------------------------------
+   5. CART ITEMS (DRAWER)
+------------------------------------------------------------- */
+
+.bb-cart-item {
+    display: flex;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--bb-border);
+}
+
+.bb-cart-item-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.bb-cart-item-info {
+    flex-grow: 1;
+    margin-left: 14px;
+}
+
+.bb-cart-item-name {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.bb-cart-item-meta {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 6px;
+}
+
+
+
+/* ------------------------------------------------------------
+   6. QUANTITY CONTROLS
+------------------------------------------------------------- */
+
+.bb-cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bb-cart-item-qty,
+.bb-cart-page-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Order: [-] [qty] [+] */
+.bb-cart-qty-btn[data-cart-qty-dec] { order: 0; }
+.bb-cart-qty-input { order: 1; }
+.bb-cart-qty-btn[data-cart-qty-inc] { order: 2; }
+
+.bb-cart-qty-btn {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--bb-blue);
+    background: transparent;
+    color: var(--bb-blue);
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.25s ease;
+}
+
+.bb-cart-qty-btn:hover {
+    background: var(--bb-blue);
+    color: #000;
+}
+
+.bb-cart-qty-input {
+    width: 40px;
+    height: 32px;
+    text-align: center;
+    background: var(--bb-surface);
+    border: 1px solid var(--bb-border);
+    border-radius: 6px;
+    color: var(--bb-text);
+}
+
+
+
+/* ------------------------------------------------------------
+   7. REMOVE BUTTON
+------------------------------------------------------------- */
+
+.bb-cart-remove {
+    background: none;
+    border: none;
+    color: #ff5959;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.bb-cart-remove:hover {
+    text-shadow: 0 0 6px rgba(255,50,50,0.6);
+}
+
+
+
+/* ------------------------------------------------------------
+   8. BUTTON STYLING (MATCH SITE)
+------------------------------------------------------------- */
+
+.add-to-cart,
+[data-cart-checkout] {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 24px;
+    font-family: 'Orbitron';
+    border-radius: 6px;
+    background: var(--bb-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.25s ease;
+}
+
+.add-to-cart:hover,
+[data-cart-checkout]:hover {
+    background: #88bbff;
+}
+
+
+
+/* ------------------------------------------------------------
+   9. HOVER PREVIEW DROPDOWN
+------------------------------------------------------------- */
+
+.bb-cart-toggle-wrapper {
+    position: relative;
+}
+
+.bb-cart-preview {
+    position: absolute;
+    top: 46px;
+    right: 0;
+    width: 280px;
+    background: var(--bb-panel);
+    border: 1px solid var(--bb-blue);
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 0 14px rgba(102,170,255,0.3);
+    z-index: 99999;
+    display: none;
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+/* Animation */
+@keyframes cartPreviewFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.bb-cart-preview[aria-hidden="false"] {
+    display: block;
+    opacity: 1;
+    animation: cartPreviewFade 0.18s ease-out;
+}
+
+/* Auto-hide */
+.bb-cart-toggle-wrapper:not(:hover) .bb-cart-preview {
+    display: none !important;
+}
+
+/* Disable preview on touch devices */
+@media (hover: none), (pointer: coarse) {
+    .bb-cart-preview {
+        display: none !important;
+        visibility: hidden !important;
+    }
+}
+
+
+/* Preview items layout */
+.bb-cart-preview-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+/* Thumbnail inside hover preview */
+.bb-cart-preview-thumb img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Text next to preview thumbnail */
+.bb-cart-preview-info {
+    flex: 1;
+    font-size: 0.85rem;
+}
+
+/* ------------------------------------------------------------
+   10. CART PAGE ( /cart/ )
+------------------------------------------------------------- */
+
+.section.cart-page {
+    padding-top: 90px !important;
+}
+
+.cart-page h1 {
+    margin-bottom: 30px;
+}
+
+.bb-cart-page-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bb-cart-page-table td,
+.bb-cart-page-table th {
+    padding: 20px 14px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--bb-border);
+}
+
+.bb-cart-page-product-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.bb-cart-page-thumb img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+/* Improved mobile layout */
+@media (max-width: 600px) {
+    .bb-cart-page-product-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .bb-cart-page-thumb img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .bb-cart-page-table td {
+        padding: 14px 10px;
+    }
+}
+
+
+
+/* ------------------------------------------------------------
+   11. CART PAGE SUMMARY (STICKY BOX)
+------------------------------------------------------------- */
+
+@media (min-width: 900px) {
+    .bb-cart-page-summary {
+        position: sticky;
+        top: 110px;
+        background: var(--bb-panel);
+        padding: 20px;
+        border: 1px solid var(--bb-border);
+        border-radius: 10px;
+        box-shadow: var(--bb-shadow);
+    }
+
+    .bb-cart-page-summary .button {
+        width: 100%;
+        margin-top: 18px;
+    }
+}
+
+
+
+/* ------------------------------------------------------------
+   12. EMPTY CART STATE
+------------------------------------------------------------- */
+
+.bb-cart-empty-state,
+.bb-cart-empty {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.bb-cart-empty-state h2,
+.bb-cart-empty h2 {
+    font-family: 'Orbitron';
+    font-size: 1.6rem;
+    color: var(--bb-blue);
+    margin-bottom: 14px;
+}
+
+.bb-cart-empty-state p,
+.bb-cart-empty p {
+    color: var(--bb-text-soft);
+    margin-bottom: 22px;
+}
+
+.bb-cart-empty-state .button,
+.bb-cart-empty .button {
+    padding: 12px 24px;
+    background: var(--bb-blue);
+    color: #fff;
+    border-radius: 6px;
+    font-family: 'Orbitron';
+    font-weight: bold;
+    transition: 0.25s ease;
+}
+
+.bb-cart-empty-state .button:hover,
+.bb-cart-empty .button:hover {
+    background: #88bbff;
+}

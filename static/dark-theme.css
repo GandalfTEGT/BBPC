@@ -161,3 +161,17 @@ html[data-theme="dark"] .iucs-consent-ui {
 }
 
 
+
+html.theme-light .site-header,
+html.theme-dark .site-header {
+    visibility: visible;
+}
+
+html[data-theme] body,
+html[data-theme] .site-header,
+html[data-theme] footer {
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+
+

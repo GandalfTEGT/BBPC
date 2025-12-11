@@ -3,6 +3,7 @@ northern_wind_120:
   full_name: "Northern Wind 120mm ARGB Fan Bundle"
   short_name: "Northern Wind 120"
   html_name: "<span class='orbitron notranslate'>NORTHERN WIND 120</span>"
+  price_gbp: 39.99
   warranty_enabled: true
   manual_enabled: true
   product_type: "fan_kit"
@@ -30,27 +31,31 @@ northern_wind_120:
   amazon_url: "https://amazon.co.uk"
   warranty_length: "2-Year Warranty"
   featured: true
-
+  # Future Shopify wiring (leave blank for now)
+  shopify_product_id: 
+  shopify_default_variant_id: 
+  
 template_product:
-  sku: "SKU-HERE"
-  full_name: "Template Product"
-  short_name: "Template"
-  html_name: "<span class='orbitron notranslate'>PRODUCT</span>"
+  sku: ""
+  full_name: ""
+  short_name: ""
+  html_name: "<span class='orbitron notranslate'></span>"
+  price_gbp: 39.99
   warranty_enabled: false
   manual_enabled: false
-  product_type: "fan_kit"
+  product_type: ""
   release_date: "YYYY-MM-DD"
   variants:
-    - variant_a
-    - variant_b
+    - variant1
+    - variant2
   specs:
-    airflow: ""
-    static_pressure: ""
-    noise: ""
+    airflow: " CFM"
+    static_pressure: " mmH2O"
+    noise: " dBA"
     bearing: ""
     leds: ""
-    rpm: ""
-  thumbnail: "/images/products/product.png"
+    rpm: " RPM"
+  thumbnail: "/images/products/template_product.png"
   warranty_length: "2 years"
   ukca: true
   status: "Launch Pricing Soon"
@@ -62,3 +67,7 @@ template_product:
     - ""
   amazon_url: "https://amazon.co.uk"
   warranty_length: "2-Year Warranty"
+  featured: false
+  # Future Shopify wiring (leave blank for now)
+  shopify_product_id: 
+  shopify_default_variant_id: 

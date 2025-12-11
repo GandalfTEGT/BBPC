@@ -220,6 +220,12 @@ section {
     align-items: center;
 }
 
+/* Strong guarantee that all header children remain vertically centered */
+.enhanced-header .header-content,
+.site-header .header-content {
+    align-items: center !important;
+}
+
 .header-logo img {
     height: 100px;
     transition: 0.25s ease;
@@ -408,8 +414,8 @@ section {
 }
 
 
-/* NOTE: changed from 900px → 980px so burger appears earlier */
-@media (max-width: 980px) {
+/* NOTE: changed from 900px → 1100px so burger appears earlier */
+@media (max-width: 1100px) {
     .mobile-menu-toggle {
         display: flex;
     }
@@ -507,6 +513,7 @@ svg {
         background 0.35s ease,
         transform 0.35s ease,
         border-color 0.35s ease;
+    min-height: 64px;
 }
 
 .enhanced-header::before {
@@ -531,6 +538,7 @@ svg {
 .enhanced-header.shrink {
     padding: 6px 0;
     background: rgba(5, 5, 5, 0.92);
+    min-height: 64px;
 }
 
 .header-logo-img {
@@ -601,8 +609,8 @@ svg {
 
 
 /* MOBILE NAV DRAWER */
-/* NOTE: changed from 900px → 980px so drawer starts earlier */
-@media (max-width: 980px) {
+/* NOTE: changed from 900px → 1100px so drawer starts earlier */
+@media (max-width: 1100px) {
 
     .header-nav {
         position: fixed;
@@ -643,8 +651,8 @@ svg {
 }
 
 /* Light-theme frosted glass mobile drawer */
-/* NOTE: also widened to 980px to match drawer */
-@media (max-width: 980px) {
+/* NOTE: also widened to 1100px to match drawer */
+@media (max-width: 1100px) {
     html[data-theme="light"] .header-nav {
         background: rgba(255, 255, 255, 0.88);
         backdrop-filter: blur(14px);
@@ -925,6 +933,22 @@ footer.site-footer::before {
     display: block;
 }
 
+.product-price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: var(--bb-blue);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.product-price-large {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--bb-blue);
+    margin: 10px 0 20px;
+}
+
 /* ========================================================================
    14.1. SUPPORT PAGE
    ======================================================================== */
@@ -1078,3 +1102,94 @@ body .goog-te-gadget {
     transform: translateY(-2px);
 }
 
+/* Mobile: header always shrunk */
+@media (max-width: 768px) {
+    header.site-header {
+        height: 64px !important;        /* your shrunk height */
+        padding: 0 16px !important;
+    }
+
+    header.site-header:not(.header--scrolled) {
+        height: 64px !important;
+        padding: 0 16px !important;
+    }
+
+    /* Prevent animation flicker on mobile */
+    header.site-header {
+        transition: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        height: 64px !important; /* shrunk height */
+        transition: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-actions {
+        padding-right: 10px;  /* brings buttons slightly inward */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-actions {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo-img {
+        height: 48px !important;
+    }
+}
+
+
+/* Fix second-shrink issue by reducing logo height on narrow widths */
+@media (max-width: 768px) {
+    .header-logo-img {
+        height: 64px !important;  /* previously 54 */
+    }
+
+    .enhanced-header.shrink .header-logo-img {
+        height: 56px !important;  /* previously 48 */
+    }
+}
+
+
+/* Improve mobile header spacing & thumb reach */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 12px !important; /* instead of 20px */
+    }
+
+    .header-actions {
+        gap: 8px; /* slightly tighten spacing so cluster isn't too wide */
+        padding-right: 6px; /* pushes cluster away from screen edge */}
+}
+
+.header-actions {
+    flex-wrap: nowrap;
+    overflow: visible;
+}
+
+.enhanced-header,
+.site-header {
+    min-height: 72px;   /* instead of 64px */
+}
+
+/* Restore smooth slide animation for header hide/show */
+.enhanced-header {
+    transition:
+        transform 0.35s ease,
+        opacity 0.25s ease,
+        padding 0.25s ease,
+        background 0.35s ease,
+        border-color 0.35s ease !important;
+}
+
+.enhanced-header.hide {
+    opacity: 0;
+    transform: translateY(-100%);
+}

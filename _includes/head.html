@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- test -->
+
 <title>{{ page.title | default: "BonnieByte PC" }}</title>
 
 <!-- OpenGraph (Social Sharing) -->
@@ -46,11 +46,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<script>
+(function() {
+    let saved = localStorage.getItem("bb-theme");
+
+    // Default to dark if nothing saved
+    if (!saved) saved = "dark";
+
+    document.documentElement.setAttribute("data-theme", saved);
+})();
+</script>
+
+
+<style>
+html:not([data-theme]) * {
+    transition: none !important;
+}
+</style>
 <!-- Core styles -->
 <link rel="stylesheet" href="/static/base.css">
 <link rel="stylesheet" href="/static/dark-theme.css">
 <link rel="stylesheet" href="/static/embeds.css">
 <link rel="stylesheet" href="/static/legal.css">
+<link rel="stylesheet" href="/static/cart.css">
 
 {% if page.url == "/" or page.url == "/index.html" %}
 <link rel="stylesheet" href="/static/home.css">

@@ -81,6 +81,7 @@ title: Home | BonnieByte PC
                         {{ p.full_name | replace: p.short_name, '' }}
                       </a>
                     </h3>
+                    <p class="product-price-large">£{{ p.price_gbp }}</p>
                     <p>{{ p.description }}</p>
                     <ul class="product-features">
                       {% for f in p.features %}
@@ -93,6 +94,15 @@ title: Home | BonnieByte PC
                       {% if p.status %}<span>{{ p.status }}</span>{% endif %}
                     </div>
                     <div class="button-group">
+                        <a class="button" 
+                           data-add-to-cart
+                           data-product-sku="{{ p.sku }}"
+                           data-product-name="{{ p.full_name }}"
+                           data-product-price="{{ p.price_gbp }}"
+                           data-product-image="{{ p.thumbnail }}"
+                           data-product-variant="default">
+                           Add to Cart
+                        </a>
                       {% if p.amazon_url %}
                         <a href="{{ p.amazon_url }}" class="button button-secondary" target="_blank">Buy on Amazon UK</a>
                       {% endif %}
