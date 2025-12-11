@@ -1187,3 +1187,76 @@ body .goog-te-gadget {
         animation-duration: 0.01ms !important;
     }
 }
+
+/* Improved desktop header spacing */
+@media (min-width: 1101px) {
+    .header-content {
+        padding: 0 32px;
+        gap: 32px;
+    }
+
+    .header-actions {
+        gap: 20px; /* more spacing between theme/lang/cart/account/menu */
+    }
+
+    .header-nav {
+        gap: 40px; /* spacing between nav links */
+    }
+}
+
+/* Force header slide animation */
+.enhanced-header {
+    transition:
+        transform 0.35s ease !important,
+        padding 0.25s ease,
+        background 0.35s ease;
+}
+
+/* ALWAYS keep the mobile menu toggle visible */
+#mobile-menu-toggle {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 5000 !important;
+}
+
+/* Hide ALL header actions EXCEPT the menu toggle when menu is open */
+html.bb-menu-open .header-actions > * {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* …but NOT the toggle */
+html.bb-menu-open #mobile-menu-toggle {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Light theme language dropdown override */
+html[data-theme="light"] .bb-lang-menu {
+    background: rgba(255,255,255,0.92);
+    border-color: var(--bb-blue);
+    box-shadow: 0 0 18px rgba(102,170,255,0.4);
+}
+
+html[data-theme="light"] .lang-btn {
+    border-color: var(--bb-blue);
+    color: #222;
+    background: rgba(255,255,255,0.85);
+}
+
+html[data-theme="light"] .lang-btn:hover {
+    background: rgba(102,170,255,0.15);
+    color: #000;
+}
+
+/* Make desktop account icon blue */
+.bb-account-toggle svg {
+    stroke: var(--bb-blue) !important;
+}
+
+.mobile-account-button svg {
+    stroke: var(--bb-blue) !important;
+}
