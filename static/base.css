@@ -1245,4 +1245,40 @@ html.bb-menu-open .mobile-account-bar {
     opacity: 0;
 }
 
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+
+.mobile-account-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-account-bar {
+        display: flex;
+        width: 100%;
+        background: var(--bb-panel);
+        border-bottom: 1px solid var(--bb-border);
+        padding: 10px 14px;
+        align-items: center;
+        gap: 12px;
+        z-index: 900;
+    }
+}
+
+.mobile-account-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--bb-blue);
+    background: transparent;
+    border: none;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 
