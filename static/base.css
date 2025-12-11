@@ -522,10 +522,6 @@ section {
 
 /* show burger earlier on medium screens too */
 @media (max-width: 1100px) {
-    .mobile-menu-toggle {
-        display: flex;
-    }
-}
 
 /* Keep the toggle always visible, even when menu open */
 #mobile-menu-toggle {
@@ -1368,4 +1364,16 @@ html.bb-menu-open #mobile-menu-toggle {
 
 .header-nav.active {
     z-index: 5000 !important;
+}
+
+#bb-header {
+    transition: transform 0.35s ease !important;
+}
+
+html[data-theme="light"] .bb-lang-menu {
+    background: rgba(255,255,255,0.92) !important;
+}
+html[data-theme="light"] .lang-btn {
+    background: rgba(255,255,255,0.85) !important;
+    color: #222 !important;
 }
