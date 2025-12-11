@@ -173,7 +173,6 @@ function initializeHeaderScroll() {
     // Disable header shrinking on mobile — permanently shrunk
     if (window.matchMedia("(max-width: 768px)").matches) {
         siteHeader.classList.add("shrink");
-        return; // stop header scroll logic entirely on mobile
     }
 }
 
@@ -436,6 +435,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
 
 
