@@ -1316,3 +1316,29 @@ html.bb-menu-open #mobile-menu-toggle {
 }
 
 
+/* Force header slide animation across all devices */
+#bb-header {
+    transition: transform 0.35s ease !important;
+}
+
+/* =====================================================================
+   FINAL OVERRIDE — ENSURE MOBILE MENU TOGGLE ALWAYS ON TOP
+   ===================================================================== */
+
+#mobile-menu-toggle {
+    position: relative !important;
+    z-index: 99999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: flex !important;
+}
+
+/* Mobile menu drawer should never cover the toggle */
+.header-nav.active {
+    z-index: 5000 !important;
+}
+
+/* Ensure header-actions isn't hiding it by overflow */
+.header-actions {
+    overflow: visible !important;
+}
