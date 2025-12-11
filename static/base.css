@@ -1377,18 +1377,3 @@ html[data-theme="light"] .lang-btn {
     background: rgba(255,255,255,0.85) !important;
     color: #222 !important;
 }
-
-/* Fix stacking context so the mobile menu toggle can appear above the drawer */
-.header-actions {
-    position: relative !important;
-    z-index: 200000 !important;
-}
-
-/* And reinforce the toggle itself */
-#mobile-menu-toggle {
-    position: relative !important;
-    z-index: 300000 !important;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
