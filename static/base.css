@@ -1283,11 +1283,6 @@ html.bb-menu-open #mobile-menu-toggle {
     z-index: 9999 !important;
 }
 
-/* Hide all OTHER header action buttons when menu open */
-html.bb-menu-open .header-actions > *:not(#mobile-menu-toggle) {
-    display: none !important;
-}
-
 /* Tablet header layout (between desktop and mobile menu breakpoint) */
 @media (max-width: 1100px) and (min-width: 769px) {
 
@@ -1314,3 +1309,4 @@ html.bb-menu-open .header-actions > *:not(#mobile-menu-toggle) {
         height: 36px !important;
     }
 }
+
