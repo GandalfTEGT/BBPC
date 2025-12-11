@@ -629,6 +629,7 @@ svg {
         );
         border-left: 2px solid var(--bb-blue);
         transition: right 0.4s ease;
+        z-index: 2000 !important;
     }
 
     .header-nav.active {
@@ -1232,4 +1233,16 @@ body .goog-te-gadget {
     opacity: 0;
     transform: translateY(-100%);
 }
+
+/* When mobile menu opens, hide cart, theme, language, account */
+html.bb-menu-open .header-actions {
+    visibility: hidden;
+    opacity: 0;
+}
+
+html.bb-menu-open .mobile-account-bar {
+    visibility: hidden;
+    opacity: 0;
+}
+
 
