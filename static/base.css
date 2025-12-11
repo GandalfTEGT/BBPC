@@ -1342,3 +1342,30 @@ html.bb-menu-open #mobile-menu-toggle {
 .header-actions {
     overflow: visible !important;
 }
+
+/* FORCE mobile toggle spans to always render */
+.mobile-menu-toggle span {
+    display: block !important;
+    background: var(--bb-text) !important;
+    width: 24px !important;
+    height: 3px !important;
+    margin: 4px 0 !important;
+    border-radius: 2px;
+    position: relative !important;
+    z-index: 99999 !important;
+}
+
+/* When active, ensure the X bars are visible even above the nav drawer */
+.mobile-menu-toggle.active span {
+    background: var(--bb-blue) !important;
+}
+
+/* MENU TOGGLE ALWAYS ON TOP OF NAV DRAWER */
+#mobile-menu-toggle {
+    position: relative !important;
+    z-index: 999999 !important;
+}
+
+.header-nav.active {
+    z-index: 5000 !important;
+}
