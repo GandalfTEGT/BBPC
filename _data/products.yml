@@ -72,7 +72,7 @@ northern_wind_120:
 argb_hub:
   sku: "BB-ARGB-HUB-001"
   full_name: "10-Port ARGB Magnetic Fan Hub"
-  short_name: "ARGB HUB"
+  short_name: "10-Port ARGB"
   html_name: "<span class='orbitron notranslate'>10-PORT ARGB MAGNETIC FAN HUB</span>"
   price_gbp: 9.99
   warranty_enabled: true
@@ -141,7 +141,7 @@ argb_hub:
 pwm_splitter:
   sku: "BON-PWM-SPLIT-001"
   full_name: "4-Way PWM Fan Splitter"
-  short_name: "PWM Splitter"
+  short_name: "PWM Fan Splitter"
   html_name: "<span class='orbitron notranslate'>4-WAY PWM FAN SPLITTER</span>"
   price_gbp: 4.99
   warranty_enabled: true
