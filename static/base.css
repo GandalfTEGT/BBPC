@@ -679,6 +679,12 @@ html[data-theme="light"] .bb-lang-extended {
   background: rgba(255,255,255,0.95);
 }
 
+.bb-lang-extended-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 12px;
+}
+
 /* ========================================================================
    11. MOBILE MENU TOGGLE
    ======================================================================== */
