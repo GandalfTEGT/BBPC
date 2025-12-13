@@ -6,10 +6,33 @@ layout: default
   <div class="container">
     <div class="product-detail-grid">
       <div class="product-detail-media">
-        {% if p.thumbnail %}
-          <img src="{{ p.thumbnail }}" alt="{{ p.full_name }}" class="product-detail-image">
+        {% if p.images %}
+          <div class="product-gallery">
+            <!-- Main image -->
+            <div class="product-gallery-main">
+              <img
+                src="{{ p.images[0] }}"
+                alt="{{ p.full_name }}"
+                id="product-main-image"
+              >
+            </div>
+            <!-- Thumbnails -->
+            <div class="product-gallery-thumbs">
+              {% for img in p.images %}
+                <button
+                  class="product-thumb {% if forloop.first %}active{% endif %}"
+                  data-image="{{ img }}"
+                  aria-label="View product image {{ forloop.index }}"
+                >
+                  <img src="{{ img }}" alt="">
+                </button>
+              {% endfor %}
+            </div>
+          </div>
         {% else %}
-          <div class="product-image-placeholder"><span>Image coming soon</span></div>
+          <div class="product-image-placeholder">
+            <span>Image coming soon</span>
+          </div>
         {% endif %}
       </div>
       <div class="product-detail-body">
