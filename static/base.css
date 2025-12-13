@@ -384,11 +384,7 @@ section {
     fill: none;
 }
 
-/* FORCE language toggle to match other header buttons */
-.bb-lang-toggle:hover {
-    background-color: var(--bb-blue);
-    color: #000;
-}
+
 
 /* Ensure inner elements don't block hover visuals */
 .bb-lang-toggle img,
@@ -396,11 +392,6 @@ section {
     pointer-events: none;
 }
 
-/* Language toggle — force visual parity with other header buttons */
-.bb-lang-toggle:hover {
-    background-color: var(--bb-blue);
-    color: #000;
-}
 
 /* Visually adapt flag + text on hover */
 .bb-lang-toggle:hover img {
@@ -426,10 +417,7 @@ section {
 }
 
 /* Hover state — same as cart / theme / account */
-.bb-lang-toggle:hover {
-    background-color: var(--bb-blue);
-    transform: translateY(-1px);
-}
+
 
 /* IMPORTANT: prevent flag from changing colour */
 .bb-lang-toggle img {
@@ -525,9 +513,10 @@ html[data-theme="light"] .bb-lang-toggle:hover {
     pointer-events: none;
 }
 
-.lang-btn:hover {
+.bb-lang-menu .lang-btn:hover {
     background: rgba(102, 170, 255, 0.15);
 }
+
 
 .bb-lang-option.active {
     border-color: var(--bb-blue);
@@ -1437,6 +1426,7 @@ html[data-theme="light"] .mobile-account-button svg {
         border-bottom: 1px solid rgba(102,170,255,0.35);
     }
 }
+
 
 
 
