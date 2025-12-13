@@ -296,18 +296,22 @@ section {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1250px) {
     .header-content {
-        padding: 0 14px;
-        gap: 14px;
+        padding: 10px 14px;
+        gap: 12px;
     }
+
+    /* Slightly smaller logo for calmer header */
     .header-logo-img {
-        height: 60px !important;
+        height: 52px !important;
     }
+
     .enhanced-header.shrink .header-logo-img {
-        height: 54px !important;
+        height: 46px !important;
     }
 }
+
 
 
 /* ========================================================================
@@ -689,21 +693,19 @@ html[data-theme="light"] .lang-btn {
    ======================================================================== */
 
 .mobile-account-bar {
-    display: none;
-    width: 100%;
-    background: var(--bb-panel);
-    border-bottom: 1px solid var(--bb-border);
-    padding: 10px 14px;
-    align-items: center;
-    gap: 12px;
-}
 
 /* Activate bar at <= 1250px (tablet + mobile) */
 @media (max-width: 1250px) {
     .mobile-account-bar {
         display: flex;
     }
+
+    /* Make tap targets slightly nicer */
+    .mobile-account-button {
+        padding: 6px 8px;
+    }
 }
+
 
 /* Desktop-only helper (hide things on small screens) */
 @media (max-width: 1250px) {
@@ -1280,6 +1282,42 @@ body .goog-te-gadget {
     .cart-page table.cart-items td {
         display: block;
         width: 100%;
+    }
+}
+
+/* ============================================================
+   MOBILE HEADER SIMPLIFICATION (VISUAL ONLY)
+   ============================================================ */
+
+@media (max-width: 1250px) {
+
+    /* Keep hamburger + logo visually dominant */
+    #mobile-menu-toggle {
+        transform: scale(1.05);
+    }
+
+    /* De-emphasise secondary actions in top header row */
+    .header-actions {
+        gap: 8px;
+    }
+
+    .theme-toggle,
+    .bb-lang-toggle {
+        opacity: 0.55;
+        transform: scale(0.92);
+    }
+
+    /* Cart remains fully visible (important action) */
+    .bb-cart-toggle {
+        opacity: 1;
+        transform: none;
+    }
+
+    /* Slightly soften borders on small screens */
+    .theme-toggle,
+    .bb-lang-toggle,
+    .bb-cart-toggle {
+        border-width: 1.5px;
     }
 }
 
