@@ -208,3 +208,25 @@
 .product-detail-body {
   max-width: 100%;
 }
+/* =========================================
+   PRODUCT PAGE — MOBILE OVERFLOW FIX
+   ========================================= */
+
+@media (max-width: 600px) {
+  .product-detail .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .product-detail-grid {
+    gap: 24px;
+  }
+
+  .product-gallery-thumbs {
+    padding-bottom: 10px;
+  }
+
+  .product-gallery-main img {
+    max-width: 100%;
+  }
+}
