@@ -1299,7 +1299,11 @@ footer.site-footer::before {
      width: 80%;
  }
 
-
+@media (max-width: 1200px) {
+   .footer-brand img {
+     width: 70%;
+ }
+}
 
 /* ========================================================================
    17. PRODUCT GRID & CARDS
