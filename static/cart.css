@@ -431,3 +431,10 @@
 .bb-cart-empty .button:hover {
     background: #88bbff;
 }
+
+
+.bb-cart-item-image a,
+.bb-cart-preview-item-image,
+.bb-cart-page-thumb a {
+  display: block;
+}
