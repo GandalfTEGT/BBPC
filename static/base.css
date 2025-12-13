@@ -653,6 +653,32 @@ html[data-theme="light"] .lang-btn {
   align-self: flex-start;
 }
 
+.bb-lang-extended {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 72px; /* JS will override */
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+
+  background: rgba(10,10,10,0.98);
+  border: 2px solid var(--bb-blue);
+  border-radius: 16px;
+  box-shadow: 0 0 22px rgba(102,170,255,0.55);
+
+  padding: 16px;
+  z-index: 2600;
+  display: none;
+}
+
+.bb-lang-extended.open {
+  display: block;
+}
+
+html[data-theme="light"] .bb-lang-extended {
+  background: rgba(255,255,255,0.95);
+}
+
 /* ========================================================================
    11. MOBILE MENU TOGGLE
    ======================================================================== */
