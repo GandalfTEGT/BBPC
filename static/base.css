@@ -1526,7 +1526,7 @@ html[data-theme="light"] .mobile-account-button svg {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .header-actions-primary {
@@ -1597,4 +1597,26 @@ html[data-theme="light"] .mobile-account-button svg {
     }
 }
 
+@media (max-width: 1250px) {
+    .header-actions-cart {
+        margin-right: 6px;
+    }
 
+    .mobile-menu-toggle {
+        margin-left: 6px;
+    }
+}
+
+
+.mobile-account-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.mobile-account-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
