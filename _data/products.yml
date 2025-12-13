@@ -7,7 +7,7 @@ northern_wind_120:
   warranty_enabled: true
   manual_enabled: true
   product_type: "fan_kit"
-  release_date: "2025-11-01"
+  release_date: "TBA"
   variants:
     - black
     - white
@@ -21,12 +21,12 @@ northern_wind_120:
   thumbnail: "/images/products/northern_wind_120.png"
   warranty_length: "2 years"
   ukca: true
-  status: "Launch Pricing Soon"
+  status: "Prototype Phase"
   product_visible: true
   description: "A complete cooling and lighting upgrade in one kit. Quiet 120mm PWM ARGB fans, an included hub, and honest performance that will keep your system cooled and running at peak efficiency."
   features:
-    - "5x 120mm <span class='orbitron notranslate'>NORTHERN WIND</span> PWM ARGB fans"
-    - "Included ARGB hub"
+    - "5x <span class='orbitron notranslate'>NORTHERN WIND 120</span>mm PWM ARGB fans"
+    - "Included Magnetic ARGB hub"
     - "Silent Operation"
   amazon_url: "https://amazon.co.uk"
   warranty_length: "2-Year Warranty"
