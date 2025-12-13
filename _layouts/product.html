@@ -85,6 +85,28 @@ layout: default
               </tr>
             {% endfor %}
           </table>
+          {% if p.compatibility or p.faq %}
+          <section class="product-support">
+            {% if p.compatibility %}
+              <h3>Compatibility</h3>
+              <ul class="product-compatibility">
+                {% for c in p.compatibility %}
+                  <li>{{ c }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          
+            {% if p.faq %}
+              <h3>FAQs</h3>
+              <dl class="product-faq">
+                {% for q in p.faq %}
+                  <dt>{{ q.question }}</dt>
+                  <dd>{{ q.answer }}</dd>
+                {% endfor %}
+              </dl>
+            {% endif %}
+          </section>
+          {% endif %}
           <div class="product-buttons">
             {% assign p = site.data.products[page.product_id] %}
                <a class="button"
