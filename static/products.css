@@ -636,3 +636,67 @@
 .product-secondary > .container > * + * {
   margin-top: 48px;
 }
+
+.product-secondary {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--bb-border);
+}
+
+.product-secondary .container {
+  display: grid;
+  gap: 48px;
+}
+
+.product-support {
+  max-width: 720px;
+}
+
+.product-support h3 {
+  margin-bottom: 12px;
+}
+
+.product-use-case {
+  margin-top: 16px;
+  font-style: italic;
+  color: var(--bb-text-soft);
+}
+
+.product-compatibility {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px; /* ← the spacing you asked for */
+}
+
+.compat-badge {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--bb-blue);
+  background: rgba(102,170,255,0.08);
+  color: var(--bb-blue);
+  font-size: 0.75rem;
+}
+
+.product-faq {
+  margin-top: 12px;
+}
+
+.product-faq dt {
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.product-faq dd {
+  margin-left: 0;
+  margin-top: 6px;
+  color: var(--bb-text-soft);
+}
+
+.product-related {
+  margin-top: 16px;
+}
+
+.product-related h3 {
+  margin-bottom: 16px;
+}
