@@ -534,3 +534,83 @@
     padding: 12px 14px;
   }
 }
+
+
+/* ===============================
+   PRODUCT SPECS — READABILITY POLISH
+   =============================== */
+
+.product-specs {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+
+.product-specs tr + tr {
+  border-top: 1px solid rgba(102,170,255,0.12);
+}
+
+.product-specs td {
+  padding: 10px 12px;
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+
+.product-specs td:first-child {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bb-text-muted);
+  width: 45%;
+}
+
+.product-specs td:last-child {
+  color: var(--bb-text);
+}
+
+/* ===============================
+   PRODUCT PAGE SPACING POLISH
+   =============================== */
+
+.product-detail-grid {
+  gap: 56px;
+}
+
+@media (max-width: 900px) {
+  .product-detail-grid {
+    gap: 32px;
+  }
+}
+
+/* ===============================
+   PRODUCT AVAILABILITY MICRO-COPY
+   =============================== */
+
+.product-availability {
+  margin: 6px 0 16px;
+  font-size: 0.85rem;
+  color: var(--bb-text-soft);
+}
+
+.product-availability strong {
+  color: var(--bb-blue);
+  font-weight: 600;
+}
+
+/* ===============================
+   PRODUCT TRUST STRIP
+   =============================== */
+
+.product-trust-strip {
+  margin-top: 18px;
+  font-size: 0.8rem;
+  color: var(--bb-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.product-trust-strip span {
+  white-space: nowrap;
+}
