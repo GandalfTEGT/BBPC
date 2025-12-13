@@ -75,12 +75,13 @@ main .container {
 .brand-name {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.4px;
     text-rendering: optimizeLegibility;
 }
 
 .orbitron {
     font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.4px;
 }
 
 .page-header {
@@ -280,7 +281,7 @@ section {
 }
 
 .header-logo-img {
-    height: 70px;
+    height: 75px;
     transition: 0.3s ease;
     filter: drop-shadow(0 0 6px rgba(102, 170, 255, 0.3));
 }
