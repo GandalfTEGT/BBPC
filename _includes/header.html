@@ -127,6 +127,11 @@
       
         </div>
       
+        <!-- Mobile menu toggle -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        
         <!-- Cart (separated group) -->
         <div class="header-actions-cart">
           <div class="bb-cart-toggle-wrapper">
@@ -139,7 +144,7 @@
               </svg>
               <span class="bb-cart-count-badge" data-cart-count>0</span>
             </button>
-      
+        
             <div class="bb-cart-preview" data-cart-preview aria-hidden="true">
               <div class="bb-cart-preview-inner">
                 <div class="bb-cart-preview-items" data-cart-preview-items></div>
@@ -153,11 +158,7 @@
             </div>
           </div>
         </div>
-      
-        <!-- Mobile menu toggle (must NOT be inside a hidden wrapper) -->
-        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+
       
       </div>
 
@@ -167,14 +168,18 @@
   
   <!-- MOBILE ACCOUNT BAR -->
   <div class="mobile-account-bar" id="mobile-account-bar">
-      <button class="mobile-account-button" id="mobile-account-open">
-          <svg class="bb-account-icon" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"></circle>
-              <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
-          </svg>
-          <span>Account</span>
-      </button>
+    <button class="mobile-account-button" id="mobile-account-open">
+      <svg class="bb-account-icon" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4"></circle>
+        <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+      </svg>
+      <span>Account</span>
+    </button>
+  
+    <!-- Mobile-only actions slot (theme/lang will be moved here by JS) -->
+    <div class="mobile-account-actions" id="mobile-account-actions" aria-label="Quick actions"></div>
   </div>
+
 
 
 </header>
