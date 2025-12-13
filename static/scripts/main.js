@@ -222,6 +222,7 @@ function initializeSmoothScrolling() {
 document.addEventListener('DOMContentLoaded', function() {
     initializeTheme();
     initializeMobileMenu();
+    initializeMobileHeaderActions();
     initializeScrollProgress();
     initializeHeaderScroll();
     initializeHeaderLogo();
@@ -437,6 +438,46 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// ===============================
+// MOBILE HEADER ACTIONS (MOVE THEME/LANG INTO ACCOUNT BAR)
+// ===============================
+function initializeMobileHeaderActions() {
+    const actionsSlot = document.getElementById("mobile-account-actions");
+    const themeBtn = document.getElementById("theme-toggle");
+    const langDropdown = document.querySelector(".bb-lang-dropdown");
+    const desktopHost = document.querySelector(".header-actions-primary");
+
+    if (!actionsSlot || !themeBtn || !langDropdown || !desktopHost) return;
+
+    // Remember original positions so we can restore on resize
+    const themeHome = { parent: themeBtn.parentNode, next: themeBtn.nextSibling };
+    const langHome  = { parent: langDropdown.parentNode, next: langDropdown.nextSibling };
+
+    function moveIntoMobileBar() {
+        actionsSlot.appendChild(themeBtn);
+        actionsSlot.appendChild(langDropdown);
+    }
+
+    function restoreToDesktop() {
+        if (themeHome.parent) themeHome.parent.insertBefore(themeBtn, themeHome.next);
+        if (langHome.parent)  langHome.parent.insertBefore(langDropdown, langHome.next);
+    }
+
+    const mq = window.matchMedia("(max-width: 1250px)");
+
+    function apply(e) {
+        if (e.matches) moveIntoMobileBar();
+        else restoreToDesktop();
+    }
+
+    // Initial
+    apply(mq);
+
+    // Listen for changes
+    if (typeof mq.addEventListener === "function") mq.addEventListener("change", apply);
+    else mq.addListener(apply);
+}
 
 
 
