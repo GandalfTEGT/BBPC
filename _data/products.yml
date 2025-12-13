@@ -26,8 +26,9 @@ northern_wind_120:
   description: "A complete cooling and lighting upgrade in one kit. Quiet 120mm PWM ARGB fans, an included hub, and honest performance that will keep your system cooled and running at peak efficiency."
   features:
     - "Daisy Chain Cables"
-    - "Included Magnetic ARGB hub"
+    - "Included Magnetic ARGB Hub"
     - "Silent Operation"
+    - "Motherboard Software Sync"
   amazon_url: "https://amazon.co.uk"
   warranty_length: "2-Year Warranty"
   featured: true
@@ -94,12 +95,10 @@ argb_hub:
   product_visible: true
   description: "This hub allows you to connect up to 5 fans via the 5 ARGB Headers and 5 PWM Headers to control your fan speed and lighting display. Bring your system to the next level."
   features:
-    - "10-Ports"
-    - "5 PWM Headers"
-    - "5 ARGB Headers"
+    - "5 PWM + 5 ARGB Headers"
     - "SATA Powered"
     - "Magnetic Base"
-    - "Compact Size"
+    - "Motherboard <strong>OR</strong> Remote Controlled"
   amazon_url: "https://amazon.co.uk"
   warranty_length: "2-Year Warranty"
   featured: false
