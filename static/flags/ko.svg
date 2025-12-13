@@ -1,8 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <defs><clipPath id="c"><circle cx="12" cy="12" r="12"/></clipPath></defs>
-  <g clip-path="url(#c)">
-    <rect width="24" height="24" fill="#ffffff"/>
-    <circle cx="12" cy="11" r="5" fill="#cd2e3a"/>
-    <path d="M12 11a5 5 0 0 1 0 10a5 5 0 0 0 0-10" fill="#0047a0"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 64 64"
+     style="transform: rotate(-90deg);">
+  <!-- White background -->
+  <circle cx="32" cy="32" r="32" fill="#ffffff"/>
+
+  <!-- Taegeuk -->
+  <path d="M32 16
+           a16 16 0 1 1 0 32
+           a8 8 0 1 0 0 -16
+           a8 8 0 1 1 0 -16"
+        fill="#cd2e3a"/>
+  <path d="M32 48
+           a16 16 0 1 1 0 -32
+           a8 8 0 1 0 0 16
+           a8 8 0 1 1 0 16"
+        fill="#0047a0"/>
+
+  <!-- Thin outline -->
+  <circle cx="32" cy="32" r="31" fill="none" stroke="#e5e5e5" stroke-width="2"/>
 </svg>
