@@ -391,3 +391,47 @@
     font-size: 0.95rem;
   }
 }
+
+.product-price-large {
+  letter-spacing: 0.5px;
+}
+
+.product-price-note {
+  margin-left: 4px;
+}
+
+.product-features li {
+  line-height: 1.5;
+}
+
+.product-specs td:first-child {
+  color: var(--bb-text-muted);
+  width: 45%;
+  white-space: nowrap;
+}
+
+.product-specs td:last-child {
+  color: var(--bb-text);
+}
+
+.product-buy-box {
+  background: linear-gradient(
+    180deg,
+    var(--bb-panel),
+    rgba(20,20,20,0.95)
+  );
+}
+
+.product-buttons .button:first-child {
+  font-size: 1.05rem;
+}
+
+.product-gallery-main img {
+  image-rendering: auto;
+}
+
+@media (max-width: 600px) {
+  .product-buttons .button {
+    padding: 14px 20px;
+  }
+}
