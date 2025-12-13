@@ -75,7 +75,7 @@ main .container {
 .brand-name {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.3px;
     text-rendering: optimizeLegibility;
 }
 
@@ -280,13 +280,13 @@ section {
 }
 
 .header-logo-img {
-    height: 88px;
+    height: 100px;
     transition: 0.3s ease;
     filter: drop-shadow(0 0 6px rgba(102, 170, 255, 0.3));
 }
 
 .enhanced-header.shrink .header-logo-img {
-    height: 70px;
+    height: 85px;
     filter: drop-shadow(0 0 4px rgba(102, 170, 255, 0.2));
 }
 
@@ -314,11 +314,11 @@ html.bb-cart-preview-open .enhanced-header.hide {
 
     /* Slightly smaller logo for calmer header */
     .header-logo-img {
-        height: 52px !important;
+        height: 65px !important;
     }
 
     .enhanced-header.shrink .header-logo-img {
-        height: 46px !important;
+        height: 55px !important;
     }
 }
 
