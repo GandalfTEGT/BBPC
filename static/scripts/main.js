@@ -272,11 +272,14 @@ window.addEventListener("scroll", () => {
     }
 
     // Auto-hide
-    if (current > lastScroll && current > 60) {
-        bbHeader.classList.add("hide");
-    } else {
-        bbHeader.classList.remove("hide");
+    if (!document.documentElement.classList.contains("bb-menu-open")) {
+        if (current > lastScroll && current > 60) {
+            bbHeader.classList.add("hide");
+        } else {
+            bbHeader.classList.remove("hide");
+        }
     }
+
 
     lastScroll = current;
 });
@@ -478,6 +481,7 @@ function initializeMobileHeaderActions() {
     if (typeof mq.addEventListener === "function") mq.addEventListener("change", apply);
     else mq.addListener(apply);
 }
+
 
 
 
