@@ -149,3 +149,39 @@
     transform: scale(1.6);
   }
 }
+
+/* =========================================
+   PRODUCT IMAGE MODAL
+   ========================================= */
+
+.bb-image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: none;
+}
+
+.bb-image-modal[aria-hidden="false"] {
+  display: block;
+}
+
+.bb-image-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+}
+
+.bb-image-modal-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bb-image-modal-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
