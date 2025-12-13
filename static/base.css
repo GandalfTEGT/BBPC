@@ -1504,4 +1504,46 @@ html.theme-light .theme-rays {
   transition: transform .25s ease;
 }
 
+/* =========================================
+   THEME TOGGLE ICON — CONTRAST FIX
+   ========================================= */
 
+/* Default (dark theme): show SUN clearly */
+html[data-theme="dark"] .theme-toggle {
+  color: #ffdd66; /* warm light cue */
+  border-color: #ffdd66;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+  background: #ffdd66;
+  color: #000;
+}
+
+/* Hide moon look, show rays */
+html[data-theme="dark"] .theme-rays {
+  display: block;
+}
+
+html[data-theme="dark"] .theme-core {
+  fill: currentColor;
+}
+
+/* Light theme: show MOON */
+html[data-theme="light"] .theme-toggle {
+  color: var(--bb-blue);
+  border-color: var(--bb-blue);
+}
+
+html[data-theme="light"] .theme-rays {
+  display: none;
+}
+
+html[data-theme="light"] .theme-core {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(20deg);
+}
