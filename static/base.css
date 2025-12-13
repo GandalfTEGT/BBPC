@@ -1511,6 +1511,27 @@ html[data-theme="light"] .mobile-account-button svg {
     }
 }
 
+/* Mobile header: only nav + cart in top row */
+@media (max-width: 1250px) {
+    .header-actions-secondary {
+        display: none;
+    }
+
+    .bb-header-cart-area {
+        margin-left: auto;
+    }
+}
+
+/* Mobile header: only nav + cart in top row */
+@media (max-width: 1250px) {
+    .header-actions-secondary {
+        display: none;
+    }
+
+    .bb-header-cart-area {
+        margin-left: auto;
+    }
+}
 
 
 
