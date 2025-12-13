@@ -402,6 +402,28 @@ section {
     color: #000;
 }
 
+/* Desktop header actions grouping */
+@media (min-width: 1251px) {
+    .header-actions {
+        gap: 14px;
+    }
+
+    .bb-cart-toggle {
+        margin-left: 10px;
+        position: relative;
+    }
+
+    .bb-cart-toggle::before {
+        content: "";
+        position: absolute;
+        left: -12px;
+        top: 6px;
+        bottom: 6px;
+        width: 1px;
+        background: rgba(102,170,255,0.35);
+    }
+}
+
 /* ============================================================
    LANGUAGE TOGGLE — FORCE CONSISTENT BUTTON BEHAVIOUR
    ============================================================ */
@@ -1424,6 +1446,20 @@ html[data-theme="light"] .mobile-account-button svg {
     /* Subtle divider under header for structure */
     .enhanced-header {
         border-bottom: 1px solid rgba(102,170,255,0.35);
+    }
+}
+
+@media (min-width: 1251px) {
+    .theme-toggle,
+    .bb-lang-toggle,
+    .bb-account-toggle {
+        opacity: 0.85;
+    }
+
+    .theme-toggle:hover,
+    .bb-lang-toggle:hover,
+    .bb-account-toggle:hover {
+        opacity: 1;
     }
 }
 
