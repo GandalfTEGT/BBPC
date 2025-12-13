@@ -157,7 +157,7 @@ layout: default
           <div class="product-grid">
             {% for id in p.related %}
               {% assign r = site.data.products[id] %}
-              {% include product-card.html product=r %}
+              {% include product-card.html product=r id=id %}
             {% endfor %}
           </div>
         </section>
