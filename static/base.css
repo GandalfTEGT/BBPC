@@ -1516,6 +1516,7 @@ body .goog-te-banner-frame + .skiptranslate {
 
 .notranslate {
     unicode-bidi: plaintext !important;
+    translate: no;
 }
 
 .goog-te-gadget {
