@@ -357,6 +357,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    const extended = document.querySelector(".bb-lang-extended");
+
+    function positionExtendedMenu() {
+      if (!extended || !headerEl) return;
+      const rect = headerEl.getBoundingClientRect();
+      extended.style.top = `${rect.bottom}px`;
+    }
+
     // Option click
     menu.querySelectorAll(".bb-lang-option").forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -578,6 +586,27 @@ document.addEventListener("click", (e) => {
   }
 });
 
+document.querySelector(".bb-lang-more")?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdown.classList.remove("open");
+  activeBtn.setAttribute("aria-expanded", "false");
+
+  extended.classList.add("open");
+  extended.setAttribute("aria-hidden", "false");
+  positionExtendedMenu();
+});
+
+document.querySelector(".bb-lang-back")?.addEventListener("click", () => {
+  extended.classList.remove("open");
+  extended.setAttribute("aria-hidden", "true");
+});
+
+
+window.addEventListener("resize", () => {
+  if (extended?.classList.contains("open")) {
+    positionExtendedMenu();
+  }
+});
 
 
 
