@@ -1710,3 +1710,18 @@ html[data-theme="light"] .bb-cart-toggle:hover svg {
   stroke: currentColor;
   fill: currentColor;
 }
+
+.bb-account-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.theme-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+}
