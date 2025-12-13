@@ -1302,16 +1302,18 @@ body .goog-te-gadget {
     }
 
     .theme-toggle,
-    .bb-lang-toggle {
+    .bb-lang-toggle,
+    .bb-cart-toggle {
         opacity: 1;
-        transform: scale(0.95);
-        border-color: rgba(102,170,255,0.55);
-        background: rgba(102,170,255,0.06);
+        transform: none;
+        border-color: rgba(102,170,255,0.8);
+        background: transparent;
     }
 
     .theme-toggle:hover,
-    .bb-lang-toggle:hover {
-        background: rgba(102,170,255,0.18);
+    .bb-lang-toggle:hover,
+    .bb-cart-toggle:hover {
+        background: rgba(102,170,255,0.15);
     }
 
     /* Cart remains fully visible (important action) */
@@ -1356,3 +1358,29 @@ html[data-theme="light"] .mobile-account-button svg {
     stroke: #222;
 }
 
+
+/* ============================================================
+   SHOPIFY-STYLE MOBILE HEADER (VISUAL ONLY)
+   ============================================================ */
+@media (max-width: 1250px) {
+
+    /* Give header breathing room */
+    .enhanced-header {
+        padding: 16px 0;
+    }
+
+    /* Make logo the visual anchor */
+    .header-logo-img {
+        height: 54px !important;
+    }
+
+    /* Group actions tightly (reads as a cluster, not noise) */
+    .header-actions {
+        gap: 10px;
+    }
+
+    /* Subtle divider under header for structure */
+    .enhanced-header {
+        border-bottom: 1px solid rgba(102,170,255,0.35);
+    }
+}
