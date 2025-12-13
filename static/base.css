@@ -705,6 +705,15 @@ html[data-theme="light"] .lang-btn {
   }
 }
 
+.lang-btn,
+.lang-btn span {
+  translate: no !important;
+  -webkit-translate: no !important;
+}
+
+.lang-btn span.notranslate {
+  font-family: system-ui, sans-serif;
+}
 
 /* ========================================================================
    11. MOBILE MENU TOGGLE
