@@ -66,14 +66,16 @@ layout: default
               {% endif %}
             </p>
           {% endif %}
-          <p>{{ p.description }}</p>
-          {% if p.stats %}
-          <ul class="product-stats">
-            {% for s in p.stats %}
-              <li><strong>{{ s[0] }}:</strong> {{ s[1] }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
+          <p>
+            {{ p.description }}
+            {% if p.stats %}
+            <ul class="product-stats">
+              {% for s in p.stats %}
+                <li><strong>{{ s[0] }}:</strong> {{ s[1] }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </p>
           {% if p.box_contents %}
             <section class="product-box-contents">
               <h3>What’s in the box</h3>
@@ -172,7 +174,6 @@ layout: default
 </section>
 <div class="bb-image-modal" aria-hidden="true" role="dialog" aria-modal="true">
   <div class="bb-image-modal-backdrop" data-modal-close></div>
-
   <div class="bb-image-modal-content">
     <button class="bb-image-modal-close" type="button" aria-label="Close image" data-modal-close>
       ✕
