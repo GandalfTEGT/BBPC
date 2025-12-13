@@ -69,10 +69,11 @@ function initializeTheme() {
         // Actually apply if it was missing
         applyTheme(current);
     } else {
-        // We already have a theme from <head>: just sync icon + storage
-        themeIcon.textContent = current === 'dark' ? '☀️' : '🌙';
-        persistTheme(current);
+      document.documentElement.classList.toggle('theme-dark', current === 'dark');
+      document.documentElement.classList.toggle('theme-light', current === 'light');
+      persistTheme(current);
     }
+
 
     // 3) Wire up click toggle
     themeToggle.addEventListener('click', () => {
@@ -485,6 +486,7 @@ function initializeMobileHeaderActions() {
     if (typeof mq.addEventListener === "function") mq.addEventListener("change", apply);
     else mq.addListener(apply);
 }
+
 
 
 
