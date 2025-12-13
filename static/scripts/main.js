@@ -351,7 +351,7 @@ function initializeLanguageSelector() {
     if (activeCode) activeCode.textContent = code.toUpperCase();
   }
 
-  function applyLanguage(btn.dataset.lang) {
+  function applyLanguage(lang) {
     const target = normaliseLang(lang);
   
     // Update UI
@@ -366,7 +366,7 @@ function initializeLanguageSelector() {
       console.warn("BB lang cookie error:", err);
     }
   
-    // Trigger Google Translate (CORRECT)
+    // Trigger Google Translate
     if (typeof doGTranslate === "function") {
       doGTranslate(target);
     } else if (
@@ -378,6 +378,7 @@ function initializeLanguageSelector() {
       console.warn("GTranslate not ready");
     }
   }
+
 
 
 
@@ -658,5 +659,6 @@ if (typeof module !== "undefined" && module.exports) {
     initializeProductGallery
   };
 }
+
 
 
