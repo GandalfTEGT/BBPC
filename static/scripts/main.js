@@ -524,32 +524,36 @@ function initializeProductGallery() {
     }
 
   });
-    // Fullscreen image modal
-    const modal = document.querySelector(".bb-image-modal");
-    const modalImg = document.getElementById("bb-image-modal-img");
-    
-    if (galleryMain && modal && modalImg) {
-      galleryMain.addEventListener("click", () => {
-        modalImg.src = mainImage.src;
-        modal.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-      });
-    
-      modal.addEventListener("click", () => {
-        modal.setAttribute("aria-hidden", "true");
-        modalImg.style.transform = "scale(1)";
-        document.body.style.overflow = "";
-      });
-    
-      // Scroll zoom
-      modalImg.addEventListener("wheel", (e) => {
-        e.preventDefault();
-        const scale = Math.min(3, Math.max(1, (modalImg._scale || 1) + (e.deltaY * -0.001)));
-        modalImg._scale = scale;
-        modalImg.style.transform = `scale(${scale})`;
-      });
+  // ===============================
+  // CLICK TO OPEN IMAGE MODAL
+  // ===============================
+  const modal = document.querySelector(".bb-image-modal");
+  const modalImg = document.getElementById("bb-image-modal-img");
+  const modalBackdrop = document.querySelector(".bb-image-modal-backdrop");
+
+  if (mainImage && modal && modalImg) {
+    mainImage.addEventListener("click", () => {
+      modalImg.src = mainImage.src;
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    });
+  }
+
+  function closeModal() {
+    modal.setAttribute("aria-hidden", "true");
+    modalImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  modalBackdrop?.addEventListener("click", closeModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+      closeModal();
     }
+  });
+
 }
+
 
 
 
