@@ -411,6 +411,47 @@ section {
     color: #000;
 }
 
+/* ============================================================
+   LANGUAGE TOGGLE — FORCE CONSISTENT BUTTON BEHAVIOUR
+   ============================================================ */
+
+/* Make language toggle behave exactly like other header buttons */
+.bb-lang-toggle {
+    background: transparent;
+    border: 2px solid var(--bb-blue);
+    color: var(--bb-blue);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Hover state — same as cart / theme / account */
+.bb-lang-toggle:hover {
+    background-color: var(--bb-blue);
+    transform: translateY(-1px);
+}
+
+/* IMPORTANT: prevent flag from changing colour */
+.bb-lang-toggle img {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Keep flag readable on blue background */
+.bb-lang-toggle:hover img {
+    filter: none !important;
+}
+
+/* Light theme consistency */
+html[data-theme="light"] .bb-lang-toggle {
+    color: var(--bb-blue);
+    border-color: var(--bb-blue);
+}
+
+html[data-theme="light"] .bb-lang-toggle:hover {
+    background-color: var(--bb-blue);
+}
+
 /* ========================================================================
    10. LANGUAGE DROPDOWN
    ======================================================================== */
@@ -1396,6 +1437,7 @@ html[data-theme="light"] .mobile-account-button svg {
         border-bottom: 1px solid rgba(102,170,255,0.35);
     }
 }
+
 
 
 
