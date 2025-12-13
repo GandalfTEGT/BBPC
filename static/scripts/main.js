@@ -25,10 +25,14 @@ function initializeTheme() {
     }
 
     function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
-        persistTheme(theme);
+      document.documentElement.setAttribute('data-theme', theme);
+    
+      document.documentElement.classList.toggle('theme-dark', theme === 'dark');
+      document.documentElement.classList.toggle('theme-light', theme === 'light');
+    
+      persistTheme(theme);
     }
+
 
     // 1) Read what the inline <head> script already set (no flash)
     let current = document.documentElement.getAttribute("data-theme");
@@ -481,6 +485,7 @@ function initializeMobileHeaderActions() {
     if (typeof mq.addEventListener === "function") mq.addEventListener("change", apply);
     else mq.addListener(apply);
 }
+
 
 
 
