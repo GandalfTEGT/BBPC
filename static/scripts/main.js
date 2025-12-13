@@ -540,19 +540,24 @@ function initializeProductGallery() {
   }
 
   function closeModal() {
-    modal.setAttribute("aria-hidden", "true");
-    modalImg.src = "";
-    document.body.style.overflow = "";
-  }
-
-  modalBackdrop?.addEventListener("click", closeModal);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
-      closeModal();
+      modal.setAttribute("aria-hidden", "true");
+      modalImg.src = "";
+      document.body.style.overflow = "";
     }
-  });
-
+    
+    modal.addEventListener("click", (e) => {
+      if (e.target.hasAttribute("data-modal-close")) {
+        closeModal();
+      }
+    });
+    
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+        closeModal();
+      }
+    });
 }
+
 
 
 
