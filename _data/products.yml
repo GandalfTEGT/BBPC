@@ -49,6 +49,17 @@ northern_wind_120:
     - Thank You Card
   stock_status: out_of_stock
   ships_from: UK
+  compatibility:
+    - PWM 4-pin headers
+    - 5V 3-pin ARGB (ASUS / MSI / Gigabyte)
+    - Windows & Linux compatible
+  faq:
+    - question: Is this compatible with my motherboard?
+    - answer: Yes — any standard 4-pin PWM header is supported.
+  related:
+    - pwm_splitter
+    - argb_hub
+
   
 template_product:
   sku: ""
