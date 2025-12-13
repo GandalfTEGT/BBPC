@@ -47,6 +47,8 @@ northern_wind_120:
     - Product Manual
     - 3x Decal Stickers
     - Thank You Card
+  stock_status: out_of_stock
+  ships_from: UK
   
 template_product:
   sku: ""
