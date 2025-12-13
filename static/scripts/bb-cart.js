@@ -441,27 +441,31 @@
 
   if (cartToggleWrapper && cartPreview) {
     let hoverTimeout = null;
-
+  
     const showPreview = () => {
       if (window.matchMedia("(hover: none)").matches) return;
+      clearTimeout(hoverTimeout);
       renderPreview();
       cartPreview.setAttribute("aria-hidden", "false");
     };
-
+  
     const hidePreview = () => {
-      cartPreview.setAttribute("aria-hidden", "true");
+      hoverTimeout = setTimeout(() => {
+        cartPreview.setAttribute("aria-hidden", "true");
+      }, 250);
     };
-
-    cartToggleWrapper.addEventListener("mouseenter", () => {
+  
+    cartToggleWrapper.addEventListener("mouseenter", showPreview);
+    cartToggleWrapper.addEventListener("mouseleave", hidePreview);
+  
+    // 👇 THIS IS THE KEY PART
+    cartPreview.addEventListener("mouseenter", () => {
       clearTimeout(hoverTimeout);
-      hoverTimeout = setTimeout(showPreview, 150);
     });
-
-    cartToggleWrapper.addEventListener("mouseleave", () => {
-      clearTimeout(hoverTimeout);
-      hoverTimeout = setTimeout(hidePreview, 150);
-    });
+  
+    cartPreview.addEventListener("mouseleave", hidePreview);
   }
+
 
   // -----------------------------
   // INITIAL RENDER
