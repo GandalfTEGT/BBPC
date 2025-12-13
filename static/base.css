@@ -1556,3 +1556,24 @@ html[data-theme="dark"] .theme-toggle {
 html[data-theme="dark"] .theme-toggle:hover {
   box-shadow: 0 0 10px rgba(102,170,255,0.45);
 }
+
+/* =========================================
+   HEADER ICON HOVER — LIGHT MODE FIX
+   Ensures icons turn black on blue hover
+   ========================================= */
+
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .bb-account-toggle:hover,
+html[data-theme="light"] .bb-lang-toggle:hover,
+html[data-theme="light"] .bb-cart-toggle:hover {
+  color: #000;
+}
+
+/* Ensure SVG strokes/fills follow the color */
+html[data-theme="light"] .theme-toggle:hover svg,
+html[data-theme="light"] .bb-account-toggle:hover svg,
+html[data-theme="light"] .bb-lang-toggle:hover svg,
+html[data-theme="light"] .bb-cart-toggle:hover svg {
+  stroke: currentColor;
+  fill: currentColor;
+}
