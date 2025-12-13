@@ -11,6 +11,7 @@
   <div class="product-media">
     {% if p.thumbnail %}
       <a href="/products/{{ id }}/">
+        <span class="orbitron notranslate">{{ p.short_name | upcase }}</span>
         <img src="{{ p.thumbnail }}" alt="{{ p.full_name }}" class="product-image">
       </a>
     {% else %}
@@ -23,7 +24,6 @@
   <div class="product-body">
     <h2>
       <a href="/products/{{ id }}/">
-        <span class="orbitron notranslate">{{ p.short_name | upcase }}</span>
         {{ p.full_name | replace: p.short_name,'' }}
       </a>
     </h2>
