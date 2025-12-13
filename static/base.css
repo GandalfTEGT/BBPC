@@ -1464,8 +1464,29 @@ html[data-theme="light"] .mobile-account-button svg {
 }
 
 
+/* Mobile header layout: Shopify-style */
+@media (max-width: 1250px) {
+
+    /* Only show cart in top header */
+    .header-actions-secondary {
+        display: none;
+    }
+
+    /* Cart stays visible */
+    .bb-cart-toggle {
+        margin-left: auto;
+    }
+}
 
 
+
+@media (max-width: 1250px) {
+    .mobile-account-bar .theme-toggle,
+    .mobile-account-bar .bb-lang-toggle,
+    .mobile-account-bar .bb-account-toggle {
+        margin-right: 6px;
+    }
+}
 
 
 
