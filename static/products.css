@@ -623,7 +623,16 @@
   }
 }
 
+
 .product-price-large {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 0.04em;
+}
+
+.product-secondary {
+  padding-top: var(--space-lg);
+}
+
+.product-secondary > .container > * + * {
+  margin-top: 48px;
 }
