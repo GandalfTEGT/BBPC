@@ -1286,11 +1286,10 @@ footer.site-footer::before {
     scroll-margin-top: 100px;
 }
 
-@media (max-width: 900px) {
-    .footer-brand img {
-        width: 90%;
-    }
-}
+ .footer-brand img {
+     width: 80%;
+ }
+
 
 
 /* ========================================================================
