@@ -1478,4 +1478,30 @@ body .goog-te-gadget {
     }
 }
 
-/* ============================================================
+/* ============================================================ */
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.theme-core {
+  fill: currentColor;
+}
+
+html.theme-dark .theme-rays {
+  display: none;
+}
+
+html.theme-light .theme-rays {
+  display: block;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(15deg);
+  transition: transform .25s ease;
+}
+
+
