@@ -128,3 +128,24 @@
     height: 72px;
   }
 }
+
+/* =========================================
+   PRODUCT IMAGE HOVER ZOOM
+   ========================================= */
+
+.product-gallery-main {
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.product-gallery-main img {
+  transition: transform 0.25s ease;
+  transform-origin: center center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-gallery-main:hover img {
+    transform: scale(1.6);
+  }
+}
